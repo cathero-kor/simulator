@@ -244,6 +244,25 @@
       display: inline-flex;
     }
 
+
+    .online-count-badge {
+      display: none;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(73, 225, 95, 0.42);
+      background: rgba(73, 225, 95, 0.10);
+      color: #9eea76;
+      font-size: 11px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .online-count-badge.show {
+      display: inline-flex;
+    }
+
     .admin-summon-panel {
       display: none;
       width: 100%;
@@ -3569,6 +3588,7 @@
     <div class="user-bar" id="userBar">
       <span id="currentUserLabel"></span>
       <span class="admin-badge" id="adminBadge">관리자</span>
+      <span class="online-count-badge" id="onlineCountBadge">🟢 0명 접속 중</span>
       <button class="logout-btn" id="logoutBtn" type="button">로그아웃</button>
       <button class="account-reset-btn" id="accountResetBtn" type="button">계정초기화</button>
     </div>
@@ -4031,6 +4051,7 @@
     const userBar = document.getElementById("userBar");
     const currentUserLabel = document.getElementById("currentUserLabel");
     const adminBadge = document.getElementById("adminBadge");
+    const onlineCountBadge = document.getElementById("onlineCountBadge");
     const logoutBtn = document.getElementById("logoutBtn");
     const accountResetBtn = document.getElementById("accountResetBtn");
     const adminSummonPanel = document.getElementById("adminSummonPanel");
@@ -4063,10 +4084,13 @@
     let cachedRankingRows = [];
     let currentTopRankInfo = null;
     let rankingRefreshTimer = null;
+    let onlineRefreshTimer = null;
+    let lastOnlineCount = null;
     const codexState = {};
     const codexRewardClaimed = new Set();
     const SUMMON_COST = 2;
     const RANKING_REFRESH_MS = 10 * 60 * 1000;
+    const ONLINE_REFRESH_MS = 60 * 1000;
     const CLIENT_ADMIN_NICKNAMES = ["관리자"];
 
     function isClientAdminNickname(nickname) {
@@ -5872,6 +5896,9 @@
       userBar.classList.toggle("show", hasUser);
       currentUserLabel.textContent = hasUser ? `${currentUserNickname} 님으로 플레이 중` : "";
       if (adminBadge) adminBadge.classList.toggle("show", hasUser && currentUserIsAdmin);
+      if (onlineCountBadge) {
+        onlineCountBadge.classList.toggle("show", hasUser && lastOnlineCount !== null);
+      }
     }
 
     function renderAdminControls() {
@@ -5962,8 +5989,11 @@
       if (isCloudEnabled() && currentCloudToken) {
         loadRankings({ showLoading: false }).catch(error => console.warn("[RANKING] 상단 문구 불러오기 실패", error));
         startRankingRefreshTimer();
+        startOnlineRefreshTimer();
       } else {
         stopRankingRefreshTimer();
+        stopOnlineRefreshTimer();
+        setOnlineCount(null);
       }
     }
 
@@ -6055,7 +6085,10 @@
     function logout() {
       saveGame();
       flushCloudSaveNow();
+      notifyOffline();
       stopRankingRefreshTimer();
+      stopOnlineRefreshTimer();
+      setOnlineCount(null);
       if (topRankMessage) {
         topRankMessage.innerHTML = "";
         topRankMessage.classList.remove("show");
@@ -6363,6 +6396,75 @@
       rankingMessageNote.textContent = message || "";
       rankingMessageNote.classList.toggle("error", type === "error");
       rankingMessageNote.classList.toggle("success", type === "success");
+    }
+
+    function getCurrentScreenName() {
+      const active = document.querySelector(".screen.active");
+      if (!active) return "unknown";
+      return active.id || "unknown";
+    }
+
+    function setOnlineCount(countValue) {
+      lastOnlineCount = Number.isFinite(Number(countValue)) ? Math.max(0, Number(countValue)) : null;
+      if (!onlineCountBadge) return;
+      if (lastOnlineCount === null || !currentUserNickname) {
+        onlineCountBadge.textContent = "";
+        onlineCountBadge.classList.remove("show");
+        return;
+      }
+      onlineCountBadge.textContent = `🟢 ${formatWholeNumber(lastOnlineCount)}명 접속 중`;
+      onlineCountBadge.classList.add("show");
+    }
+
+    async function refreshOnlineCount() {
+      if (!isCloudEnabled() || !currentUserNickname || !currentCloudToken) {
+        setOnlineCount(null);
+        return;
+      }
+      try {
+        const result = await cloudRequest("onlinePing", {
+          nickname: currentUserNickname,
+          token: currentCloudToken,
+          currentScreen: getCurrentScreenName()
+        });
+        setOnlineCount(result.onlineCount);
+      } catch (error) {
+        console.warn("[ONLINE] 접속자 수 갱신 실패", error);
+      }
+    }
+
+    function stopOnlineRefreshTimer() {
+      if (onlineRefreshTimer) {
+        clearInterval(onlineRefreshTimer);
+        onlineRefreshTimer = null;
+      }
+    }
+
+    function startOnlineRefreshTimer() {
+      stopOnlineRefreshTimer();
+      if (!isCloudEnabled() || !currentUserNickname || !currentCloudToken) return;
+      refreshOnlineCount();
+      onlineRefreshTimer = setInterval(() => {
+        refreshOnlineCount();
+      }, ONLINE_REFRESH_MS);
+    }
+
+    function notifyOffline() {
+      if (!isCloudEnabled() || !currentUserNickname || !currentCloudToken) return;
+      const payload = JSON.stringify({
+        action: "offline",
+        nickname: currentUserNickname,
+        token: currentCloudToken
+      });
+      try {
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon(GOOGLE_APPS_SCRIPT_URL, new Blob([payload], { type: "text/plain;charset=utf-8" }));
+        } else {
+          cloudRequest("offline", { nickname: currentUserNickname, token: currentCloudToken }).catch(() => {});
+        }
+      } catch (error) {
+        console.warn("[ONLINE] 오프라인 처리 실패", error);
+      }
     }
 
     function stopRankingRefreshTimer() {
@@ -6711,7 +6813,7 @@
 
     function startLocalAutoSave() {
       setInterval(saveGame, 1000);
-      window.addEventListener("beforeunload", () => { saveGame(); flushCloudSaveNow(); });
+      window.addEventListener("beforeunload", () => { saveGame(); flushCloudSaveNow(); notifyOffline(); });
       document.addEventListener("visibilitychange", () => {
         if (document.visibilityState === "hidden") {
           saveGame();
