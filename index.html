@@ -6529,7 +6529,14 @@
     }
 
     function getRankingNameHtml(row, isMe, tab = currentRankingTab) {
-      const message = tab === "overall" ? String(row && row.rankMessage || "").trim() : "";
+      let message = "";
+      if (tab === "overall" && row && row.rankMessage) {
+        const totalRows = getTotalRankingRows(cachedRankingRows);
+        const rankIndex = totalRows.findIndex(rankRow => normalizeNickname(rankRow.nickname) === normalizeNickname(row.nickname));
+        if (rankIndex >= 0 && rankIndex < 3) {
+          message = String(row.rankMessage || "").trim();
+        }
+      }
       const meHtml = isMe ? " <span style='color:#ffd86a;'>(나)</span>" : "";
       const messageHtml = message ? ` <span class="ranking-message">${escapeHtml(message)}</span>` : "";
       return `${escapeHtml(row.nickname)}${meHtml}${messageHtml}`;
