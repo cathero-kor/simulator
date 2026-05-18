@@ -9036,7 +9036,7 @@ body.tutorial-locked {
 
     const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzi1GiIGnnOHJTOawClfAp_aldAFaL6WXvQ5WtLp6Zo4mY1gs8fOsG1NkHGQSjmdSHA/exec";
     const CLOUD_TOKEN_PREFIX = "summon-simulator-cloud-token-v1::";
-    const CLOUD_SAVE_DEBOUNCE_MS = 1200;
+    const CLOUD_SAVE_DEBOUNCE_MS = 350;
 
     let currentUserNickname = "";
     let currentUserIsAdmin = false;
@@ -9990,10 +9990,14 @@ body.tutorial-locked {
       saveGame();
     }
 
-    function logout() {
+    async function logout() {
       saveGame();
-      clearPendingCloudSave();
-      flushCloudSaveNow();
+      try {
+        await forceCloudSaveNow();
+      } catch (error) {
+        console.warn("[CLOUD SAVE] 로그아웃 전 원격 저장 실패", error);
+        flushCloudSaveNow();
+      }
       notifyOffline();
       stopRankingRefreshTimer();
       stopOnlineRefreshTimer();
@@ -10508,6 +10512,8 @@ body.tutorial-locked {
       }
 
       try {
+        setRankingMessageNote("현재 플레이 기록을 먼저 저장 중입니다...");
+        await forceCloudSaveNow();
         setRankingMessageNote("문구 저장 중입니다...");
         const result = await cloudRequest("rankMessage", {
           nickname: currentUserNickname,
@@ -10572,7 +10578,7 @@ body.tutorial-locked {
       }
 
       try {
-        flushCloudSaveNow();
+        await forceCloudSaveNow();
         const result = await cloudRequest("rankings", {
           nickname: currentUserNickname,
           token: currentCloudToken
@@ -10749,23 +10755,44 @@ body.tutorial-locked {
       }
     }
 
+    async function forceCloudSaveNow() {
+      if (!isCloudEnabled() || !currentUserNickname || !currentCloudToken) return false;
+      const json = JSON.stringify(buildLocalSaveData());
+      if (json === lastCloudSaveJson) return true;
+
+      clearPendingCloudSave();
+
+      const saveData = JSON.parse(json);
+      await cloudRequest("save", {
+        nickname: currentUserNickname,
+        token: currentCloudToken,
+        saveData,
+        rankingData: currentUserIsAdmin ? null : buildRankingSummaryFromSaveData(saveData, currentUserNickname)
+      });
+      lastCloudSaveJson = json;
+      return true;
+    }
+
     function flushCloudSaveNow() {
       if (!isCloudEnabled() || !currentUserNickname || !currentCloudToken) return;
       const json = JSON.stringify(buildLocalSaveData());
       if (json === lastCloudSaveJson) return;
-      lastCloudSaveJson = json;
 
+      clearPendingCloudSave();
+
+      const saveData = JSON.parse(json);
       const payload = JSON.stringify({
         action: "save",
         nickname: currentUserNickname,
         token: currentCloudToken,
-        saveData: JSON.parse(json),
-        rankingData: currentUserIsAdmin ? null : buildRankingSummaryFromSaveData(JSON.parse(json), currentUserNickname)
+        saveData,
+        rankingData: currentUserIsAdmin ? null : buildRankingSummaryFromSaveData(saveData, currentUserNickname)
       });
 
       try {
         if (navigator.sendBeacon) {
-          navigator.sendBeacon(GOOGLE_APPS_SCRIPT_URL, new Blob([payload], { type: "text/plain;charset=utf-8" }));
+          const queued = navigator.sendBeacon(GOOGLE_APPS_SCRIPT_URL, new Blob([payload], { type: "text/plain;charset=utf-8" }));
+          if (queued) lastCloudSaveJson = json;
         } else {
           pushCloudSave(json);
         }
@@ -10807,7 +10834,7 @@ body.tutorial-locked {
     }
 
     function startLocalAutoSave() {
-      setInterval(saveGame, 1000);
+      setInterval(saveGame, 3000);
       window.addEventListener("beforeunload", () => { saveGame(); flushCloudSaveNow(); notifyOffline(); });
       document.addEventListener("visibilitychange", () => {
         if (document.visibilityState === "hidden") {
