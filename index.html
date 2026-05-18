@@ -32,7 +32,7 @@
       width: min(920px, 100%);
       background: #232a38;
       border: 3px solid #0b0e14;
-      border-radius: 18px;
+      border-radius: 15px;
       padding: 24px;
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
     }
@@ -555,6 +555,237 @@
       vertical-align: middle;
     }
 
+
+    .title-row {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 0 0 8px;
+      min-height: 42px;
+    }
+
+    .title-row h1 {
+      margin: 0;
+    }
+
+    .inquiry-open-btn {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: auto;
+      min-width: 86px;
+      min-height: 34px;
+      padding: 7px 10px;
+      border-radius: 9px;
+      color: #211509;
+      background: linear-gradient(#fff1a8, #ffd568 50%, #ff9d00);
+      box-shadow: 0 3px 0 #9d5c00;
+      font-size: 12px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .inquiry-open-btn.show {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .inquiry-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 1700;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.68);
+    }
+
+    .inquiry-modal.show {
+      display: flex;
+    }
+
+    .inquiry-card {
+      width: min(520px, 100%);
+      max-height: min(720px, 90vh);
+      overflow: auto;
+      background: #171c28;
+      border: 3px solid #0b0e14;
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.65);
+    }
+
+    .inquiry-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .inquiry-head h2 {
+      margin: 0;
+      color: #ffd86a;
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .inquiry-desc {
+      margin: 0 0 12px;
+      color: #dce4f3;
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .inquiry-textarea {
+      width: 100%;
+      min-height: 130px;
+      resize: vertical;
+      border: 1px solid #3a4559;
+      border-radius: 12px;
+      padding: 12px;
+      background: #111621;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.45;
+      outline: none;
+    }
+
+    .inquiry-textarea:focus {
+      border-color: #ffd86a;
+      box-shadow: 0 0 0 3px rgba(255, 216, 106, 0.14);
+    }
+
+    .inquiry-actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .inquiry-submit-btn,
+    .inquiry-close-btn,
+    .inquiry-refresh-btn {
+      width: auto;
+      min-height: 38px;
+      padding: 9px 12px;
+      border-radius: 10px;
+      font-size: 13px;
+    }
+
+    .inquiry-close-btn,
+    .inquiry-refresh-btn {
+      color: #fff;
+      background: #3a4559;
+      box-shadow: 0 3px 0 #161b26;
+    }
+
+    .inquiry-status {
+      min-height: 18px;
+      margin: 8px 0 0;
+      color: #ff8e96;
+      font-size: 13px;
+      font-weight: 900;
+      line-height: 1.35;
+    }
+
+    .inquiry-status.success {
+      color: #9eea76;
+    }
+
+    .inquiry-admin-panel {
+      display: none;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(174, 184, 202, 0.22);
+    }
+
+    .inquiry-admin-panel.show {
+      display: block;
+    }
+
+    .inquiry-admin-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .inquiry-admin-head h3 {
+      margin: 0;
+      color: #ffd86a;
+      font-size: 16px;
+      font-weight: 900;
+    }
+
+    .inquiry-admin-list {
+      display: grid;
+      gap: 8px;
+      max-height: 300px;
+      overflow: auto;
+    }
+
+    .inquiry-admin-item {
+      padding: 10px;
+      border: 1px solid #3a4559;
+      border-radius: 11px;
+      background: #252d3d;
+    }
+
+    .inquiry-admin-meta {
+      margin: 0 0 6px;
+      color: #ffd86a;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .inquiry-admin-message {
+      margin: 0;
+      color: #dce4f3;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.45;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    @media (max-width: 560px) {
+      .title-row {
+        justify-content: flex-start;
+        padding-right: 92px;
+      }
+
+      .title-row h1 {
+        font-size: 23px;
+        text-align: left;
+      }
+
+      .title-credit {
+        display: block;
+        margin: 2px 0 0;
+        font-size: 11px;
+      }
+
+      .inquiry-open-btn {
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        min-width: 78px;
+        padding: 7px 8px;
+        font-size: 11px;
+      }
+    }
+
     .desc {
       margin: 0 0 24px;
       text-align: center;
@@ -883,6 +1114,66 @@
       filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.7));
     }
 
+    .equip-enhance-badge {
+      position: absolute;
+      right: 3px;
+      bottom: 2px;
+      z-index: 2;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 1000;
+      line-height: 1;
+      letter-spacing: -0.5px;
+      text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000,
+        0 0 5px rgba(0, 0, 0, 0.95);
+      pointer-events: none;
+    }
+
+    .equipment-select-thumb {
+      position: relative;
+      width: 46px;
+      height: 46px;
+      flex: 0 0 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+    }
+
+    .equipment-select-thumb img {
+      width: 46px;
+      height: 46px;
+      display: block;
+      object-fit: contain;
+      border: 2px solid #050505;
+      background: #111;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+    }
+
+    .marketplace-row .equipment-select-thumb,
+    .mailbox-row .equipment-select-thumb {
+      width: 52px;
+      height: 52px;
+      flex-basis: 52px;
+    }
+
+    .marketplace-row .equipment-select-thumb img,
+    .mailbox-row .equipment-select-thumb img {
+      width: 46px;
+      height: 46px;
+    }
+
+    .equipment-select-thumb .equip-enhance-badge {
+      right: -3px;
+      bottom: -3px;
+      font-size: 14px;
+    }
+
     .equip-slot.is-equipped {
       filter: drop-shadow(0 0 6px rgba(255, 216, 106, 0.35));
     }
@@ -1176,6 +1467,493 @@
       box-shadow: 0 3px 0 #161b26;
       filter: none;
     }
+
+
+    .equipment-select-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: stretch;
+    }
+
+    .equipment-enhance-btn {
+      width: auto;
+      min-width: 64px;
+      padding: 7px 10px;
+      border-radius: 9px;
+      font-size: 12px;
+      color: #111621;
+      background: linear-gradient(#ffffff, #cfd7e6);
+      box-shadow: 0 3px 0 #7d8798;
+      white-space: nowrap;
+    }
+
+    .equipment-enhance-btn:disabled {
+      cursor: not-allowed;
+      color: #aeb8ca;
+      background: #3a4559;
+      box-shadow: 0 3px 0 #161b26;
+      filter: none;
+    }
+
+
+
+
+    .enhance-confirm-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1420;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.72);
+    }
+    .enhance-confirm-overlay.show { display: flex; }
+    .enhance-confirm-card {
+      width: min(420px, 100%);
+      background: #171c28;
+      border: 3px solid #0b0e14;
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.65), 0 0 24px rgba(255,216,106,.18);
+      color: #dce4f3;
+      text-align: center;
+    }
+    .enhance-confirm-title { margin: 0 0 12px; color: #ffd86a; font-size: 21px; font-weight: 900; }
+    .enhance-confirm-item { margin: 0 0 12px; color: #fff; font-size: 15px; font-weight: 900; }
+    .enhance-confirm-list {
+      display: grid;
+      gap: 7px;
+      margin: 0 0 15px;
+      padding: 12px;
+      border-radius: 12px;
+      background: rgba(17,22,33,.86);
+      border: 1px solid rgba(174,184,202,.18);
+      text-align: left;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+    .enhance-confirm-cost { display: inline-flex; align-items: center; gap: 5px; color: #ffd86a; font-weight: 900; }
+    .enhance-confirm-destroy { color: #ff4d5e; font-weight: 900; text-shadow: 0 0 8px rgba(255, 77, 94, 0.42); }
+    .enhance-confirm-cost img { width: 20px; height: 20px; object-fit: contain; image-rendering: pixelated; image-rendering: crisp-edges; filter: drop-shadow(0 1px 1px rgba(0,0,0,.45)); }
+    .enhance-confirm-question { margin: 0 0 14px; color: #fff; font-size: 15px; font-weight: 900; }
+    .enhance-confirm-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .enhance-confirm-cancel, .enhance-confirm-ok { min-height: 42px; padding: 10px 12px; border-radius: 10px; font-size: 14px; }
+    .enhance-confirm-cancel { color: #fff; background: #3a4559; box-shadow: 0 3px 0 #161b26; }
+    .enhance-confirm-ok { color: #211509; background: linear-gradient(#ffd568, #ff9d00); box-shadow: 0 3px 0 #9d5c00; }
+
+    .enhance-effect-overlay {
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      z-index: 2100;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.58);
+      opacity: 0;
+      transition: opacity 140ms ease;
+    }
+
+    .enhance-effect-overlay.show {
+      display: flex;
+      opacity: 1;
+    }
+
+    .enhance-effect-card {
+      position: relative;
+      overflow: hidden;
+      width: min(360px, 92vw);
+      min-height: 300px;
+      padding: 26px 22px 24px;
+      border: 2px solid #ffd86a;
+      border-radius: 22px;
+      background: radial-gradient(circle at 50% 18%, rgba(255, 216, 106, 0.20), transparent 38%), linear-gradient(180deg, #252d3d, #111621);
+      box-shadow: 0 0 28px rgba(255, 216, 106, 0.45), 0 18px 55px rgba(0, 0, 0, 0.72);
+      text-align: center;
+      transform: scale(0.92);
+      animation: enhanceCardPop 220ms cubic-bezier(.2, 1.12, .2, 1) forwards;
+    }
+
+    .enhance-effect-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.26), transparent 18%, rgba(255, 216, 106, 0.22), transparent 38%);
+      opacity: 0.55;
+      animation: enhanceAuraSpin 1.15s linear infinite;
+    }
+
+    .enhance-effect-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      justify-items: center;
+      gap: 12px;
+    }
+
+    .enhance-effect-icon-wrap {
+      position: relative;
+      width: 116px;
+      height: 116px;
+      display: grid;
+      place-items: center;
+    }
+
+    .enhance-effect-icon-wrap .item-img {
+      width: 96px;
+      height: 96px;
+      border-width: 3px;
+      box-shadow: 0 0 18px rgba(255, 216, 106, 0.35);
+    }
+
+    .enhance-effect-ring {
+      position: absolute;
+      inset: 0;
+      border: 3px solid rgba(255, 216, 106, 0.78);
+      border-radius: 50%;
+      animation: enhanceRingPulse 720ms ease-in-out infinite;
+    }
+
+    .enhance-effect-hammer {
+      position: absolute;
+      right: -8px;
+      top: -10px;
+      font-size: 42px;
+      filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.65));
+      transform-origin: 70% 80%;
+      animation: enhanceHammerHit 520ms ease-in-out infinite;
+    }
+
+    .enhance-effect-title {
+      margin: 0;
+      color: #ffd86a;
+      font-size: 25px;
+      font-weight: 900;
+      text-shadow: 0 0 12px rgba(255, 216, 106, 0.55);
+    }
+
+    .enhance-effect-desc {
+      margin: 0;
+      color: #dce4f3;
+      font-size: 15px;
+      font-weight: 900;
+      line-height: 1.45;
+      white-space: pre-line;
+    }
+
+    .enhance-effect-title:empty,
+    .enhance-effect-desc:empty {
+      display: none;
+    }
+
+    .enhance-effect-touch {
+      display: none;
+      margin: 2px 0 0;
+      padding: 8px 18px;
+      border-radius: 999px;
+      color: #211509;
+      background: linear-gradient(180deg, #ffffff, #ffd86a);
+      font-size: 24px;
+      font-weight: 1000;
+      letter-spacing: 0.12em;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+      box-shadow: 0 0 18px rgba(255, 255, 255, 0.78), 0 0 34px rgba(255, 216, 106, 0.64);
+      animation: enhanceTouchPulse 0.82s ease-in-out infinite;
+    }
+
+    .enhance-effect-overlay.awaiting-touch {
+      pointer-events: auto;
+      cursor: pointer;
+    }
+
+    .enhance-effect-overlay.awaiting-touch .enhance-effect-card {
+      cursor: pointer;
+    }
+
+    .enhance-effect-overlay.result-wait {
+      pointer-events: auto;
+      cursor: pointer;
+    }
+
+    .enhance-effect-overlay.result-wait .enhance-effect-card {
+      cursor: pointer;
+    }
+
+    .enhance-effect-overlay.working {
+      background:
+        radial-gradient(circle at 50% 48%, rgba(255, 216, 106, 0.16), transparent 28%),
+        radial-gradient(circle at 50% 52%, rgba(255, 104, 114, 0.11), transparent 42%),
+        rgba(0, 0, 0, 0.76);
+    }
+
+    .enhance-effect-overlay.working .enhance-effect-card {
+      border-color: #ffd86a;
+      box-shadow:
+        0 0 18px rgba(255, 216, 106, 0.74),
+        0 0 46px rgba(255, 104, 114, 0.34),
+        0 20px 65px rgba(0, 0, 0, 0.82);
+      animation: enhanceWorkingTension 1.05s ease-in-out infinite;
+    }
+
+    .enhance-effect-overlay.working .enhance-effect-card::before {
+      opacity: 0.78;
+      animation: enhanceAuraSpin 0.82s linear infinite;
+    }
+
+    .enhance-effect-overlay.working .enhance-effect-card::after {
+      content: "";
+      position: absolute;
+      left: 10%;
+      right: 10%;
+      bottom: 16px;
+      height: 6px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, #ffd86a, #ff6872, #ffd86a, transparent);
+      background-size: 220% 100%;
+      box-shadow: 0 0 16px rgba(255, 216, 106, 0.72);
+      animation: enhanceChargeBar 1.05s ease-in-out infinite;
+      opacity: 0.92;
+    }
+
+    .enhance-effect-overlay.working .enhance-effect-icon-wrap {
+      animation: enhanceIconTension 0.72s ease-in-out infinite;
+    }
+
+    .enhance-effect-overlay.working .enhance-effect-icon-wrap .item-img {
+      box-shadow:
+        0 0 14px rgba(255, 216, 106, 0.76),
+        0 0 30px rgba(255, 104, 114, 0.32);
+    }
+
+    .enhance-effect-overlay.working .enhance-effect-icon-wrap::after {
+      content: "";
+      pointer-events: none;
+      position: absolute;
+      inset: 10px;
+      z-index: 4;
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 1) 0%, rgba(255, 246, 184, 0.96) 30%, rgba(255, 216, 106, 0.72) 54%, rgba(255, 216, 106, 0) 78%);
+      mix-blend-mode: screen;
+      opacity: 0;
+      transform: scale(0.08);
+      filter: blur(2px);
+      animation: enhanceLightGather 2.65s cubic-bezier(.18,.72,.18,1) forwards;
+    }
+
+    .enhance-effect-overlay.working.ready .enhance-effect-icon-wrap::after {
+      opacity: 1;
+      transform: scale(1.34);
+      filter: blur(3px);
+      animation: enhanceLightReady 1.05s ease-in-out infinite;
+    }
+
+    .enhance-effect-overlay.working.ready .enhance-effect-touch {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .enhance-effect-overlay.working.ready .enhance-effect-title {
+      color: #ffffff;
+      text-shadow: 0 0 14px rgba(255, 255, 255, 0.9), 0 0 34px rgba(255, 216, 106, 0.78);
+    }
+
+    .enhance-effect-overlay.working .enhance-effect-ring {
+      border-color: rgba(255, 216, 106, 0.96);
+      box-shadow: 0 0 18px rgba(255, 216, 106, 0.56), inset 0 0 14px rgba(255, 104, 114, 0.22);
+      animation: enhanceWorkingRing 0.58s ease-in-out infinite;
+    }
+
+    .enhance-effect-overlay.working .enhance-effect-hammer {
+      font-size: 48px;
+      animation: enhanceHammerSuspense 0.78s ease-in-out infinite;
+    }
+
+    .enhance-effect-overlay.working .enhance-effect-title {
+      color: #ffd86a;
+      animation: enhanceTitleBlink 0.82s ease-in-out infinite;
+    }
+
+    .enhance-effect-overlay.success .enhance-effect-card {
+      border-color: #9eea76;
+      box-shadow: 0 0 34px rgba(73, 225, 95, 0.58), 0 18px 55px rgba(0, 0, 0, 0.72);
+      animation: enhanceSuccessPop 640ms cubic-bezier(.16, 1.28, .18, 1) forwards;
+    }
+
+    .enhance-effect-overlay.success .enhance-effect-card::before {
+      background: conic-gradient(from 0deg, transparent, rgba(158, 234, 118, 0.34), transparent 18%, rgba(255, 216, 106, 0.28), transparent 42%);
+    }
+
+    .enhance-effect-overlay.success .enhance-effect-title {
+      color: #9eea76;
+      text-shadow: 0 0 14px rgba(73, 225, 95, 0.72);
+    }
+
+    .enhance-effect-overlay.success .enhance-effect-ring {
+      border-color: rgba(158, 234, 118, 0.9);
+      animation: enhanceSuccessRing 780ms ease-out infinite;
+    }
+
+    .enhance-effect-overlay.fail .enhance-effect-card {
+      border-color: #ff6872;
+      box-shadow: 0 0 34px rgba(255, 104, 114, 0.58), 0 18px 55px rgba(0, 0, 0, 0.72);
+      animation: enhanceFailShake 520ms ease-in-out forwards;
+    }
+
+    .enhance-effect-overlay.fail .enhance-effect-card::before {
+      background: conic-gradient(from 0deg, transparent, rgba(255, 104, 114, 0.32), transparent 18%, rgba(255, 255, 255, 0.12), transparent 42%);
+      animation-duration: 0.58s;
+    }
+
+    .enhance-effect-overlay.fail .enhance-effect-title {
+      color: #ff6872;
+      text-shadow: 0 0 14px rgba(255, 104, 114, 0.72);
+    }
+
+    .enhance-effect-overlay.fail .enhance-effect-ring {
+      border-color: rgba(255, 104, 114, 0.9);
+      animation: enhanceFailCrack 720ms ease-out infinite;
+    }
+
+    .enhance-effect-particle {
+      pointer-events: none;
+      position: fixed;
+      left: 50vw;
+      top: 50vh;
+      z-index: 2110;
+      width: var(--size, 8px);
+      height: var(--size, 8px);
+      border-radius: 50%;
+      background: var(--color, #ffd86a);
+      box-shadow: 0 0 12px var(--color, #ffd86a);
+      animation: enhanceParticleBurst var(--duration, 900ms) cubic-bezier(.12,.72,.2,1) forwards;
+    }
+
+    .enhance-effect-particle.shard {
+      width: var(--size, 9px);
+      height: calc(var(--size, 9px) * 1.55);
+      border-radius: 2px;
+      box-shadow: 0 0 10px var(--color, #ff6872);
+    }
+
+    @keyframes enhanceCardPop {
+      from { transform: scale(0.72); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes enhanceAuraSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes enhanceRingPulse {
+      0%, 100% { transform: scale(0.88); opacity: 0.55; }
+      50% { transform: scale(1.12); opacity: 1; }
+    }
+
+    @keyframes enhanceHammerHit {
+      0%, 100% { transform: rotate(-18deg) translateY(-2px); }
+      42% { transform: rotate(24deg) translateY(8px); }
+      58% { transform: rotate(-4deg) translateY(0); }
+    }
+
+    @keyframes enhanceWorkingTension {
+      0%, 100% { transform: scale(1) translateY(0); filter: brightness(1); }
+      18% { transform: scale(1.015) translateY(-1px); filter: brightness(1.08); }
+      34% { transform: scale(0.992) translateY(1px); filter: brightness(0.98); }
+      52% { transform: scale(1.025) translateY(-2px); filter: brightness(1.14); }
+      74% { transform: scale(0.997) translateY(1px); filter: brightness(1.02); }
+    }
+
+    @keyframes enhanceChargeBar {
+      0% { background-position: 0% 50%; opacity: 0.48; transform: scaleX(0.46); }
+      45% { opacity: 1; transform: scaleX(0.92); }
+      100% { background-position: 220% 50%; opacity: 0.72; transform: scaleX(1); }
+    }
+
+    @keyframes enhanceIconTension {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      28% { transform: scale(1.035) rotate(-1.5deg); }
+      56% { transform: scale(0.985) rotate(1.5deg); }
+      78% { transform: scale(1.045) rotate(0deg); }
+    }
+
+    @keyframes enhanceWorkingRing {
+      0%, 100% { transform: scale(0.82); opacity: 0.58; }
+      45% { transform: scale(1.26); opacity: 1; }
+      72% { transform: scale(1.04); opacity: 0.84; }
+    }
+
+    @keyframes enhanceHammerSuspense {
+      0%, 100% { transform: rotate(-32deg) translateY(-7px) scale(1); }
+      36% { transform: rotate(34deg) translateY(12px) scale(1.09); }
+      48% { transform: rotate(4deg) translateY(1px) scale(0.98); }
+      72% { transform: rotate(-24deg) translateY(-5px) scale(1.04); }
+    }
+
+    @keyframes enhanceTitleBlink {
+      0%, 100% { opacity: 0.72; text-shadow: 0 0 10px rgba(255, 216, 106, 0.42); }
+      48% { opacity: 1; text-shadow: 0 0 18px rgba(255, 216, 106, 0.86), 0 0 28px rgba(255, 104, 114, 0.34); }
+    }
+
+    @keyframes enhanceLightGather {
+      0% { opacity: 0; transform: scale(0.08); filter: blur(7px); }
+      28% { opacity: 0.42; transform: scale(0.36); filter: blur(5px); }
+      58% { opacity: 0.74; transform: scale(0.78); filter: blur(4px); }
+      86% { opacity: 0.96; transform: scale(1.14); filter: blur(3px); }
+      100% { opacity: 1; transform: scale(1.34); filter: blur(3px); }
+    }
+
+    @keyframes enhanceLightReady {
+      0%, 100% { opacity: 0.88; transform: scale(1.24); }
+      50% { opacity: 1; transform: scale(1.44); }
+    }
+
+    @keyframes enhanceTouchPulse {
+      0%, 100% { transform: scale(1); filter: brightness(1); }
+      50% { transform: scale(1.08); filter: brightness(1.18); }
+    }
+
+    @keyframes enhanceSuccessPop {
+      0% { transform: scale(0.94); }
+      38% { transform: scale(1.12); }
+      68% { transform: scale(0.98); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes enhanceSuccessRing {
+      from { transform: scale(0.72); opacity: 1; }
+      to { transform: scale(1.42); opacity: 0; }
+    }
+
+    @keyframes enhanceFailShake {
+      0%, 100% { transform: translateX(0) rotate(0); }
+      18% { transform: translateX(-10px) rotate(-2deg); }
+      36% { transform: translateX(10px) rotate(2deg); }
+      54% { transform: translateX(-7px) rotate(-1deg); }
+      72% { transform: translateX(7px) rotate(1deg); }
+    }
+
+    @keyframes enhanceFailCrack {
+      0% { transform: scale(0.82) rotate(0deg); opacity: 1; }
+      100% { transform: scale(1.34) rotate(24deg); opacity: 0; }
+    }
+
+    @keyframes enhanceParticleBurst {
+      0% {
+        transform: translate(-50%, -50%) scale(0.4) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0.12) rotate(var(--rotate, 540deg));
+        opacity: 0;
+      }
+    }
+
 
     .equipment-empty {
       color: #c8ceda;
@@ -3738,6 +4516,1499 @@
         width: min(260px, 100%);
       }
     }
+
+    .marketplace-btn,
+    .mailbox-btn {
+      width: auto;
+      min-width: 58px;
+      padding: 6px 8px;
+      border-radius: 8px;
+      font-size: 11px;
+      color: #fff;
+      background: #3a4559;
+      box-shadow: 0 2px 0 #161b26;
+      white-space: nowrap;
+    }
+
+    .mailbox-btn {
+      color: #211509;
+      background: linear-gradient(#9eea76, #49b82f);
+      box-shadow: 0 2px 0 #1f671a;
+    }
+
+    .marketplace-modal,
+    .mailbox-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 1450;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.68);
+    }
+
+    .marketplace-modal.show,
+    .mailbox-modal.show {
+      display: flex;
+    }
+
+    .marketplace-card,
+    .mailbox-card {
+      width: min(920px, 100%);
+      max-height: min(760px, 90vh);
+      background: #171c28;
+      border: 3px solid #0b0e14;
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.65);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mailbox-card {
+      width: min(680px, 100%);
+    }
+
+    .marketplace-head,
+    .mailbox-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .marketplace-head h2,
+    .mailbox-head h2 {
+      margin: 0;
+      color: #ffd86a;
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .marketplace-close,
+    .marketplace-refresh-btn,
+    .mailbox-close,
+    .mailbox-refresh-btn,
+    .mailbox-claim-all-btn {
+      width: auto;
+      min-width: 72px;
+      padding: 8px 11px;
+      border-radius: 9px;
+      font-size: 13px;
+      color: #fff;
+      background: #3a4559;
+      box-shadow: 0 3px 0 #161b26;
+    }
+
+    .mailbox-claim-all-btn {
+      color: #211509;
+      background: linear-gradient(#ffd568, #ff9d00);
+      box-shadow: 0 3px 0 #9d5c00;
+    }
+
+    .marketplace-desc,
+    .mailbox-desc {
+      margin: 0 0 10px;
+      color: #c8ceda;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.45;
+      text-align: center;
+    }
+
+    .marketplace-status,
+    .mailbox-status {
+      min-height: 18px;
+      margin: 0 0 12px;
+      color: #9eea76;
+      font-size: 13px;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .marketplace-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      min-height: 0;
+    }
+
+    .marketplace-panel,
+    .mailbox-panel {
+      min-height: 0;
+      background: #111621;
+      border: 1px solid #3a4559;
+      border-radius: 13px;
+      padding: 12px;
+    }
+
+    .marketplace-panel h3,
+    .mailbox-panel h3 {
+      margin: 0 0 10px;
+      color: #ffd86a;
+      font-size: 16px;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .marketplace-list,
+    .mailbox-list {
+      overflow: auto;
+      display: grid;
+      gap: 8px;
+      max-height: 560px;
+      padding-right: 3px;
+    }
+
+    .marketplace-row,
+    .mailbox-row {
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 10px;
+      background: #252d3d;
+      border: 1px solid #3a4559;
+      border-radius: 11px;
+      padding: 9px 10px;
+    }
+
+    .marketplace-info,
+    .mailbox-info {
+      display: grid;
+      gap: 3px;
+      min-width: 0;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .marketplace-info strong,
+    .mailbox-info strong {
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .marketplace-meta,
+    .mailbox-meta {
+      color: #aeb8ca;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .marketplace-price,
+    .mailbox-reward {
+      color: #ffd86a;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .marketplace-sell-controls {
+      display: grid;
+      gap: 6px;
+      min-width: 116px;
+    }
+
+    .marketplace-price-input {
+      width: 100%;
+      border: 1px solid #3a4559;
+      border-radius: 9px;
+      padding: 8px 9px;
+      background: #111621;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 900;
+      outline: none;
+    }
+
+    .marketplace-register-btn,
+    .marketplace-buy-btn,
+    .marketplace-cancel-btn {
+      width: auto;
+      min-width: 72px;
+      padding: 8px 10px;
+      border-radius: 9px;
+      font-size: 13px;
+    }
+
+    .marketplace-cancel-btn {
+      color: #fff;
+      background: linear-gradient(#ff8e96, #ff5252);
+      box-shadow: 0 3px 0 #8f1e1e;
+    }
+
+    .marketplace-info-thumb {
+      cursor: pointer;
+    }
+
+    .marketplace-info-thumb:hover {
+      filter: drop-shadow(0 0 8px rgba(255, 216, 106, 0.52));
+    }
+
+    .marketplace-empty,
+    .mailbox-empty {
+      padding: 28px 8px;
+      color: #aeb8ca;
+      font-size: 14px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .mailbox-dia-icon {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+      filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.55));
+    }
+
+    @media (max-width: 760px) {
+      .marketplace-body {
+        grid-template-columns: 1fr;
+      }
+
+      .marketplace-row,
+      .mailbox-row {
+        grid-template-columns: 48px minmax(0, 1fr);
+      }
+
+      .marketplace-sell-controls,
+      .marketplace-buy-btn {
+        grid-column: 1 / -1;
+      }
+    }
+
+
+
+    /* ===== 거래소 리디자인: 구매/판매/거래내역/검색 옵션 ===== */
+    .marketplace-modal {
+      padding: 0;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.10) 49%, rgba(255,255,255,0.035) 50%) 0 0 / 80px 80px,
+        linear-gradient(rgba(0,0,0,0.10) 49%, rgba(255,255,255,0.035) 50%) 0 0 / 80px 80px,
+        #4a3d2f;
+    }
+
+    .marketplace-modal.show { display: flex; }
+
+    .marketplace-card.marketplace-skin {
+      position: relative;
+      width: min(860px, 100%);
+      height: min(940px, 100vh);
+      max-height: 100vh;
+      padding: 92px 28px 96px;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      overflow: hidden;
+    }
+
+    .market-top-dia {
+      position: absolute;
+      top: 28px;
+      right: 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 166px;
+      justify-content: flex-end;
+      padding: 8px 16px 8px 10px;
+      border: 3px solid #2c160f;
+      border-radius: 10px;
+      background: linear-gradient(#3c2118, #23120d);
+      color: #fff;
+      font-size: 22px;
+      font-weight: 1000;
+      text-shadow: 0 2px 0 #000, 0 0 4px #000;
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,.06), 0 4px 0 rgba(0,0,0,.35);
+    }
+
+    .market-top-dia img { width: 38px; height: 38px; object-fit: contain; }
+
+    .market-refresh-top {
+      width: 36px;
+      min-width: 36px;
+      height: 36px;
+      margin-left: 6px;
+      padding: 0;
+      border-radius: 10px;
+      color: #fff;
+      background: linear-gradient(#6d4b35, #2b160f);
+      border: 2px solid rgba(255, 222, 126, 0.42);
+      box-shadow: 0 3px 0 #160b07, 0 0 8px rgba(255, 216, 106, 0.18);
+      font-size: 23px;
+      font-weight: 900;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-shadow: 0 2px 0 #000;
+    }
+
+    .market-refresh-top:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #160b07;
+    }
+
+    .marketplace-status {
+      position: absolute;
+      left: 38px;
+      right: 38px;
+      bottom: 82px;
+      min-height: 20px;
+      margin: 0;
+      font-size: 13px;
+      font-weight: 1000;
+      text-align: center;
+      text-shadow: 0 2px 0 #000;
+      pointer-events: none;
+    }
+
+    .market-main-head {
+      display: grid;
+      grid-template-columns: 1.15fr .82fr .82fr;
+      align-items: center;
+      margin: 58px 10px 18px;
+      min-height: 66px;
+      background: rgba(0,0,0,.62);
+      color: #fff;
+      font-size: 22px;
+      font-weight: 1000;
+      text-align: center;
+      text-shadow: 0 3px 0 #000, 0 0 4px #000;
+    }
+
+    .market-main-head span { padding: 17px 8px; border-left: 2px solid rgba(255,255,255,.26); }
+    .market-main-head span:first-child { border-left: 0; }
+
+    .market-tab-content {
+      position: relative;
+      min-height: 0;
+      flex: 1;
+      display: none;
+    }
+    .market-tab-content.active { display: block; }
+
+    .marketplace-list.market-skin-list {
+      max-height: calc(min(940px, 100vh) - 310px);
+      padding: 0 10px 12px;
+      display: grid;
+      gap: 12px;
+      overflow: auto;
+    }
+
+    .market-row-skin {
+      display: grid;
+      grid-template-columns: 42px 112px minmax(0, 1.45fr) 170px 186px;
+      align-items: center;
+      min-height: 112px;
+      gap: 14px;
+      padding: 9px 14px;
+      border: 4px solid #2b1a12;
+      border-radius: 4px;
+      background: #dfd3bf;
+      color: #fff;
+      box-shadow: inset 0 0 0 2px #9d8468, 0 4px 0 rgba(0,0,0,.26);
+      text-shadow: 0 2px 0 #000, 1px 0 0 #000, -1px 0 0 #000, 0 -1px 0 #000;
+    }
+
+    .market-check-box {
+      width: 32px;
+      height: 32px;
+      border: 4px solid #7b684f;
+      border-radius: 9px;
+      background: #745f49;
+      box-shadow: inset 0 0 0 2px rgba(0,0,0,.18);
+    }
+
+    .market-thumb-skin {
+      position: relative;
+      width: 96px;
+      height: 96px;
+      border: 4px solid #111;
+      background: #111;
+      cursor: pointer;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+    }
+    .market-thumb-skin img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+    }
+
+    .market-name-skin {
+      min-width: 0;
+      font-size: 24px;
+      font-weight: 1000;
+      line-height: 1.15;
+    }
+
+    .market-sub-skin {
+      display: block;
+      margin-top: 5px;
+      color: #dce4f3;
+      font-size: 13px;
+      font-weight: 900;
+      text-shadow: 0 2px 0 #000;
+    }
+
+    .market-count-skin,
+    .market-price-skin,
+    .market-time-skin {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: #fff;
+      font-size: 25px;
+      font-weight: 1000;
+      white-space: nowrap;
+    }
+    .market-count-skin img,
+    .market-price-skin img { width: 35px; height: 35px; object-fit: contain; }
+
+    .market-action-wrap { display: grid; gap: 7px; justify-items: center; }
+    .market-time-skin { font-size: 22px; }
+
+    .market-buy-action,
+    .market-register-btn.market-skin-button,
+    .market-cancel-action {
+      width: 144px;
+      min-width: 0;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 0;
+      color: #211509;
+      background: linear-gradient(#ffdf72, #cc8b24);
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,.18), 0 4px 0 #5f3a10;
+      font-size: 18px;
+      font-weight: 1000;
+      text-shadow: 0 1px 0 rgba(255,255,255,.45);
+    }
+    .market-cancel-action { color:#fff; background: linear-gradient(#ff7878,#bd3939); box-shadow: 0 4px 0 #6d1717; text-shadow: 0 2px 0 #000; }
+
+    .market-price-input.market-skin-input {
+      width: 144px;
+      height: 46px;
+      border: 2px solid #283247;
+      border-radius: 8px;
+      padding: 7px 10px;
+      background: #101827;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 1000;
+      text-align: center;
+      outline: none;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,.35);
+    }
+
+    .market-sell-row { grid-template-columns: 112px minmax(0, 1.35fr) 160px 160px; }
+    .market-history-row { grid-template-columns: 112px minmax(0, 1.45fr) 170px 186px; }
+
+    .market-bottom-pager {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 112px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+    }
+    .market-page-box {
+      min-width: 164px;
+      height: 54px;
+      border: 4px solid #9b6d45;
+      border-radius: 10px;
+      background: #2f2118;
+      color: #fff;
+      font-size: 24px;
+      font-weight: 1000;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-shadow: 0 2px 0 #000;
+      box-shadow: inset 0 0 0 2px #3f2d20;
+    }
+    .market-page-next {
+      width: 52px;
+      height: 62px;
+      clip-path: polygon(12% 5%, 100% 50%, 12% 95%);
+      background: #ead7bf;
+      border: 0;
+      box-shadow: 0 3px 0 rgba(0,0,0,.35);
+    }
+    .market-search-open {
+      min-width: 148px;
+      height: 60px;
+      border: 3px solid #478321;
+      border-radius: 2px;
+      color: #fff;
+      background: linear-gradient(#7ae534, #49ad23);
+      box-shadow: inset 0 0 0 3px rgba(255,255,255,.10), 0 4px 0 #2b5f15;
+      font-size: 20px;
+      font-weight: 1000;
+      text-shadow: 0 2px 0 #000;
+    }
+
+    .market-bottom-tabs {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 28px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding: 12px 14px;
+      border: 6px solid #4b2e1d;
+      border-radius: 10px;
+      background: #6b4b33;
+      box-shadow: inset 0 0 0 4px #9b6d45, 0 5px 0 rgba(0,0,0,.36);
+    }
+    .market-tab-btn {
+      min-height: 64px;
+      border: 4px solid #8e6946;
+      border-radius: 4px;
+      color: #fff;
+      background: linear-gradient(#9b714d, #61412b);
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,.12), 0 4px 0 #2f1d14;
+      font-size: 22px;
+      font-weight: 1000;
+      text-shadow: 0 3px 0 #000;
+    }
+    .market-tab-btn.active {
+      color: #fff;
+      background: linear-gradient(#ffe680, #d09a36);
+      border-color: #ffe680;
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,.25), 0 0 12px rgba(255,230,128,.55), 0 4px 0 #754d19;
+    }
+
+    .market-close-big {
+      position: absolute;
+      left: 18px;
+      bottom: 16px;
+      width: 82px;
+      height: 82px;
+      min-width: 0;
+      padding: 0;
+      border: 5px solid #2a1010;
+      border-radius: 14px;
+      background: linear-gradient(#ff7373,#cc3535);
+      box-shadow: inset 0 0 0 4px rgba(255,255,255,.15), 0 5px 0 rgba(0,0,0,.40);
+      color:#fff;
+      font-size: 42px;
+      font-weight: 1000;
+      text-shadow: 0 3px 0 #000;
+      z-index: 5;
+    }
+
+    .marketplace-empty.market-skin-empty {
+      margin: 210px auto 0;
+      width: min(620px, 90%);
+      padding: 28px 20px;
+      background: rgba(0,0,0,.62);
+      color: #fff;
+      font-size: 24px;
+      font-weight: 1000;
+      text-shadow: 0 3px 0 #000;
+    }
+
+
+    .market-loading-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 80;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.48);
+      backdrop-filter: blur(2px);
+      pointer-events: auto;
+    }
+
+    .market-loading-overlay.show {
+      display: flex;
+    }
+
+    .market-loading-card {
+      min-width: 210px;
+      padding: 24px 26px 22px;
+      border: 4px solid #2b1a12;
+      border-radius: 14px;
+      background: linear-gradient(#5b412b, #2f2118);
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,.12), 0 12px 28px rgba(0,0,0,.55);
+      display: grid;
+      justify-items: center;
+      gap: 14px;
+    }
+
+    .market-loading-spinner {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      border: 7px solid rgba(255, 216, 106, 0.25);
+      border-top-color: #ffd86a;
+      border-right-color: #9eea76;
+      animation: marketSpinnerRotate 0.78s linear infinite;
+      box-shadow: 0 0 16px rgba(255,216,106,.35);
+    }
+
+    .market-loading-text {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 1000;
+      text-align: center;
+      text-shadow: 0 2px 0 #000, 0 0 4px #000;
+      white-space: pre-line;
+    }
+
+    @keyframes marketSpinnerRotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .market-filter-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 1500;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,.62);
+      padding: 20px;
+    }
+    .market-filter-modal.show { display: flex; }
+    .market-filter-card {
+      position: relative;
+      width: min(860px, 96vw);
+      max-height: 92vh;
+      padding: 72px 34px 88px;
+      border: 6px solid #3f2818;
+      border-radius: 12px;
+      background: rgba(125, 95, 66, .96);
+      color: #fff;
+      box-shadow: inset 0 0 0 4px #b48a62, 0 20px 60px rgba(0,0,0,.6);
+    }
+    .market-filter-title {
+      position: absolute;
+      left: 50%;
+      top: -34px;
+      transform: translateX(-50%);
+      min-width: 360px;
+      padding: 16px 32px;
+      border: 6px solid #2d1b12;
+      clip-path: polygon(8% 0, 92% 0, 100% 50%, 92% 100%, 8% 100%, 0 50%);
+      background: linear-gradient(#b78b62, #705035);
+      text-align: center;
+      font-size: 30px;
+      font-weight: 1000;
+      text-shadow: 0 3px 0 #000;
+    }
+    .market-filter-section h3 {
+      margin: 0 0 14px;
+      padding-bottom: 10px;
+      border-bottom: 4px solid rgba(255,255,255,.6);
+      font-size: 28px;
+      font-weight: 1000;
+      text-align: center;
+      text-shadow: 0 3px 0 #000;
+    }
+    .market-filter-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 12px 24px;
+      margin: 0 0 26px;
+    }
+    .market-filter-option {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      align-items: center;
+      gap: 10px;
+      min-height: 42px;
+      padding: 4px 8px;
+      background: rgba(0,0,0,.15);
+      color: #f4dfb8;
+      font-size: 22px;
+      font-weight: 1000;
+      text-shadow: 0 3px 0 #000;
+      cursor: pointer;
+    }
+    .market-filter-option input {
+      appearance: none;
+      width: 34px;
+      height: 34px;
+      border: 5px solid #947a61;
+      border-radius: 8px;
+      background: #5a4738;
+      box-shadow: inset 0 0 0 2px rgba(0,0,0,.22);
+    }
+    .market-filter-option input:checked {
+      background: linear-gradient(135deg, transparent 0 38%, #6fff25 39% 60%, transparent 61%), #5a4738;
+      border-color: #e8d9bd;
+      filter: drop-shadow(0 0 4px #6fff25);
+    }
+    .market-tier-common { color:#dce4f3; }
+    .market-tier-advanced { color:#58e51d; }
+    .market-tier-rare { color:#21d4f0; }
+    .market-tier-hero { color:#d878fb; }
+    .market-tier-legend { color:#ff5252; }
+    .market-filter-range {
+      padding: 12px 0 26px;
+      text-align: center;
+      color: #dfff89;
+      font-size: 24px;
+      font-weight: 1000;
+      text-shadow: 0 3px 0 #000;
+    }
+    .market-filter-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 18px auto 0;
+      width: min(560px, 100%);
+    }
+    .market-filter-actions button {
+      min-height: 78px;
+      border-radius: 4px;
+      font-size: 28px;
+      font-weight: 1000;
+      text-shadow: 0 3px 0 #000;
+    }
+    .market-filter-reset { background: linear-gradient(#ffdd55, #d68c12); box-shadow: 0 5px 0 #68410a; color:#fff; }
+    .market-filter-apply { background: linear-gradient(#78e837, #32a820); box-shadow: 0 5px 0 #185b11; color:#fff; }
+    .market-filter-close {
+      position: absolute;
+      left: 50%;
+      bottom: -42px;
+      transform: translateX(-50%);
+      width: 88px;
+      height: 88px;
+      min-width: 0;
+      padding: 0;
+      border: 6px solid #2a1010;
+      border-radius: 20px;
+      background: linear-gradient(#ff7373,#cc3535);
+      color:#fff;
+      font-size: 44px;
+      text-shadow: 0 3px 0 #000;
+    }
+
+    @media (max-width: 760px) {
+      .marketplace-card.marketplace-skin { padding: 78px 8px 92px; height: 100vh; }
+      .market-main-head { grid-template-columns: 1.2fr .8fr .8fr; margin: 84px 30px 16px; font-size: 20px; min-height: 64px; }
+      .market-row-skin { grid-template-columns: 34px 86px minmax(0,1.1fr) 124px 146px; min-height: 96px; gap: 8px; padding: 7px; border-width: 3px; }
+      .market-sell-row { grid-template-columns: 86px minmax(0,1fr) 128px; }
+      .market-history-row { grid-template-columns: 86px minmax(0,1fr) 120px 134px; }
+      .market-thumb-skin { width: 72px; height: 72px; }
+      .market-name-skin { font-size: 22px; }
+      .market-count-skin, .market-price-skin { font-size: 22px; }
+      .market-time-skin { font-size: 20px; }
+      .market-buy-action, .market-register-btn.market-skin-button, .market-cancel-action, .market-price-input.market-skin-input { width: 116px; font-size: 16px; }
+      .market-bottom-tabs { left: 28px; right: 28px; bottom: 90px; gap: 6px; padding: 8px; }
+      .market-tab-btn { min-height: 58px; font-size: 20px; }
+      .market-bottom-pager { bottom: 184px; }
+      .market-close-big { bottom: 10px; left: 14px; width: 72px; height:72px; }
+      .market-filter-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .market-filter-title { min-width: 260px; font-size: 26px; }
+    }
+
+
+    /* 거래소 UI 크기 정리 */
+    .marketplace-card.marketplace-skin {
+      width: min(820px, 100%);
+      padding: 78px 22px 90px;
+    }
+    .market-top-dia {
+      top: 22px;
+      right: 28px;
+      min-width: 138px;
+      padding: 6px 13px 6px 8px;
+      font-size: 20px;
+    }
+    .market-top-dia img { width: 32px; height: 32px; }
+    .market-main-head {
+      margin: 50px 12px 14px;
+      min-height: 54px;
+      font-size: 19px;
+    }
+    .market-main-head span { padding: 13px 6px; }
+    .marketplace-list.market-skin-list {
+      max-height: calc(min(940px, 100vh) - 335px);
+      gap: 9px;
+      padding: 0 10px 10px;
+    }
+    .market-row-skin {
+      grid-template-columns: 34px 92px minmax(0, 1.45fr) 148px 160px;
+      min-height: 94px;
+      gap: 10px;
+      padding: 7px 10px;
+      border-width: 3px;
+    }
+    .market-check-box { width: 28px; height: 28px; border-width: 3px; }
+    .market-thumb-skin { width: 78px; height: 78px; border-width: 3px; }
+    .market-name-skin { font-size: 21px; }
+    .market-sub-skin { font-size: 12px; }
+    .market-count-skin,
+    .market-price-skin { font-size: 22px; gap: 6px; }
+    .market-time-skin { font-size: 19px; }
+    .market-count-skin img,
+    .market-price-skin img { width: 29px; height: 29px; }
+    .market-buy-action,
+    .market-register-btn.market-skin-button,
+    .market-cancel-action {
+      width: 122px;
+      padding: 8px 10px;
+      font-size: 16px;
+    }
+    .market-price-input.market-skin-input {
+      width: 132px;
+      height: 42px;
+      font-size: 16px;
+    }
+    .market-sell-row { grid-template-columns: 92px minmax(0, 1.35fr) 144px 138px; }
+    .market-history-row { grid-template-columns: 92px minmax(0, 1.45fr) 150px 158px; }
+    .market-bottom-pager {
+      bottom: 118px;
+      gap: 10px;
+    }
+    .market-page-box {
+      min-width: 136px;
+      height: 46px;
+      font-size: 21px;
+      border-width: 3px;
+    }
+    .market-page-next { width: 44px; height: 52px; }
+    .market-search-open {
+      min-width: 132px;
+      height: 50px;
+      font-size: 17px;
+      border-width: 3px;
+    }
+    .market-bottom-tabs {
+      left: 22px;
+      right: 22px;
+      bottom: 20px;
+      gap: 8px;
+      padding: 9px 12px;
+      border-width: 5px;
+    }
+    .market-tab-btn {
+      min-height: 54px;
+      font-size: 20px;
+      border-width: 3px;
+    }
+    .market-close-big {
+      left: 14px;
+      bottom: 12px;
+      width: 68px;
+      height: 68px;
+      border-width: 4px;
+      font-size: 36px;
+    }
+    .marketplace-empty.market-skin-empty {
+      margin-top: 190px;
+      padding: 24px 18px;
+      font-size: 21px;
+    }
+
+    /* 판매 탭 보조 문구는 밝은 배경에서 잘 보이도록 검정 처리 */
+    .market-sell-row .market-sub-skin {
+      color: #18130f !important;
+      text-shadow: none !important;
+    }
+
+    .market-info-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1600;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(0, 0, 0, .62);
+    }
+    .market-info-overlay.show { display: flex; }
+    .market-info-card {
+      width: min(420px, 94vw);
+      border: 5px solid #3f2818;
+      border-radius: 14px;
+      padding: 13px 14px 12px;
+      background: #dfd3bf;
+      color: #211509;
+      box-shadow: inset 0 0 0 3px #9d8468, 0 18px 48px rgba(0,0,0,.55);
+      text-shadow: none;
+    }
+    .market-info-title {
+      margin: 0 0 12px;
+      color: #2a170e;
+      font-size: 22px;
+      font-weight: 1000;
+      text-align: center;
+    }
+    .market-info-list {
+      display: grid;
+      gap: 7px;
+      margin: 0 0 14px;
+      color: #241910;
+      font-size: 15px;
+      font-weight: 900;
+      line-height: 1.35;
+    }
+    .market-info-close-btn {
+      width: 100%;
+      min-height: 44px;
+      border-radius: 9px;
+      font-size: 16px;
+      color: #211509;
+      background: linear-gradient(#ffdf72, #cc8b24);
+      box-shadow: 0 3px 0 #5f3a10;
+    }
+
+
+
+    /* ===== 거래소 모바일 최종 배치 보정 ===== */
+    .marketplace-list.market-skin-list {
+      overflow-x: hidden !important;
+    }
+    .market-name-skin {
+      writing-mode: horizontal-tb !important;
+      word-break: keep-all !important;
+      overflow-wrap: normal !important;
+      white-space: normal !important;
+    }
+
+    @media (max-width: 520px) {
+      .marketplace-modal {
+        align-items: stretch !important;
+        justify-content: center !important;
+        overflow: hidden !important;
+      }
+
+      .marketplace-card.marketplace-skin {
+        width: 100vw !important;
+        height: 100dvh !important;
+        max-height: 100dvh !important;
+        padding: 66px 10px 118px !important;
+        overflow: hidden !important;
+      }
+
+      .market-top-dia {
+        top: 12px !important;
+        right: 18px !important;
+        min-width: 104px !important;
+        padding: 5px 10px 5px 7px !important;
+        border-width: 2px !important;
+        border-radius: 8px !important;
+        gap: 6px !important;
+        font-size: 18px !important;
+      }
+      .market-top-dia img {
+        width: 28px !important;
+        height: 28px !important;
+      }
+
+      .market-main-head {
+        grid-template-columns: 1.25fr .8fr .85fr !important;
+        width: calc(100vw - 58px) !important;
+        margin: 86px auto 12px !important;
+        min-height: 50px !important;
+        font-size: 17px !important;
+        line-height: 1.16 !important;
+      }
+      .market-main-head span {
+        min-width: 0 !important;
+        padding: 10px 4px !important;
+      }
+
+      .marketplace-list.market-skin-list {
+        width: calc(100vw - 34px) !important;
+        max-height: calc(100dvh - 318px) !important;
+        margin: 0 auto !important;
+        padding: 0 0 10px !important;
+        gap: 8px !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+      }
+
+      .market-row-skin {
+        width: 100% !important;
+        min-width: 0 !important;
+        min-height: 82px !important;
+        gap: 6px !important;
+        padding: 7px 7px !important;
+        border-width: 3px !important;
+        box-shadow: inset 0 0 0 1px #9d8468, 0 3px 0 rgba(0,0,0,.24) !important;
+      }
+
+      /* 구매 탭: 아이템 정보 / 판매 금액 */
+      #marketplaceListingList .market-row-skin {
+        grid-template-columns: 62px minmax(0, 1fr) 84px !important;
+      }
+      #marketplaceListingList .market-check-box {
+        display: none !important;
+      }
+
+      /* 판매 탭: 아이템 정보 / 판매 금액 / 판매 정보 */
+      .market-sell-row {
+        grid-template-columns: 62px minmax(0, 1fr) 88px 58px !important;
+      }
+
+      /* 거래 내역 탭 */
+      .market-history-row {
+        grid-template-columns: 62px minmax(0, 1fr) 74px 74px !important;
+      }
+
+      .market-thumb-skin {
+        width: 56px !important;
+        height: 56px !important;
+        border-width: 3px !important;
+      }
+      .market-thumb-skin .enhance-badge,
+      .market-thumb-skin .equipment-enhance-badge {
+        font-size: 13px !important;
+        right: 1px !important;
+        bottom: 0 !important;
+      }
+
+      .market-name-skin {
+        min-width: 0 !important;
+        max-width: 100% !important;
+        font-size: 16px !important;
+        line-height: 1.14 !important;
+        letter-spacing: -0.06em !important;
+        white-space: normal !important;
+        word-break: keep-all !important;
+        overflow-wrap: normal !important;
+      }
+      .market-name-skin .market-sub-skin,
+      .market-sub-skin {
+        margin-top: 3px !important;
+        font-size: 10px !important;
+        line-height: 1.18 !important;
+        letter-spacing: -0.04em !important;
+      }
+      .market-sell-row .market-sub-skin,
+      .market-action-wrap .market-sub-skin {
+        color: #18130f !important;
+        text-shadow: none !important;
+      }
+
+      .market-count-skin,
+      .market-price-skin,
+      .market-time-skin {
+        gap: 3px !important;
+        font-size: 16px !important;
+        line-height: 1.05 !important;
+        letter-spacing: -0.04em !important;
+        min-width: 0 !important;
+      }
+      .market-count-skin img,
+      .market-price-skin img {
+        width: 22px !important;
+        height: 22px !important;
+      }
+
+      .market-action-wrap {
+        gap: 4px !important;
+        min-width: 0 !important;
+        width: 100% !important;
+      }
+      .market-buy-action,
+      .market-register-btn.market-skin-button,
+      .market-cancel-action {
+        width: 58px !important;
+        min-width: 0 !important;
+        padding: 6px 4px !important;
+        font-size: 12px !important;
+        line-height: 1.08 !important;
+        border-radius: 8px !important;
+      }
+      .market-cancel-action {
+        font-size: 11px !important;
+      }
+      .market-price-input.market-skin-input {
+        width: 86px !important;
+        height: 36px !important;
+        padding: 5px 7px !important;
+        font-size: 14px !important;
+        border-radius: 7px !important;
+      }
+
+      .marketplace-empty.market-skin-empty {
+        margin-top: 172px !important;
+        width: calc(100vw - 86px) !important;
+        padding: 20px 12px !important;
+        font-size: 19px !important;
+        line-height: 1.25 !important;
+      }
+
+      .market-bottom-pager {
+        left: 42px !important;
+        right: 8px !important;
+        bottom: 112px !important;
+        justify-content: space-between !important;
+        gap: 6px !important;
+      }
+      .market-page-box {
+        min-width: 92px !important;
+        width: 92px !important;
+        height: 42px !important;
+        border-width: 3px !important;
+        border-radius: 8px !important;
+        font-size: 19px !important;
+      }
+      .market-page-next {
+        width: 34px !important;
+        height: 44px !important;
+        flex: 0 0 34px !important;
+      }
+      .market-search-open {
+        min-width: 120px !important;
+        height: 42px !important;
+        padding: 0 8px !important;
+        border-width: 2px !important;
+        font-size: 15px !important;
+        white-space: nowrap !important;
+      }
+
+      .market-bottom-tabs {
+        left: 56px !important;
+        right: 8px !important;
+        bottom: 26px !important;
+        gap: 5px !important;
+        padding: 7px !important;
+        border-width: 4px !important;
+        border-radius: 8px !important;
+        z-index: 4 !important;
+      }
+      .market-tab-btn {
+        min-height: 50px !important;
+        padding: 6px 4px !important;
+        border-width: 3px !important;
+        font-size: 16px !important;
+        line-height: 1.08 !important;
+        word-break: keep-all !important;
+        white-space: normal !important;
+      }
+      .market-close-big {
+        left: 8px !important;
+        bottom: 20px !important;
+        width: 54px !important;
+        height: 54px !important;
+        border-width: 4px !important;
+        border-radius: 10px !important;
+        font-size: 32px !important;
+        z-index: 6 !important;
+      }
+
+      .marketplace-status {
+        left: 12px !important;
+        right: 12px !important;
+        bottom: 176px !important;
+        font-size: 11px !important;
+      }
+
+      .market-filter-card {
+        width: calc(100vw - 22px) !important;
+        max-height: 86dvh !important;
+        padding: 58px 18px 78px !important;
+        overflow-y: auto !important;
+      }
+      .market-filter-title {
+        min-width: 220px !important;
+        padding: 12px 22px !important;
+        top: -30px !important;
+        font-size: 24px !important;
+      }
+      .market-filter-section h3 {
+        font-size: 24px !important;
+      }
+      .market-filter-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 9px 12px !important;
+      }
+      .market-filter-option {
+        grid-template-columns: 32px 1fr !important;
+        gap: 7px !important;
+        min-height: 34px !important;
+        font-size: 17px !important;
+      }
+      .market-filter-option input {
+        width: 28px !important;
+        height: 28px !important;
+        border-width: 4px !important;
+      }
+      .market-filter-actions {
+        gap: 14px !important;
+      }
+      .market-filter-actions button {
+        min-height: 58px !important;
+        font-size: 22px !important;
+      }
+      .market-filter-close {
+        width: 66px !important;
+        height: 66px !important;
+        bottom: -34px !important;
+        font-size: 36px !important;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .market-main-head {
+        width: calc(100vw - 42px) !important;
+        font-size: 16px !important;
+      }
+      .marketplace-list.market-skin-list {
+        width: calc(100vw - 24px) !important;
+      }
+      #marketplaceListingList .market-row-skin {
+        grid-template-columns: 58px minmax(0, 1fr) 42px 70px !important;
+      }
+      .market-sell-row {
+        grid-template-columns: 58px minmax(0, 1fr) 78px 54px !important;
+      }
+      .market-history-row {
+        grid-template-columns: 58px minmax(0, 1fr) 66px 66px !important;
+      }
+      .market-thumb-skin { width: 52px !important; height: 52px !important; }
+      .market-name-skin { font-size: 15px !important; }
+      .market-price-input.market-skin-input { width: 76px !important; }
+      .market-buy-action,
+      .market-register-btn.market-skin-button,
+      .market-cancel-action { width: 54px !important; font-size: 11px !important; }
+      .market-tab-btn { font-size: 15px !important; }
+    }
+
+
+
+
+
+/* ✅ 거래소 모바일 이름 겹침 보정: 행 전체 그림자는 유지하되 이름/부위 텍스트에는 중복 그림자를 제거 */
+.market-row-skin .market-name-skin,
+.market-row-skin .market-sub-skin {
+  text-shadow: none !important;
+}
+.market-row-skin .market-name-skin {
+  display: block !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  word-break: keep-all !important;
+}
+.market-row-skin .market-sub-skin {
+  display: block !important;
+  clear: both !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
+@media (max-width: 520px) {
+  #marketplaceListingList .market-row-skin {
+    grid-template-columns: 58px minmax(0, 1fr) 78px !important;
+  }
+  #marketplaceListingList .market-name-skin {
+    font-size: 15px !important;
+    line-height: 1.18 !important;
+    letter-spacing: -0.04em !important;
+  }
+  #marketplaceListingList .market-sub-skin {
+    margin-top: 4px !important;
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+  }
+}
+
+/* ✅ 튜토리얼 오버레이: 클릭 위치를 밝게 표시하고 설명 말풍선은 클릭 대상과 겹치지 않게 자동 배치 */
+.tutorial-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  display: none;
+  pointer-events: none;
+  --spot-x: 50vw;
+  --spot-y: 50vh;
+  --card-left: 50vw;
+  --card-top: 14px;
+}
+
+.tutorial-overlay.show {
+  display: block;
+}
+
+.tutorial-dim {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  pointer-events: none;
+  background:
+    radial-gradient(circle 104px at var(--spot-x) var(--spot-y), rgba(255, 255, 255, 0.00) 0 46%, rgba(255, 220, 90, 0.18) 47% 59%, rgba(0, 0, 0, 0.08) 76%),
+    rgba(0, 0, 0, 0.04);
+  backdrop-filter: none;
+  transition: background-position 180ms ease;
+}
+
+.tutorial-card {
+  position: fixed;
+  left: var(--card-left);
+  top: var(--card-top);
+  z-index: 5004;
+  width: min(360px, calc(100vw - 32px));
+  max-height: min(34vh, 260px);
+  overflow: auto;
+  transform: translateX(-50%);
+  padding: 18px 18px 16px;
+  border: 3px solid #ffd86a;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #fff3bc 0%, #ffd66a 40%, #ffad22 100%);
+  color: #211509;
+  box-shadow:
+    0 7px 0 rgba(120, 70, 0, 0.78),
+    0 16px 34px rgba(0, 0, 0, 0.55),
+    0 0 20px rgba(255, 216, 106, 0.75);
+  pointer-events: auto;
+  text-align: center;
+  animation: tutorialCardPop 180ms ease-out;
+}
+
+.tutorial-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  width: 18px;
+  height: 18px;
+  background: #ffad22;
+  border-right: 3px solid #ffd86a;
+  border-bottom: 3px solid #ffd86a;
+  transform: translateX(-50%) rotate(45deg);
+  box-shadow: 7px 7px 10px rgba(0,0,0,.18);
+}
+
+.tutorial-card.arrow-up::after {
+  top: -10px;
+  bottom: auto;
+  background: #fff3bc;
+  transform: translateX(-50%) rotate(225deg);
+  box-shadow: -7px -7px 10px rgba(0,0,0,.10);
+}
+
+.tutorial-card.arrow-down::after {
+  top: auto;
+  bottom: -13px;
+  background: #ffad22;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.tutorial-card.no-arrow::after {
+  display: none;
+}
+
+
+.tutorial-title {
+  margin: 0 0 7px;
+  color: #251404;
+  font-size: 18px;
+  font-weight: 1000;
+  line-height: 1.25;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.48);
+}
+
+.tutorial-text {
+  margin: 0;
+  color: #2c1907;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.42;
+  white-space: pre-line;
+  word-break: keep-all;
+}
+
+.tutorial-click-hint {
+  margin-top: 8px;
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: rgba(33, 21, 9, 0.16);
+  color: #211509;
+  font-size: 12px;
+  font-weight: 1000;
+}
+
+.tutorial-overlay:not(.need-click) .tutorial-click-hint {
+  display: none;
+}
+
+.tutorial-actions {
+  position: relative;
+  z-index: 5010;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 9px;
+}
+
+.tutorial-next-btn,
+.tutorial-skip-btn {
+  position: relative;
+  z-index: 5011;
+  pointer-events: auto !important;
+  width: auto;
+  min-width: 96px;
+  min-height: 36px;
+  padding: 8px 13px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 1000;
+}
+
+.tutorial-next-btn {
+  color: #fff;
+  background: linear-gradient(#3a4559, #171c28);
+  box-shadow: 0 4px 0 #0b0e14;
+}
+
+.tutorial-skip-btn {
+  display: none !important;
+}
+
+.tutorial-highlight {
+  position: relative !important;
+  z-index: 5003 !important;
+  pointer-events: auto !important;
+  outline: 4px solid #fff06a !important;
+  outline-offset: 5px !important;
+  border-radius: 14px !important;
+  box-shadow:
+    0 0 0 8px rgba(255, 216, 106, 0.35),
+    0 0 24px rgba(255, 255, 255, 0.95),
+    0 0 44px rgba(255, 216, 106, 0.95) !important;
+  animation: tutorialTargetPulse 0.9s ease-in-out infinite;
+}
+
+body.tutorial-locked {
+  overflow: hidden;
+}
+
+.tutorial-highlight-container {
+  z-index: 5002 !important;
+}
+
+@keyframes tutorialCardPop {
+  from { opacity: 0; transform: translateX(-50%) translateY(-10px) scale(0.96); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+}
+
+@keyframes tutorialTargetPulse {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.28); }
+}
+
 </style>
 </head>
 <body>
@@ -3781,8 +6052,128 @@
         <button class="history-close" id="updateNoticeCloseBtn" type="button">닫기</button>
       </div>
       <div class="update-notice-content" id="updateNoticeContent">
-        <span class="update-notice-date">2026-05-17</span>
+        <span class="update-notice-date">2026-05-18</span>
+        <p class="update-notice-line">강화 콘텐츠와 거래소 콘텐츠가 업데이트되었습니다.</p>
+        <span class="update-notice-date">2026-05-16</span>
         <p class="update-notice-line">캣 히어로 소환권 시뮬레이션 미니게임 정식 오픈!!</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="inquiry-modal" id="inquiryModal" aria-hidden="true">
+    <div class="inquiry-card">
+      <div class="inquiry-head">
+        <h2>문의하기</h2>
+        <button class="inquiry-close-btn" id="inquiryCloseBtn" type="button">닫기</button>
+      </div>
+      <p class="inquiry-desc">시뮬레이션 미니게임에대한 문제점, 오류, 밸런스, 추가컨텐츠 등 편하게 문의 주시면 참고하겠습니다. 감사합니다!</p>
+      <textarea class="inquiry-textarea" id="inquiryMessageInput" maxlength="500" placeholder="문의 내용을 입력해주세요. 최대 500자까지 입력할 수 있습니다."></textarea>
+      <div class="inquiry-actions">
+        <p class="inquiry-status" id="inquiryStatus"></p>
+        <button class="inquiry-submit-btn" id="inquirySubmitBtn" type="button">전송</button>
+      </div>
+      <div class="inquiry-admin-panel" id="inquiryAdminPanel">
+        <div class="inquiry-admin-head">
+          <h3>관리자 문의 목록</h3>
+          <button class="inquiry-refresh-btn" id="inquiryRefreshBtn" type="button">새로고침</button>
+        </div>
+        <div class="inquiry-admin-list" id="inquiryAdminList"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="marketplace-modal" id="marketplaceModal" aria-hidden="true">
+    <div class="marketplace-card marketplace-skin">
+      <div class="market-top-dia"><img src="" id="marketplaceDiaIcon" alt="블다"><span id="marketplaceDiaAmount">0</span><button class="market-refresh-top" id="marketplaceRefreshBtn" type="button" title="거래소 새로고침">↻</button></div>
+      <div class="market-main-head" id="marketplaceHeaderRow">
+        <span>아이템 정보</span>
+        <span>판매 금액 ▼</span>
+      </div>
+      <p class="marketplace-status" id="marketplaceStatus"></p>
+      <div class="market-loading-overlay" id="marketLoadingOverlay" aria-hidden="true">
+        <div class="market-loading-card">
+          <div class="market-loading-spinner" aria-hidden="true"></div>
+          <div class="market-loading-text" id="marketLoadingText">처리 중입니다...</div>
+        </div>
+      </div>
+      <div class="market-tab-content active" id="marketplaceBuyPane">
+        <div class="marketplace-list market-skin-list" id="marketplaceListingList"></div>
+      </div>
+      <div class="market-tab-content" id="marketplaceSellPane">
+        <div class="marketplace-list market-skin-list" id="marketplaceMyItemList"></div>
+      </div>
+      <div class="market-tab-content" id="marketplaceHistoryPane">
+        <div class="marketplace-list market-skin-list" id="marketplaceHistoryList"></div>
+      </div>
+      <div class="market-bottom-pager" id="marketplacePager">
+        <span class="market-page-box">1</span>
+        <button class="market-page-next" type="button" title="다음 페이지"></button>
+        <button class="market-search-open" id="marketplaceSearchBtn" type="button">검색 옵션</button>
+      </div>
+      <div class="market-bottom-tabs">
+        <button class="market-tab-btn active" id="marketTabBuyBtn" type="button" data-market-tab="buy">구매</button>
+        <button class="market-tab-btn" id="marketTabSellBtn" type="button" data-market-tab="sell">판매</button>
+        <button class="market-tab-btn" id="marketTabHistoryBtn" type="button" data-market-tab="history">거래 내역</button>
+      </div>
+      <button class="market-close-big" id="marketplaceCloseBigBtn" type="button">×</button>
+    </div>
+  </div>
+
+  <div class="market-filter-modal" id="marketFilterModal" aria-hidden="true">
+    <div class="market-filter-card">
+      <div class="market-filter-title">검색 옵션</div>
+      <div class="market-filter-section">
+        <h3>장비</h3>
+        <div class="market-filter-grid" id="marketFilterSlotBox">
+          <label class="market-filter-option"><input type="checkbox" data-market-filter-slot="all" checked><span>전체</span></label>
+          <label class="market-filter-option"><input type="checkbox" data-market-filter-slot="glove"><span>장갑</span></label>
+          <label class="market-filter-option"><input type="checkbox" data-market-filter-slot="hat"><span>모자</span></label>
+          <label class="market-filter-option"><input type="checkbox" data-market-filter-slot="scarf"><span>목도리</span></label>
+          <label class="market-filter-option"><input type="checkbox" data-market-filter-slot="shoes"><span>신발</span></label>
+          <label class="market-filter-option"><input type="checkbox" data-market-filter-slot="ring"><span>반지</span></label>
+          <label class="market-filter-option"><input type="checkbox" data-market-filter-slot="necklace"><span>목걸이</span></label>
+          <label class="market-filter-option"><input type="checkbox" data-market-filter-slot="top"><span>상의</span></label>
+          <label class="market-filter-option"><input type="checkbox" data-market-filter-slot="bottom"><span>하의</span></label>
+        </div>
+      </div>
+      <div class="market-filter-section">
+        <h3>등급</h3>
+        <div class="market-filter-grid" id="marketFilterTierBox">
+          <label class="market-filter-option"><input type="checkbox" data-market-filter-tier="all" checked><span>전체</span></label>
+          <label class="market-filter-option market-tier-common"><input type="checkbox" data-market-filter-tier="1"><span>일반</span></label>
+          <label class="market-filter-option market-tier-advanced"><input type="checkbox" data-market-filter-tier="2"><span>고급</span></label>
+          <label class="market-filter-option market-tier-rare"><input type="checkbox" data-market-filter-tier="3"><span>희귀</span></label>
+          <label class="market-filter-option market-tier-hero"><input type="checkbox" data-market-filter-tier="4"><span>영웅</span></label>
+          <label class="market-filter-option market-tier-legend"><input type="checkbox" data-market-filter-tier="5"><span>전설</span></label>
+        </div>
+      </div>
+      <div class="market-filter-actions">
+        <button class="market-filter-reset" id="marketFilterResetBtn" type="button">초기화</button>
+        <button class="market-filter-apply" id="marketFilterApplyBtn" type="button">적용</button>
+      </div>
+      <button class="market-filter-close" id="marketFilterCloseBtn" type="button">×</button>
+    </div>
+  </div>
+
+
+  <div class="mailbox-modal" id="mailboxModal" aria-hidden="true">
+    <div class="mailbox-card">
+      <div class="mailbox-head">
+        <h2>우편함</h2>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <button class="mailbox-refresh-btn" id="mailboxRefreshBtn" type="button">새로고침</button>
+          <button class="mailbox-claim-all-btn" id="mailboxClaimAllBtn" type="button">모두 받기</button>
+          <button class="mailbox-close" id="mailboxCloseBtn" type="button">닫기</button>
+        </div>
+      </div>
+      <p class="mailbox-desc">거래소 판매대금, 구매한 장비, 만료 반환 장비는 우편함에서 직접 수령합니다.</p>
+      <p class="mailbox-status" id="mailboxStatus"></p>
+      <div class="mailbox-panel">
+        <h3>받을 우편</h3>
+        <div class="mailbox-list" id="mailboxList"></div>
       </div>
     </div>
   </div>
@@ -3795,11 +6186,29 @@
     </div>
   </div>
 
+
+  <div class="tutorial-overlay" id="tutorialOverlay" aria-hidden="true">
+    <div class="tutorial-dim" id="tutorialDim"></div>
+    <div class="tutorial-card" id="tutorialCard" role="dialog" aria-live="polite">
+      <span class="tutorial-step-badge" id="tutorialStepBadge" style="display:none;"></span>
+      <h2 class="tutorial-title" id="tutorialTitle">시작 안내</h2>
+      <p class="tutorial-text" id="tutorialText"></p>
+      <div class="tutorial-click-hint" id="tutorialClickHint">빛나는 부분을 눌러 진행하세요</div>
+      <div class="tutorial-actions">
+        <button class="tutorial-skip-btn" id="tutorialSkipBtn" type="button" style="display:none;">건너뛰기</button>
+        <button class="tutorial-next-btn" id="tutorialNextBtn" type="button">다음</button>
+      </div>
+    </div>
+  </div>
+
   <main class="app">
-    <h1>
-      소환권 시뮬레이터
-      <span class="title-credit">[KOR]호랑 by시티즌</span>
-    </h1>
+    <div class="title-row">
+      <h1>
+        소환권 시뮬레이터
+        <span class="title-credit">[KOR]호랑 by시티즌</span>
+      </h1>
+      <button class="inquiry-open-btn" id="inquiryBtn" type="button">문의하기</button>
+    </div>
     <div class="top-rank-message" id="topRankMessage"></div>
 
     <div class="user-bar" id="userBar">
@@ -3808,6 +6217,8 @@
       <span class="online-count-badge" id="onlineCountBadge">🟢 0명 접속 중</span>
       <button class="logout-btn" id="logoutBtn" type="button">로그아웃</button>
       <button class="account-reset-btn" id="accountResetBtn" type="button">계정초기화</button>
+      <button class="marketplace-btn" id="marketplaceBtn" type="button">거래소</button>
+      <button class="mailbox-btn" id="mailboxBtn" type="button">우편함</button>
     </div>
 
     <section class="screen auth-screen active" id="authScreen">
@@ -3900,7 +6311,7 @@
       <section class="shop-panel">
         <p class="shop-desc">
           제작에 필요한 장비를 통해 유물 제작을 할 수 있습니다.<br />
-          제작 성공 시 유물 효과를 영구적으로 얻을 수 있으며, 다음 단계 유물제작이 활성화 됩니다.<br />
+          제작 성공 시 유물 효과를 얻을 수 있으며, 다음 단계 유물제작이 활성화 됩니다.<br />
           성공/실패시 제작재료는 소멸됩니다.
         </p>
 
@@ -4081,7 +6492,11 @@
             <input class="admin-summon-input" id="adminSummonCount" type="number" min="1" max="100000" step="1" value="100" inputmode="numeric" placeholder="소환 횟수">
             <button class="admin-summon-btn" id="adminSummonBtn" type="button">관리자 소환</button>
           </div>
-          <p class="admin-summon-note">입력한 횟수만큼 블랙다이아를 소모하여 현재 소환권을 소환합니다. 관리자 계정은 랭킹에 포함되지 않습니다.</p>
+          <div class="admin-summon-row">
+            <input class="admin-summon-input" id="adminBlackDiaAmount" type="number" min="1" max="999999999" step="1" value="1000" inputmode="numeric" placeholder="지급할 블다 개수">
+            <button class="admin-summon-btn" id="adminBlackDiaBtn" type="button">블다 지급</button>
+          </div>
+          <p class="admin-summon-note">관리자 전용 테스트 기능입니다. 관리자 계정은 랭킹에 포함되지 않습니다.</p>
         </div>
         <div class="counter">누적 소환: <b id="totalCount">0</b>회</div>
       </div>
@@ -4199,6 +6614,9 @@
       return itemPools[currentTicketKey] || [];
     }
 
+    // 전역 오타/잔여 토큰 방지: 일부 브라우저/복사본에서 단독 S 참조가 남아도 실행을 막지 않도록 안전 기본값을 둡니다.
+    var S = "";
+
     const selectScreen = document.getElementById("selectScreen");
     const summonScreen = document.getElementById("summonScreen");
     const artifactShopScreen = document.getElementById("artifactShopScreen");
@@ -4294,9 +6712,50 @@
     const onlineCountBadge = document.getElementById("onlineCountBadge");
     const logoutBtn = document.getElementById("logoutBtn");
     const accountResetBtn = document.getElementById("accountResetBtn");
+    const marketplaceBtn = document.getElementById("marketplaceBtn");
+    const marketplaceModal = document.getElementById("marketplaceModal");
+    const marketplaceCloseBtn = document.getElementById("marketplaceCloseBtn");
+    const marketplaceRefreshBtn = document.getElementById("marketplaceRefreshBtn");
+    const marketplaceListingList = document.getElementById("marketplaceListingList");
+    const marketplaceMyItemList = document.getElementById("marketplaceMyItemList");
+    const marketplaceStatus = document.getElementById("marketplaceStatus");
+    const marketLoadingOverlay = document.getElementById("marketLoadingOverlay");
+    const marketLoadingText = document.getElementById("marketLoadingText");
+    const marketplaceHistoryList = document.getElementById("marketplaceHistoryList");
+    const marketplaceHeaderRow = document.getElementById("marketplaceHeaderRow");
+    const marketplaceBuyPane = document.getElementById("marketplaceBuyPane");
+    const marketplaceSellPane = document.getElementById("marketplaceSellPane");
+    const marketplaceHistoryPane = document.getElementById("marketplaceHistoryPane");
+    const marketplaceSearchBtn = document.getElementById("marketplaceSearchBtn");
+    const marketplaceCloseBigBtn = document.getElementById("marketplaceCloseBigBtn");
+    const marketTabBuyBtn = document.getElementById("marketTabBuyBtn");
+    const marketTabSellBtn = document.getElementById("marketTabSellBtn");
+    const marketTabHistoryBtn = document.getElementById("marketTabHistoryBtn");
+    const marketFilterModal = document.getElementById("marketFilterModal");
+    const marketFilterCloseBtn = document.getElementById("marketFilterCloseBtn");
+    const marketFilterApplyBtn = document.getElementById("marketFilterApplyBtn");
+    const marketFilterResetBtn = document.getElementById("marketFilterResetBtn");
+    const marketplaceDiaIcon = document.getElementById("marketplaceDiaIcon");
+    const marketplaceDiaAmount = document.getElementById("marketplaceDiaAmount");
+    const mailboxBtn = document.getElementById("mailboxBtn");
+    const mailboxModal = document.getElementById("mailboxModal");
+    const mailboxCloseBtn = document.getElementById("mailboxCloseBtn");
+    const mailboxRefreshBtn = document.getElementById("mailboxRefreshBtn");
+    const mailboxClaimAllBtn = document.getElementById("mailboxClaimAllBtn");
+    const mailboxList = document.getElementById("mailboxList");
+    const mailboxStatus = document.getElementById("mailboxStatus");
+    let marketplaceCurrentTab = "buy";
+    let marketplaceCachedListings = [];
+    let marketplaceCachedHistory = [];
+    let marketplaceFilterState = {
+      slots: new Set(["all"]),
+      tiers: new Set(["all"])
+    };
     const adminSummonPanel = document.getElementById("adminSummonPanel");
     const adminSummonCountInput = document.getElementById("adminSummonCount");
     const adminSummonBtn = document.getElementById("adminSummonBtn");
+    const adminBlackDiaAmountInput = document.getElementById("adminBlackDiaAmount");
+    const adminBlackDiaBtn = document.getElementById("adminBlackDiaBtn");
     const loginTabBtn = document.getElementById("loginTabBtn");
     const signupTabBtn = document.getElementById("signupTabBtn");
     const loginForm = document.getElementById("loginForm");
@@ -4311,6 +6770,24 @@
     const updateNoticeModal = document.getElementById("updateNoticeModal");
     const updateNoticeCloseBtn = document.getElementById("updateNoticeCloseBtn");
     const updateNoticeContent = document.getElementById("updateNoticeContent");
+    const inquiryBtn = document.getElementById("inquiryBtn");
+    const inquiryModal = document.getElementById("inquiryModal");
+    const inquiryCloseBtn = document.getElementById("inquiryCloseBtn");
+    const inquiryMessageInput = document.getElementById("inquiryMessageInput");
+    const inquirySubmitBtn = document.getElementById("inquirySubmitBtn");
+    const inquiryStatus = document.getElementById("inquiryStatus");
+    const inquiryAdminPanel = document.getElementById("inquiryAdminPanel");
+    const inquiryAdminList = document.getElementById("inquiryAdminList");
+    const inquiryRefreshBtn = document.getElementById("inquiryRefreshBtn");
+    const tutorialOverlay = document.getElementById("tutorialOverlay");
+    const tutorialDim = document.getElementById("tutorialDim");
+    const tutorialCard = document.getElementById("tutorialCard");
+    const tutorialClickHint = document.getElementById("tutorialClickHint");
+    const tutorialStepBadge = document.getElementById("tutorialStepBadge");
+    const tutorialTitle = document.getElementById("tutorialTitle");
+    const tutorialText = document.getElementById("tutorialText");
+    const tutorialNextBtn = document.getElementById("tutorialNextBtn");
+    const tutorialSkipBtn = document.getElementById("tutorialSkipBtn");
 
     let count = 0;
     let blackDia = 1000;
@@ -4326,6 +6803,38 @@
     let hideCompletedCodexSets = false;
     let sortRegisterableCodexSetsFirst = false;
     let currentRankingTab = "overall";
+    let tutorialDone = false;
+    let tutorialActive = false;
+    let tutorialStepIndex = 0;
+    let tutorialHighlightedEl = null;
+    let tutorialHighlightContainer = null;
+    let tutorialNextButtonLockUntil = 0;
+
+    const TUTORIAL_DONE_LOCAL_PREFIX = "summonTutorialDone::";
+
+    function getTutorialDoneLocalKey(nickname = currentUserNickname) {
+      return `${TUTORIAL_DONE_LOCAL_PREFIX}${encodeURIComponent(normalizeNickname(nickname || ""))}`;
+    }
+
+    function readTutorialDoneLocal(nickname = currentUserNickname) {
+      const keyNickname = normalizeNickname(nickname || "");
+      if (!keyNickname) return false;
+      try {
+        return localStorage.getItem(getTutorialDoneLocalKey(keyNickname)) === "1";
+      } catch (error) {
+        return false;
+      }
+    }
+
+    function writeTutorialDoneLocal(nickname = currentUserNickname) {
+      const keyNickname = normalizeNickname(nickname || "");
+      if (!keyNickname) return;
+      try {
+        localStorage.setItem(getTutorialDoneLocalKey(keyNickname), "1");
+      } catch (error) {
+        console.warn("[TUTORIAL] 완료 상태 로컬 저장 실패", error);
+      }
+    }
     let cachedRankingRows = [];
     let currentTopRankInfo = null;
     let rankingRefreshTimer = null;
@@ -4346,6 +6855,15 @@
       purple: "#d878fb"
     };
     const DEFAULT_RANK_MESSAGE_COLOR = "red";
+    const EQUIPMENT_ENHANCE_MAX_LEVEL = 3;
+    const EQUIPMENT_ENHANCE_SUCCESS_RATE = 50;
+    const EQUIPMENT_ENHANCE_CONFIG = {
+      "초보자": { 1: { cost: 100, sellBonusPercent: 2, summonBonus: 0, sellPriceAdd: 120 }, 2: { cost: 150, sellBonusPercent: 3, summonBonus: 1, sellPriceAdd: 300 }, 3: { cost: 200, sellBonusPercent: 5, summonBonus: 2, sellPriceAdd: 550 } },
+      "여행자": { 1: { cost: 300, sellBonusPercent: 4, summonBonus: 2, sellPriceAdd: 350 }, 2: { cost: 500, sellBonusPercent: 9, summonBonus: 3, sellPriceAdd: 1000 }, 3: { cost: 600, sellBonusPercent: 12, summonBonus: 5, sellPriceAdd: 1700 } },
+      "하늘빛": { 1: { cost: 500, sellBonusPercent: 9, summonBonus: 2, sellPriceAdd: 120 }, 2: { cost: 750, sellBonusPercent: 12, summonBonus: 5, sellPriceAdd: 300, rateBoost: { sourceLabel: "초보자", targetLabel: "하늘빛", amount: 0.2 } }, 3: { cost: 900, sellBonusPercent: 15, summonBonus: 11, sellPriceAdd: 550, rateBoost: { sourceLabel: "초보자", targetLabel: "하늘빛", amount: 0.2 } } },
+      "달빛": { 1: { cost: 1000, sellBonusPercent: 15, summonBonus: 5, sellPriceAdd: 350 }, 2: { cost: 1300, sellBonusPercent: 20, summonBonus: 10, sellPriceAdd: 1000, doubleSummonChancePercent: 2 }, 3: { cost: 1500, sellBonusPercent: 25, summonBonus: 15, sellPriceAdd: 1700, doubleSummonChancePercent: 2, freeSummonEvery: 100 } },
+      "붉은바다": { 1: { cost: 2000, sellBonusPercent: 4, summonBonus: 10, sellPriceAdd: 350 }, 2: { cost: 3000, sellBonusPercent: 8, summonBonus: 20, sellPriceAdd: 1000, rateBoost: { sourceLabel: "초보자", targetLabel: "붉은바다", amount: 0.01 } }, 3: { cost: 4000, sellBonusPercent: 12, summonBonus: 30, sellPriceAdd: 1700, rateBoost: { sourceLabel: "초보자", targetLabel: "붉은바다", amount: 0.01 }, doubleSummonChancePercent: 4 } }
+    };
 
     function normalizeRankMessageColor(value) {
       const key = String(value || DEFAULT_RANK_MESSAGE_COLOR).trim().toLowerCase();
@@ -4464,6 +6982,410 @@
     ];
 
     const lockedItemNames = new Set();
+    const enhancedEquipmentCounts = {};
+    const equippedEnhanceLevelsBySlot = {};
+
+
+
+    function getEquipmentEnhanceConfigByGradeLabel(gradeLabel, level = 0) {
+      const safeLevel = Math.max(0, Number(level) || 0);
+      return (EQUIPMENT_ENHANCE_CONFIG[gradeLabel] && EQUIPMENT_ENHANCE_CONFIG[gradeLabel][safeLevel]) || null;
+    }
+    function getEquipmentEnhanceConfig(item, ticketKey, level = 0) {
+      if (!item) return null;
+      const grade = getSellGrade(item, ticketKey);
+      return getEquipmentEnhanceConfigByGradeLabel(grade.label, level);
+    }
+    function getEquipmentEnhanceCost(item, ticketKey, targetLevel = 1) {
+      const config = getEquipmentEnhanceConfig(item, ticketKey, targetLevel);
+      return Math.max(0, Number(config && config.cost) || 0);
+    }
+    function getEquipmentEnhanceSellPriceAdd(item, ticketKey, level = 0) {
+      const config = getEquipmentEnhanceConfig(item, ticketKey, level);
+      return Math.max(0, Number(config && config.sellPriceAdd) || 0);
+    }
+    function getBlackDiaIconSrc() {
+      const icon = document.querySelector(".black-dia-icon");
+      return icon ? icon.getAttribute("src") : "";
+    }
+    function formatPercentValue(value) {
+      const number = Number(value) || 0;
+      return Number(number.toFixed(3)).toString();
+    }
+    function getEquipmentEnhanceEffectLines(item, ticketKey, level = 0) {
+      const config = getEquipmentEnhanceConfig(item, ticketKey, level);
+      if (!config) return [];
+      const slotName = EQUIPMENT_SLOT_NAMES[ticketKey] || (tickets[ticketKey] && tickets[ticketKey].name) || "해당 부위";
+      const lines = [];
+      if (Number(config.sellBonusPercent) > 0) lines.push(`${slotName} 판매가 +${formatWholeNumber(config.sellBonusPercent)}%`);
+      if (Number(config.summonBonus) > 0) lines.push(`소환 횟수 증가 +${formatWholeNumber(config.summonBonus)}`);
+      if (config.rateBoost) lines.push(`${slotName} ${config.rateBoost.targetLabel} 소환 확률 +${formatPercentValue(config.rateBoost.amount)}%`);
+      if (Number(config.doubleSummonChancePercent) > 0) lines.push(`소환시 ${formatWholeNumber(config.doubleSummonChancePercent)}% 확률로 장비 2개 소환`);
+      if (Number(config.freeSummonEvery) > 0) lines.push(`${formatWholeNumber(config.freeSummonEvery)}번 소환시 무료소환 1회 추가`);
+      return lines;
+    }
+    function getEquipmentEnhanceEffectText(item, ticketKey, level = 0) {
+      const lines = getEquipmentEnhanceEffectLines(item, ticketKey, level);
+      if (lines.length) return lines.join(", ");
+      const slotName = EQUIPMENT_SLOT_NAMES[ticketKey] || (tickets[ticketKey] && tickets[ticketKey].name) || "해당 부위";
+      return `${slotName} 판매가 ${formatWholeNumber(getEquipmentSellBonusPercentByItem(item, ticketKey))}% 증가`;
+    }
+    function getEquippedEnhanceEntries() {
+      return Object.entries(equippedBestBySlot).map(([ticketKey, item]) => {
+        if (!item) return null;
+        const level = getEquipmentEnhanceLevel(ticketKey, item, equippedEnhanceLevelsBySlot[ticketKey]);
+        const config = getEquipmentEnhanceConfig(item, ticketKey, level);
+        return config ? { ticketKey, item, level, config } : null;
+      }).filter(Boolean);
+    }
+    function showEquipmentEnhanceConfirmModal({ itemName, currentLevel, targetLevel, cost, successRate, effectText, sellPriceAdd }) {
+      const beforeName = getEquipmentVariantDisplayName(itemName, currentLevel);
+      const iconSrc = getBlackDiaIconSrc();
+      let overlay = document.getElementById("equipmentEnhanceConfirmOverlay");
+      if (!overlay) {
+        overlay = document.createElement("div");
+        overlay.id = "equipmentEnhanceConfirmOverlay";
+        overlay.className = "enhance-confirm-overlay";
+        document.body.appendChild(overlay);
+      }
+      overlay.innerHTML = `
+        <div class="enhance-confirm-card" role="dialog" aria-modal="true">
+          <h3 class="enhance-confirm-title">장비 강화</h3>
+          <p class="enhance-confirm-item">${beforeName} → +${targetLevel}강</p>
+          <div class="enhance-confirm-list">
+            <div>강화비용 : <span class="enhance-confirm-cost">${iconSrc ? `<img src="${iconSrc}" alt="블다">` : ""}${formatWholeNumber(cost)}개</span></div>
+            <div>성공 확률 : ${formatWholeNumber(successRate)}%</div>
+            <div>강화 성공 : ${effectText}</div>
+            <div>강화 실패 : <span class="enhance-confirm-destroy">파괴</span></div>
+          </div>
+          <p class="enhance-confirm-question">강화하시겠습니까?</p>
+          <div class="enhance-confirm-actions">
+            <button class="enhance-confirm-cancel" type="button" data-enhance-confirm="cancel">취소</button>
+            <button class="enhance-confirm-ok" type="button" data-enhance-confirm="ok">강화</button>
+          </div>
+        </div>`;
+      overlay.classList.add("show");
+      return new Promise(resolve => {
+        const close = result => { overlay.classList.remove("show"); overlay.innerHTML = ""; resolve(result); };
+        const handleClick = event => {
+          const button = event.target.closest("[data-enhance-confirm]");
+          if (!button) {
+            if (event.target === overlay) { overlay.removeEventListener("click", handleClick); close(false); }
+            return;
+          }
+          overlay.removeEventListener("click", handleClick);
+          close(button.dataset.enhanceConfirm === "ok");
+        };
+        overlay.addEventListener("click", handleClick);
+      });
+    }
+
+    let isEquipmentEnhanceAnimating = false;
+
+    function wait(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    function ensureEquipmentEnhanceEffectOverlay() {
+      let overlay = document.getElementById("equipmentEnhanceEffectOverlay");
+      if (overlay) return overlay;
+
+      overlay = document.createElement("div");
+      overlay.id = "equipmentEnhanceEffectOverlay";
+      overlay.className = "enhance-effect-overlay";
+      overlay.setAttribute("aria-hidden", "true");
+      overlay.innerHTML = `
+        <div class="enhance-effect-card">
+          <div class="enhance-effect-content">
+            <div class="enhance-effect-icon-wrap">
+              <span class="enhance-effect-ring"></span>
+              <div class="enhance-effect-icon" id="enhanceEffectIcon"></div>
+              <span class="enhance-effect-hammer" id="enhanceEffectHammer">🔨</span>
+            </div>
+            <h3 class="enhance-effect-title" id="enhanceEffectTitle">강화 진행중</h3>
+            <p class="enhance-effect-desc" id="enhanceEffectDesc"></p>
+            <p class="enhance-effect-touch" id="enhanceEffectTouch">TOUCH</p>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(overlay);
+      return overlay;
+    }
+
+    function setEquipmentEnhanceEffectState(state, { item, title, desc, targetLevel } = {}) {
+      const overlay = ensureEquipmentEnhanceEffectOverlay();
+      const icon = overlay.querySelector("#enhanceEffectIcon");
+      const titleEl = overlay.querySelector("#enhanceEffectTitle");
+      const descEl = overlay.querySelector("#enhanceEffectDesc");
+      const hammer = overlay.querySelector("#enhanceEffectHammer");
+
+      overlay.className = `enhance-effect-overlay show ${state || "working"}`;
+      overlay.setAttribute("aria-hidden", "false");
+
+      if (icon && item) {
+        icon.innerHTML = makeImg(item, "item-img") + getEquipmentEnhanceBadgeHTML(targetLevel || 0);
+      }
+      if (titleEl) titleEl.textContent = title !== undefined ? title : "강화 진행중";
+      if (descEl) descEl.textContent = desc !== undefined ? desc : "장비에 강화의 힘을 불어넣는 중...";
+      if (hammer) hammer.textContent = state === "success" ? "✨" : state === "fail" ? "💥" : "🔨";
+    }
+
+    function hideEquipmentEnhanceEffectOverlay() {
+      const overlay = document.getElementById("equipmentEnhanceEffectOverlay");
+      if (!overlay) return;
+      overlay.classList.remove("show", "success", "fail", "working", "ready", "awaiting-touch", "result-wait");
+      overlay.setAttribute("aria-hidden", "true");
+    }
+
+    function spawnEnhanceEffectParticles(success) {
+      const colors = success
+        ? ["#9eea76", "#ffd86a", "#ffffff", "#21d4f0"]
+        : ["#ff6872", "#aeb8ca", "#ffffff", "#3a4559"];
+      const amount = success ? 48 : 34;
+
+      for (let i = 0; i < amount; i += 1) {
+        const particle = document.createElement("span");
+        const angle = Math.random() * Math.PI * 2;
+        const distance = (success ? 80 : 62) + Math.random() * (success ? 170 : 120);
+        const gravity = success ? -20 + Math.random() * 60 : 20 + Math.random() * 130;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+
+        particle.className = `enhance-effect-particle${success ? "" : " shard"}`;
+        particle.style.setProperty("--dx", `${Math.cos(angle) * distance}px`);
+        particle.style.setProperty("--dy", `${Math.sin(angle) * distance + gravity}px`);
+        particle.style.setProperty("--color", color);
+        particle.style.setProperty("--size", `${5 + Math.random() * (success ? 8 : 7)}px`);
+        particle.style.setProperty("--rotate", `${-540 + Math.random() * 1080}deg`);
+        particle.style.setProperty("--duration", `${success ? 880 + Math.random() * 520 : 720 + Math.random() * 420}ms`);
+        document.body.appendChild(particle);
+        particle.addEventListener("animationend", () => particle.remove());
+      }
+    }
+
+
+    function waitForEquipmentEnhanceTouch() {
+      const overlay = ensureEquipmentEnhanceEffectOverlay();
+      const card = overlay.querySelector(".enhance-effect-card");
+      overlay.classList.add("ready", "awaiting-touch");
+      return new Promise(resolve => {
+        const handleTouch = event => {
+          event.preventDefault();
+          overlay.classList.remove("awaiting-touch");
+          overlay.removeEventListener("click", handleTouch);
+          if (card) card.removeEventListener("click", handleTouch);
+          resolve();
+        };
+        overlay.addEventListener("click", handleTouch);
+        if (card) card.addEventListener("click", handleTouch);
+      });
+    }
+
+    function waitForEquipmentEnhanceResultClose() {
+      const overlay = ensureEquipmentEnhanceEffectOverlay();
+      const card = overlay.querySelector(".enhance-effect-card");
+      overlay.classList.add("result-wait");
+      return new Promise(resolve => {
+        const handleClose = event => {
+          event.preventDefault();
+          overlay.classList.remove("result-wait");
+          overlay.removeEventListener("click", handleClose);
+          if (card) card.removeEventListener("click", handleClose);
+          hideEquipmentEnhanceEffectOverlay();
+          resolve();
+        };
+        setTimeout(() => {
+          overlay.addEventListener("click", handleClose);
+          if (card) card.addEventListener("click", handleClose);
+        }, 250);
+      });
+    }
+    async function playEquipmentEnhanceEffect(item, itemName, currentLevel, targetLevel, success) {
+      const beforeName = getEquipmentVariantDisplayName(itemName, currentLevel);
+      setEquipmentEnhanceEffectState("working", {
+        item,
+        targetLevel: currentLevel,
+        title: "강화 진행중",
+        desc: `${beforeName} → +${targetLevel}강\n성공 확률 ${EQUIPMENT_ENHANCE_SUCCESS_RATE}%`
+      });
+
+      if (typeof playTone === "function") {
+        playTone({ frequency: 360, duration: 0.16, type: "triangle", volume: 0.045 });
+        playTone({ frequency: 440, duration: 0.16, type: "triangle", volume: 0.045, delay: 0.48 });
+        playTone({ frequency: 520, duration: 0.18, type: "triangle", volume: 0.05, delay: 0.96 });
+        playTone({ frequency: 640, duration: 0.20, type: "triangle", volume: 0.05, delay: 1.48 });
+        playTone({ frequency: 820, duration: 0.26, type: "sine", volume: 0.045, delay: 2.08 });
+      }
+
+      await wait(2650);
+      const overlay = ensureEquipmentEnhanceEffectOverlay();
+      const titleEl = overlay.querySelector("#enhanceEffectTitle");
+      const descEl = overlay.querySelector("#enhanceEffectDesc");
+      const hammer = overlay.querySelector("#enhanceEffectHammer");
+      if (titleEl) titleEl.textContent = "";
+      if (descEl) descEl.textContent = "";
+      if (hammer) hammer.textContent = "✨";
+      if (typeof playTone === "function") {
+        playTone({ frequency: 980, duration: 0.12, type: "sine", volume: 0.04 });
+        playTone({ frequency: 1220, duration: 0.16, type: "sine", volume: 0.035, delay: 0.08 });
+      }
+
+      await waitForEquipmentEnhanceTouch();
+      overlay.classList.remove("ready");
+      spawnEnhanceEffectParticles(success);
+
+      if (success) {
+        setEquipmentEnhanceEffectState("success", {
+          item,
+          targetLevel,
+          title: "강화 성공!",
+          desc: `${itemName} +${targetLevel} 강화 성공\n강화 효과 : ${getEquipmentEnhanceEffectText(item, findItemLocation(itemName), targetLevel)}`
+        });
+        if (typeof playTone === "function") {
+          playTone({ frequency: 660, duration: 0.12, type: "triangle", volume: 0.06 });
+          playTone({ frequency: 880, duration: 0.14, type: "triangle", volume: 0.06, delay: 0.09 });
+          playTone({ frequency: 1320, duration: 0.20, type: "sine", volume: 0.045, delay: 0.2 });
+        }
+      } else {
+        setEquipmentEnhanceEffectState("fail", {
+          item,
+          targetLevel: currentLevel,
+          title: "강화 실패",
+          desc: `${beforeName} 강화 실패\n장비가 파괴되었습니다.`
+        });
+        if (typeof playTone === "function") {
+          playTone({ frequency: 180, duration: 0.22, type: "sawtooth", volume: 0.07 });
+          playTone({ frequency: 96, duration: 0.34, type: "square", volume: 0.055, delay: 0.12 });
+        }
+      }
+
+      await waitForEquipmentEnhanceResultClose();
+    }
+
+    function getEquipmentEnhanceKey(slotKey, itemName, level = 0) {
+      return `${slotKey}::${itemName}::${Math.max(0, Number(level) || 0)}`;
+    }
+
+    function getEquipmentVariantDisplayName(itemName, level = 0) {
+      const safeLevel = Math.max(0, Number(level) || 0);
+      return safeLevel > 0 ? `${itemName}+${safeLevel}` : itemName;
+    }
+
+    function getEnhancedEquipmentCount(slotKey, itemName, level) {
+      const safeLevel = Math.max(0, Number(level) || 0);
+      if (safeLevel <= 0) return (ownedCountsByTicket[slotKey] || {})[itemName] || 0;
+      return Math.max(0, Number(enhancedEquipmentCounts[getEquipmentEnhanceKey(slotKey, itemName, safeLevel)]) || 0);
+    }
+
+    function setEnhancedEquipmentCount(slotKey, itemName, level, countValue) {
+      const safeLevel = Math.max(0, Number(level) || 0);
+      const safeCount = Math.max(0, Number(countValue) || 0);
+      if (safeLevel <= 0) {
+        if (!ownedCountsByTicket[slotKey]) ownedCountsByTicket[slotKey] = {};
+        ownedCountsByTicket[slotKey][itemName] = safeCount;
+        return;
+      }
+
+      const key = getEquipmentEnhanceKey(slotKey, itemName, safeLevel);
+      if (safeCount > 0) enhancedEquipmentCounts[key] = safeCount;
+      else delete enhancedEquipmentCounts[key];
+    }
+
+    function changeEnhancedEquipmentCount(slotKey, itemName, level, delta) {
+      setEnhancedEquipmentCount(slotKey, itemName, level, getEnhancedEquipmentCount(slotKey, itemName, level) + (Number(delta) || 0));
+    }
+
+    function getEquipmentEnhanceLevel(slotKey, itemOrName, explicitLevel) {
+      if (explicitLevel !== undefined) return Math.max(0, Number(explicitLevel) || 0);
+      if (itemOrName && typeof itemOrName === "object" && itemOrName.enhanceLevel !== undefined) {
+        return Math.max(0, Number(itemOrName.enhanceLevel) || 0);
+      }
+      const itemName = typeof itemOrName === "string" ? itemOrName : itemOrName && itemOrName.name;
+      if (!slotKey || !itemName) return 0;
+      const equippedItem = equippedBestBySlot[slotKey];
+      if (equippedItem && equippedItem.name === itemName) {
+        return Math.max(0, Number(equippedEnhanceLevelsBySlot[slotKey]) || 0);
+      }
+      return 0;
+    }
+
+    function getEquipmentEnhanceBadgeHTML(level) {
+      const safeLevel = Math.max(0, Number(level) || 0);
+      return safeLevel > 0 ? `<span class="equip-enhance-badge">+${safeLevel}</span>` : "";
+    }
+
+    function getEquipmentEnhanceText(slotKey, itemName, level = 0) {
+      const safeLevel = Math.max(0, Number(level) || 0);
+      return safeLevel > 0 ? ` / 강화 +${safeLevel}` : " / 미강화";
+    }
+
+    function isEquippedItemVariant(slotKey, itemName, level = 0) {
+      const item = equippedBestBySlot[slotKey];
+      return Boolean(item && item.name === itemName && getEquipmentEnhanceLevel(slotKey, item, equippedEnhanceLevelsBySlot[slotKey]) === Math.max(0, Number(level) || 0));
+    }
+
+    async function enhanceEquipmentItem(slotKey, itemName, currentLevel = 0) {
+      if (isEquipmentEnhanceAnimating) return;
+      if (!isEquippableSlot(slotKey)) return;
+      const item = findItemByTicketAndName(slotKey, itemName);
+      const safeLevel = Math.max(0, Number(currentLevel) || 0);
+      const ownedCount = getEnhancedEquipmentCount(slotKey, itemName, safeLevel);
+      if (!item || ownedCount <= 0) return;
+
+      if (safeLevel >= EQUIPMENT_ENHANCE_MAX_LEVEL) {
+        alert(`이미 최대 강화 단계(+${EQUIPMENT_ENHANCE_MAX_LEVEL})입니다.`);
+        return;
+      }
+
+      const targetLevel = safeLevel + 1;
+      const enhanceCost = getEquipmentEnhanceCost(item, slotKey, targetLevel);
+      const targetEffectText = getEquipmentEnhanceEffectText(item, slotKey, targetLevel);
+      const targetSellPriceAdd = getEquipmentEnhanceSellPriceAdd(item, slotKey, targetLevel);
+
+      if (blackDia < enhanceCost) {
+        alert(`블다가 부족합니다. 강화에는 블다 ${formatWholeNumber(enhanceCost)}개가 필요합니다.`);
+        return;
+      }
+
+      const ok = await showEquipmentEnhanceConfirmModal({ item, itemName, currentLevel: safeLevel, targetLevel, cost: enhanceCost, successRate: EQUIPMENT_ENHANCE_SUCCESS_RATE, effectText: targetEffectText, sellPriceAdd: targetSellPriceAdd });
+      if (!ok) return;
+
+      isEquipmentEnhanceAnimating = true;
+      try {
+        blackDia -= enhanceCost;
+        renderBlackDia();
+
+        const success = Math.random() * 100 < EQUIPMENT_ENHANCE_SUCCESS_RATE;
+        await playEquipmentEnhanceEffect(item, itemName, safeLevel, targetLevel, success);
+
+        if (success) {
+          changeEnhancedEquipmentCount(slotKey, itemName, safeLevel, -1);
+          changeEnhancedEquipmentCount(slotKey, itemName, targetLevel, 1);
+          if (isEquippedItemVariant(slotKey, itemName, safeLevel)) {
+            equippedEnhanceLevelsBySlot[slotKey] = targetLevel;
+          }
+        } else {
+          changeEnhancedEquipmentCount(slotKey, itemName, safeLevel, -1);
+          if (isEquippedItemVariant(slotKey, itemName, safeLevel)) {
+            equippedBestBySlot[slotKey] = null;
+            delete equippedEnhanceLevelsBySlot[slotKey];
+          }
+        }
+
+        pruneInvalidEquippedItems();
+        renderBlackDia();
+        renderEquipment();
+        renderEquipmentSelectModal();
+        renderInventoryOwnedItems();
+        renderRecipes();
+        renderSummonButtons();
+        renderList();
+        renderOwnedEffects();
+        saveGame();
+        scheduleCloudSave();
+      } finally {
+        isEquipmentEnhanceAnimating = false;
+      }
+    }
 
     function getSummonCost(ticketKey = currentTicketKey) {
       const baseCost = SUMMON_COST_BY_TICKET[ticketKey] || SUMMON_COST;
@@ -4496,9 +7418,12 @@
       const grade = getSellGrade(item);
       let rate = Number(item.rate) || 0;
 
-      [...getCodexRateBoosts(), ...getEquipmentSetRateBoosts()].forEach(boost => {
+      const ticketKey = findItemLocation(item && item.name);
+      [...getCodexRateBoosts(), ...getEquipmentSetRateBoosts(), ...getEquipmentEnhanceRateBoosts()].forEach(boost => {
+        if (boost.ticketKey && boost.ticketKey !== ticketKey) return;
         const amount = Number(boost.amount) || 0;
-        if (grade.label === "초보자") rate -= amount;
+        const sourceLabel = boost.sourceLabel || "초보자";
+        if (grade.label === sourceLabel) rate -= amount;
         if (grade.label === boost.targetLabel) rate += amount;
       });
 
@@ -4515,6 +7440,9 @@
 
     function getEquipmentSellBonusPercentByItem(item, ticketKey = findItemLocation(item && item.name)) {
       if (!item) return 0;
+      const level = getEquipmentEnhanceLevel(ticketKey, item, item.enhanceLevel);
+      const config = getEquipmentEnhanceConfig(item, ticketKey, level);
+      if (config && Number(config.sellBonusPercent) > 0) return Number(config.sellBonusPercent) || 0;
       const grade = getSellGrade(item, ticketKey);
       return EQUIPMENT_SELL_BONUS_BY_TIER[grade.tier] || 0;
     }
@@ -4604,6 +7532,16 @@
     function getEquipmentSetDoubleSummonChancePercent() {
       return getEquipmentSetActiveEffects().reduce((sum, entry) => sum + (Number(entry.effect.doubleSummonChancePercent) || 0), 0);
     }
+    function getEquipmentEnhanceSummonBonus() { return getEquippedEnhanceEntries().reduce((sum, entry) => sum + (Number(entry.config.summonBonus) || 0), 0); }
+    function getEquipmentEnhanceDoubleSummonChancePercent() { return getEquippedEnhanceEntries().reduce((sum, entry) => sum + (Number(entry.config.doubleSummonChancePercent) || 0), 0); }
+    function getEquipmentEnhanceRateBoosts() { return getEquippedEnhanceEntries().map(entry => entry.config.rateBoost ? { ...entry.config.rateBoost, ticketKey: entry.ticketKey } : null).filter(Boolean); }
+    function getEquipmentEnhanceRateBoostTexts() {
+      return getEquipmentEnhanceRateBoosts().map(boost => {
+        const slotName = EQUIPMENT_SLOT_NAMES[boost.ticketKey] || (tickets[boost.ticketKey] && tickets[boost.ticketKey].name) || boost.ticketKey;
+        return `${slotName} ${boost.targetLabel} 소환 확률 +${formatPercentValue(boost.amount)}%`;
+      });
+    }
+    function getEquipmentEnhanceFreeSummonEveryValues() { return getEquippedEnhanceEntries().map(entry => Number(entry.config.freeSummonEvery) || 0).filter(value => value > 0); }
 
     function getEquipmentSetRateBoosts() {
       return getEquipmentSetActiveEffects()
@@ -4711,7 +7649,7 @@
     }
 
     function getArtifactDoubleSummonChancePercent() {
-      return equippedArtifacts.reduce((sum, artifact) => sum + (Number(artifact.doubleSummonChancePercent) || 0), 0) + getEquipmentSetDoubleSummonChancePercent();
+      return equippedArtifacts.reduce((sum, artifact) => sum + (Number(artifact.doubleSummonChancePercent) || 0), 0) + getEquipmentSetDoubleSummonChancePercent() + getEquipmentEnhanceDoubleSummonChancePercent();
     }
 
     function getArtifactFreeSummonEvery() {
@@ -4732,15 +7670,16 @@
       }
     }
 
-    function getEffectiveSellPrice(item, ticketKey = findItemLocation(item.name)) {
+    function getEffectiveSellPrice(item, ticketKey = findItemLocation(item.name), enhanceLevel) {
       const grade = getSellGrade(item, ticketKey);
+      const level = enhanceLevel !== undefined ? Math.max(0, Number(enhanceLevel) || 0) : getEquipmentEnhanceLevel(ticketKey, item, item && item.enhanceLevel);
       const bonusPercent = getArtifactSellBonusPercent() + getCodexSellBonusPercent(item, ticketKey) + getEquipmentSellBonusPercent(ticketKey) + getEquipmentSetSellBonusPercent(item, ticketKey);
-      return grade.price * (1 + bonusPercent / 100);
+      return grade.price * (1 + bonusPercent / 100) + getEquipmentEnhanceSellPriceAdd(item, ticketKey, level);
     }
 
     function getEffectiveSellGrade(item, ticketKey = findItemLocation(item.name)) {
       const grade = getSellGrade(item, ticketKey);
-      return { ...grade, price: getEffectiveSellPrice(item, ticketKey) };
+      return { ...grade, price: getEffectiveSellPrice(item, ticketKey, item && item.enhanceLevel) };
     }
 
     function setAutoSellUnlocked(unlocked) {
@@ -5635,7 +8574,7 @@
       const artifactValues = equippedArtifacts
         .map(artifact => Number(artifact.freeSummonEvery) || 0)
         .filter(value => value > 0);
-      return [...artifactValues, ...getCompletedCodexFreeSummonEveryValues(), ...getEquipmentSetFreeSummonEveryValues()];
+      return [...artifactValues, ...getCompletedCodexFreeSummonEveryValues(), ...getEquipmentSetFreeSummonEveryValues(), ...getEquipmentEnhanceFreeSummonEveryValues()];
     }
 
     function getFreeSummonCreditMultiplier(everyValue = getArtifactFreeSummonEvery()) {
@@ -6124,6 +9063,11 @@
       currentCloudToken = "";
     }
 
+    function clearPendingCloudSave() {
+      clearTimeout(cloudSaveTimer);
+      cloudSaveTimer = null;
+    }
+
     function getUserSaveKey(nickname = currentUserNickname) {
       return `${LOCAL_SAVE_KEY}::${encodeURIComponent(nickname)}`;
     }
@@ -6157,10 +9101,594 @@
       refreshUpdateNoticeGlow();
     }
 
+    const tutorialSteps = [
+      {
+        screen: "select",
+        target: '.ticket-option[data-ticket="glove"]',
+        title: "먼저 장갑 소환권을 선택해볼게요",
+        text: `처음에는 장갑 소환으로 기본 흐름을 익히면 됩니다.
+다른 버튼은 잠시 잠기고, 장갑 소환권만 누를 수 있습니다.`,
+        clickText: "장갑 소환권을 눌러주세요"
+      },
+      {
+        screen: "summon",
+        target: "#openBtn",
+        title: "장갑을 1회 소환해보세요",
+        text: `소환에는 블랙다이아가 사용됩니다.
+소환 결과는 가운데에 크게 표시되고, 얻은 장비는 자동으로 보유 목록에 저장됩니다.`,
+        clickText: "1회 소환 버튼을 눌러주세요"
+      },
+      {
+        screen: "summon",
+        target: ".log-panel",
+        title: "획득 현황과 최근 결과",
+        text: `획득 현황에서는 지금까지 얻은 장비 수량을 볼 수 있습니다.
+최근 결과에는 방금 소환한 기록이 순서대로 남고, 전체보기를 누르면 이전 결과도 확인할 수 있습니다.`
+      },
+      {
+        screen: "summon",
+        target: ".list-panel",
+        title: "등장 목록, 확률, 보유 효과",
+        text: `등장 목록에는 현재 소환권에서 나오는 아이템과 확률이 표시됩니다.
+아래의 보유 효과 및 디버프는 보유 장비에 따라 블랙다이아 보상이나 소환 효율에 영향을 주는 효과를 보여줍니다.`
+      },
+      {
+        screen: "summon",
+        target: "#inventoryBtn",
+        cardPosition: "below",
+        title: "이제 인벤토리로 이동합니다",
+        text: `인벤토리에서는 장비 장착, 강화, 판매, 유물 재료 확인을 할 수 있습니다.`,
+        clickText: "인벤토리 버튼을 눌러주세요"
+      },
+      {
+        screen: "inventory",
+        target: '[data-equip-slot="glove"]',
+        title: "장비칸에서 장갑 칸을 선택하세요",
+        text: `장비칸은 실제로 착용 중인 장비를 관리하는 곳입니다.
+방금 얻은 장갑을 장착하기 위해 장갑 칸을 눌러주세요.`,
+        clickText: "장갑 장비칸을 눌러주세요"
+      },
+      {
+        screen: "inventory",
+        target: '#equipmentSelectModal.show .equipment-equip-btn:not(:disabled), #equipmentSelectModal.show .equipment-equip-btn',
+        requiresEquipmentModal: true,
+        equipStep: true,
+        title: "장착과 강화",
+        text: `장착 버튼을 누르면 해당 장갑이 장비칸에 들어갑니다.
+강화 버튼은 장비를 강화해서 효과를 올리는 기능이며, 강화 단계에 따라 비용과 결과가 달라질 수 있습니다.
+이미 장착중인 장비만 보이면 장착중 버튼을 눌러 다음으로 넘어가면 됩니다.`,
+        clickText: "장착 또는 장착중 버튼을 눌러주세요",
+        allowNextWhenTargetDisabled: true
+      },
+      {
+        screen: "inventory",
+        target: "#inventoryOwnedGrid .shop-owned-row",
+        cardPosition: "bottom",
+        title: "보유 아이템 현황과 판매",
+        text: `소환으로 얻은 아이템은 보유 아이템 현황에 쌓입니다.
+필요 없는 장비는 여기서 상점 판매를 하거나, 거래소 판매 등록에 사용할 수 있습니다.`
+      },
+      {
+        screen: "inventory",
+        target: "#inventoryCodexBtn",
+        cardPosition: "below",
+        title: "도감으로 이동합니다",
+        text: `도감은 장비를 등록해서 수집률과 보상을 챙기는 메뉴입니다.`,
+        clickText: "도감 버튼을 눌러주세요"
+      },
+      {
+        screen: "codex",
+        target: "#codexList .codex-set-card, .codex-guide-row",
+        cardPosition: "bottom",
+        title: "도감 안내",
+        text: `도감에는 세트별 등록 목표가 표시됩니다.
+필요 장비를 모아 등록하면 도감 완성도가 오르고, 도감 랭킹에도 반영됩니다.`
+      },
+      {
+        screen: "codex",
+        target: "#codexArtifactShopBtn",
+        cardPosition: "below",
+        title: "유물 제작으로 이동합니다",
+        text: `유물 제작은 재료를 모아 특별한 유물을 만드는 메뉴입니다.`,
+        clickText: "유물 제작 버튼을 눌러주세요"
+      },
+      {
+        screen: "artifact",
+        target: "#recipeGrid .recipe-card, .shop-desc",
+        cardPosition: "bottom",
+        title: "유물 제작 안내",
+        text: `유물 제작에서는 필요한 재료와 제작 가능 여부를 확인할 수 있습니다.
+제작한 유물은 유물칸에 장착해서 추가 효과를 얻는 구조입니다.`
+      },
+      {
+        screen: "artifact",
+        target: "#recipeGrid .recipe-card, .shop-desc",
+        cardPosition: "bottom",
+        title: "거래소 안내",
+        text: `거래소에서는 다른 이용자가 등록한 장비를 구매하거나, 내가 가진 장비를 판매 등록할 수 있습니다.
+거래가 완료되면 구매 장비와 판매 대금은 우편함으로 지급됩니다.
+거래소는 로딩이 있을 수 있으니 튜토리얼 이후 직접 열어서 확인해주세요.`
+      }
+    ];
+
+    function getTutorialTarget(step) {
+      if (!step || !step.target) return null;
+      return document.querySelector(step.target);
+    }
+
+    function moveTutorialToRequiredScreen(step) {
+      if (!step) return;
+      if (step.screen === "select") showSelectScreen();
+      if (step.screen === "summon") showSummonScreen();
+      if (step.screen === "inventory") showInventoryScreen();
+      if (step.screen === "codex") showCodexScreen();
+      if (step.screen === "artifact") showArtifactShopScreen();
+      if (step.screen === "ranking") showRankingScreen();
+      if (step.modal === "marketplace" && marketplaceModal && !marketplaceModal.classList.contains("show")) {
+        openMarketplace();
+      }
+    }
+
+    function clearTutorialHighlight() {
+      if (tutorialHighlightedEl) {
+        tutorialHighlightedEl.classList.remove("tutorial-highlight");
+        tutorialHighlightedEl = null;
+      }
+      if (tutorialHighlightContainer) {
+        tutorialHighlightContainer.classList.remove("tutorial-highlight-container");
+        tutorialHighlightContainer = null;
+      }
+    }
+
+    function clampTutorialValue(value, min, max) {
+      return Math.max(min, Math.min(max, value));
+    }
+
+    function rectsOverlap(a, b, padding = 10) {
+      return !(
+        a.right < b.left - padding ||
+        a.left > b.right + padding ||
+        a.bottom < b.top - padding ||
+        a.top > b.bottom + padding
+      );
+    }
+
+    function positionTutorialSpot(target) {
+      if (!tutorialOverlay || !target) return;
+      const rect = target.getBoundingClientRect();
+      const x = clampTutorialValue(rect.left + rect.width / 2, 0, window.innerWidth);
+      const y = clampTutorialValue(rect.top + rect.height / 2, 0, window.innerHeight);
+      tutorialOverlay.style.setProperty("--spot-x", `${x}px`);
+      tutorialOverlay.style.setProperty("--spot-y", `${y}px`);
+    }
+
+    function positionTutorialCard(target, step) {
+      if (!tutorialOverlay || !tutorialCard) return;
+
+      const vw = window.innerWidth || document.documentElement.clientWidth || 360;
+      const vh = window.innerHeight || document.documentElement.clientHeight || 640;
+      const margin = 12;
+      const gap = 18;
+      const menuBelowGap = 118;
+
+      tutorialCard.classList.remove("arrow-up", "arrow-down", "no-arrow");
+
+      const cardRect = tutorialCard.getBoundingClientRect();
+      const cardWidth = Math.min(cardRect.width || 430, vw - margin * 2);
+      const cardHeight = Math.min(cardRect.height || 180, vh - margin * 2);
+
+      let left = Math.round(vw / 2);
+      let top = margin;
+      let placement = "no-arrow";
+
+      // 기본값: 말풍선은 상단 중앙에 고정합니다.
+      // 단, 상단 메뉴를 눌러야 하는 단계만 버튼을 가리지 않도록 아래로 내립니다.
+      if (target && step && step.cardPosition === "below") {
+        const rect = target.getBoundingClientRect();
+        const targetCenterX = rect.left + rect.width / 2;
+        left = clampTutorialValue(targetCenterX, margin + cardWidth / 2, vw - margin - cardWidth / 2);
+        top = clampTutorialValue(rect.bottom + menuBelowGap, margin, vh - cardHeight - margin);
+        placement = "arrow-up";
+
+        const predicted = {
+          left: left - cardWidth / 2,
+          right: left + cardWidth / 2,
+          top,
+          bottom: top + cardHeight
+        };
+
+        // 아래로 내려도 화면 높이 때문에 겹치면 가능한 범위에서 더 아래쪽으로 밀어냅니다.
+        if (rectsOverlap(predicted, rect, 8)) {
+          top = clampTutorialValue(rect.bottom + menuBelowGap + 36, margin, vh - cardHeight - margin);
+        }
+      }
+
+      // 스마트폰에서 보유 아이템 영역처럼 세로로 긴 영역을 설명할 때는
+      // 말풍선이 목록 상단을 덮지 않도록 화면 하단 쪽에 고정합니다.
+      if (step && step.cardPosition === "bottom") {
+        left = Math.round(vw / 2);
+        top = clampTutorialValue(vh - cardHeight - margin - 18, margin, vh - cardHeight - margin);
+        placement = "no-arrow";
+      }
+
+      tutorialCard.classList.add(placement);
+      tutorialOverlay.style.setProperty("--card-left", `${Math.round(left)}px`);
+      tutorialOverlay.style.setProperty("--card-top", `${Math.round(top)}px`);
+    }
+
+    function isTutorialTargetDisabled(target) {
+      return Boolean(target && (target.disabled || target.getAttribute("aria-disabled") === "true" || target.classList.contains("disabled")));
+    }
+
+    function isTutorialClickRequired(step, target) {
+      if (!step || !step.clickText) return false;
+
+      // 장착 단계는 반드시 장비칸을 눌러 장비 선택창이 열린 뒤에만 진행합니다.
+      // 장착 가능한 버튼이 있으면 버튼 클릭으로 진행하고, 이미 같은 장비만 장착중이라
+      // 모든 장착 버튼이 비활성화된 경우에만 말풍선의 다음 버튼으로 넘어가게 합니다.
+      if (step.equipStep) {
+        const modalOpen = equipmentSelectModal && equipmentSelectModal.classList.contains("show");
+        if (!modalOpen) return true;
+        // 장착 가능한 버튼이 있으면 그 버튼을 누르게 하고,
+        // 이미 장착중 버튼만 있는 경우에도 튜토리얼에서는 그 버튼을 눌러 다음으로 넘어가게 합니다.
+        return true;
+      }
+
+      if (step.allowNextWhenTargetDisabled && isTutorialTargetDisabled(target)) return false;
+      return true;
+    }
+
+    function renderTutorialStep() {
+      if (!tutorialActive || !tutorialOverlay) return;
+      const step = tutorialSteps[tutorialStepIndex];
+      if (!step) {
+        finishTutorial();
+        return;
+      }
+
+      moveTutorialToRequiredScreen(step);
+      clearTutorialHighlight();
+
+      if (step.requiresEquipmentModal) {
+        const modalOpen = equipmentSelectModal && equipmentSelectModal.classList.contains("show");
+        if (!modalOpen) {
+          // 장착 단계로 바로 넘어오면 순서가 꼬이므로 장비칸 클릭 단계로 되돌립니다.
+          const slotStepIndex = tutorialSteps.findIndex(item => item && item.target === '[data-equip-slot="glove"]');
+          tutorialStepIndex = slotStepIndex >= 0 ? slotStepIndex : Math.max(0, tutorialStepIndex - 1);
+          setTimeout(renderTutorialStep, 80);
+          return;
+        }
+      }
+
+      setTimeout(() => {
+        const target = getTutorialTarget(step);
+        if (target) {
+          tutorialHighlightedEl = target;
+          target.classList.add("tutorial-highlight");
+          tutorialHighlightContainer = target.closest(".equipment-select-modal, .marketplace-modal, .update-notice-modal, .enhance-confirm-overlay, .enhance-effect-overlay");
+          if (tutorialHighlightContainer) tutorialHighlightContainer.classList.add("tutorial-highlight-container");
+          try { target.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" }); } catch (error) {}
+          positionTutorialSpot(target);
+        }
+
+        const clickRequired = isTutorialClickRequired(step, target);
+        tutorialOverlay.classList.add("show");
+        tutorialOverlay.classList.toggle("need-click", clickRequired);
+        tutorialOverlay.setAttribute("aria-hidden", "false");
+        document.body.classList.add("tutorial-locked");
+
+        if (tutorialStepBadge) tutorialStepBadge.textContent = `${tutorialStepIndex + 1} / ${tutorialSteps.length}`;
+        if (tutorialTitle) tutorialTitle.textContent = step.title || "튜토리얼";
+        if (tutorialText) tutorialText.textContent = step.text || "";
+        if (tutorialClickHint) tutorialClickHint.textContent = clickRequired ? step.clickText : "다음 버튼을 눌러 계속 진행하세요";
+        if (tutorialNextBtn) {
+          tutorialNextBtn.disabled = false;
+          tutorialNextBtn.style.pointerEvents = "auto";
+          tutorialNextBtn.style.display = clickRequired ? "none" : "inline-flex";
+          tutorialNextBtn.textContent = tutorialStepIndex >= tutorialSteps.length - 1 ? "완료" : "다음";
+          tutorialNextBtn.dataset.tutorialNextReady = clickRequired ? "0" : "1";
+        }
+
+        requestAnimationFrame(() => {
+          const freshTarget = getTutorialTarget(step);
+          if (freshTarget) positionTutorialSpot(freshTarget);
+          positionTutorialCard(freshTarget, step);
+        });
+      }, 80);
+    }
+
+    function startTutorial() {
+      if (tutorialDone || tutorialActive || !tutorialOverlay || !currentUserNickname) return;
+      if (readTutorialDoneLocal(currentUserNickname)) {
+        tutorialDone = true;
+        return;
+      }
+      tutorialActive = true;
+      tutorialStepIndex = 0;
+      renderTutorialStep();
+    }
+
+    function advanceTutorial() {
+      if (!tutorialActive) return;
+      clearTutorialHighlight();
+      tutorialStepIndex += 1;
+      renderTutorialStep();
+    }
+
+    function forceMarketplaceTutorialGuide() {
+      if (!tutorialActive || !marketplaceModal || !marketplaceModal.classList.contains("show")) return;
+      const guideIndex = tutorialSteps.findIndex(item => item && item.modal === "marketplace" && item.title === "거래소 안내");
+      if (guideIndex < 0) return;
+      const currentStep = tutorialSteps[tutorialStepIndex];
+      if (currentStep && currentStep.modal === "marketplace" && currentStep.title === "거래소 안내") {
+        renderTutorialStep();
+        return;
+      }
+      if (currentStep && currentStep.target === "#marketplaceBtn") {
+        clearTutorialHighlight();
+        tutorialStepIndex = guideIndex;
+        renderTutorialStep();
+      }
+    }
+
+    function finishTutorial() {
+      tutorialActive = false;
+      tutorialDone = true;
+      writeTutorialDoneLocal(currentUserNickname);
+      clearTutorialHighlight();
+      if (tutorialOverlay) {
+        tutorialOverlay.classList.remove("show", "need-click");
+        tutorialOverlay.setAttribute("aria-hidden", "true");
+      }
+      document.body.classList.remove("tutorial-locked");
+      if (marketplaceModal && marketplaceModal.classList.contains("show")) closeMarketplace();
+      showSelectScreen();
+
+      const tutorialSaveData = buildLocalSaveData();
+      saveGame();
+
+      // 튜토리얼 완료 상태는 다음 접속 때 바로 반영되어야 하므로
+      // 일반 자동저장 지연시간을 기다리지 않고 서버에도 즉시 저장을 시도합니다.
+      if (isCloudEnabled() && currentUserNickname && currentCloudToken) {
+        clearPendingCloudSave();
+        pushCloudSave(JSON.stringify(tutorialSaveData), currentUserNickname, currentCloudToken, currentUserIsAdmin)
+          .catch(error => console.warn("[TUTORIAL] 완료 상태 원격 저장 실패", error));
+      }
+    }
+
+    function skipTutorial() {
+      if (!tutorialActive) return;
+      finishTutorial();
+    }
+
+    function handleTutorialEquippedButtonAsNext(event) {
+      if (!tutorialActive || !event || !event.target || !event.target.closest) return false;
+      const step = tutorialSteps[tutorialStepIndex];
+      if (!step || !step.equipStep) return false;
+      const button = event.target.closest('#equipmentSelectModal.show .equipment-equip-btn');
+      if (!button) return false;
+
+      const isCurrentButton = button.dataset.tutorialCurrentEquipped === "1" || String(button.textContent || "").trim().includes("장착중");
+      if (!isCurrentButton) return false;
+
+      event.preventDefault();
+      event.stopPropagation();
+      if (typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
+
+      const now = Date.now();
+      if (now < tutorialNextButtonLockUntil) return true;
+      tutorialNextButtonLockUntil = now + 520;
+
+      if (equipmentSelectModal && equipmentSelectModal.classList.contains("show")) {
+        closeEquipmentSelectModal();
+      }
+
+      setTimeout(() => {
+        if (!tutorialActive) return;
+        const currentStep = tutorialSteps[tutorialStepIndex];
+        if (!currentStep || !currentStep.equipStep) return;
+        advanceTutorial();
+      }, 40);
+      return true;
+    }
+
+    document.addEventListener("click", event => {
+      if (!tutorialActive) return;
+      const step = tutorialSteps[tutorialStepIndex];
+      if (!step) return;
+
+      if (handleTutorialEquippedButtonAsNext(event)) return;
+
+      if (event.target.closest("#tutorialSkipBtn")) {
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        return;
+      }
+
+      if (event.target.closest("#tutorialNextBtn")) {
+        handleTutorialNextButton(event);
+        return;
+      }
+
+      const target = getTutorialTarget(step);
+      if (!isTutorialClickRequired(step, target)) {
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        return;
+      }
+
+      const isAllowed = target && (event.target === target || target.contains(event.target));
+      if (!isAllowed) {
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        return;
+      }
+
+      // 거래소 버튼은 누른 뒤 서버 목록 로딩이 들어가므로,
+      // 고정 지연시간으로 넘기지 않고 openMarketplace()의 finally에서 넘깁니다.
+      // 그렇지 않으면 로딩 중 단계가 꼬이거나, 반대로 로딩 실패 시 튜토리얼이 멈출 수 있습니다.
+      if (step.target === "#marketplaceBtn") return;
+
+      setTimeout(() => {
+        if (!tutorialActive) return;
+        if (step.completeAfterClick) {
+          finishTutorial();
+        } else {
+          advanceTutorial();
+        }
+      }, 360);
+    }, true);
+
+    function handleTutorialNextButton(event) {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
+      }
+      if (!tutorialActive) return;
+
+      const now = Date.now();
+      if (now < tutorialNextButtonLockUntil) return;
+      tutorialNextButtonLockUntil = now + 420;
+
+      const step = tutorialSteps[tutorialStepIndex];
+      const target = getTutorialTarget(step);
+      if (isTutorialClickRequired(step, target)) return;
+
+      advanceTutorial();
+    }
+
+    function catchTutorialNextButtonEvent(event) {
+      if (!tutorialActive) return;
+      if (!event || !event.target || !event.target.closest || !event.target.closest("#tutorialNextBtn")) return;
+      handleTutorialNextButton(event);
+    }
+
+    document.addEventListener("pointerdown", event => {
+      if (handleTutorialEquippedButtonAsNext(event)) return;
+      catchTutorialNextButtonEvent(event);
+    }, true);
+    document.addEventListener("touchstart", event => {
+      if (handleTutorialEquippedButtonAsNext(event)) return;
+      catchTutorialNextButtonEvent(event);
+    }, { passive: false, capture: true });
+    document.addEventListener("touchend", handleTutorialEquippedButtonAsNext, { passive: false, capture: true });
+
+    if (tutorialNextBtn) {
+      tutorialNextBtn.disabled = false;
+      tutorialNextBtn.addEventListener("click", handleTutorialNextButton, true);
+      tutorialNextBtn.addEventListener("touchend", handleTutorialNextButton, { passive: false, capture: true });
+      tutorialNextBtn.addEventListener("pointerup", handleTutorialNextButton, true);
+    }
+    if (tutorialSkipBtn) tutorialSkipBtn.style.display = "none";
+    window.addEventListener("resize", () => {
+      if (!tutorialActive) return;
+      const target = getTutorialTarget(tutorialSteps[tutorialStepIndex]);
+      if (target) positionTutorialSpot(target);
+      positionTutorialCard(target, tutorialSteps[tutorialStepIndex]);
+    });
+
+
     function closeUpdateNoticeModal() {
       if (!updateNoticeModal) return;
       updateNoticeModal.classList.remove("show");
       updateNoticeModal.setAttribute("aria-hidden", "true");
+    }
+
+
+    function setInquiryStatus(message, success = false) {
+      if (!inquiryStatus) return;
+      inquiryStatus.textContent = message || "";
+      inquiryStatus.classList.toggle("success", Boolean(success));
+    }
+
+    function openInquiryModal() {
+      if (!currentUserNickname || !currentCloudToken) {
+        return;
+      }
+      if (!inquiryModal) return;
+      inquiryModal.classList.add("show");
+      inquiryModal.setAttribute("aria-hidden", "false");
+      setInquiryStatus("");
+      if (inquiryAdminPanel) inquiryAdminPanel.classList.toggle("show", Boolean(currentUserIsAdmin));
+      if (currentUserIsAdmin) loadAdminInquiries();
+      setTimeout(() => {
+        if (inquiryMessageInput && !currentUserIsAdmin) inquiryMessageInput.focus();
+      }, 0);
+    }
+
+    function closeInquiryModal() {
+      if (!inquiryModal) return;
+      inquiryModal.classList.remove("show");
+      inquiryModal.setAttribute("aria-hidden", "true");
+    }
+
+    function renderAdminInquiries(items = []) {
+      if (!inquiryAdminList) return;
+      if (!items.length) {
+        inquiryAdminList.innerHTML = '<p class="inquiry-admin-message">아직 접수된 문의가 없습니다.</p>';
+        return;
+      }
+      inquiryAdminList.innerHTML = items.map(item => {
+        const dateText = item.createdAt ? new Date(item.createdAt).toLocaleString("ko-KR") : "날짜 없음";
+        return `
+          <div class="inquiry-admin-item">
+            <p class="inquiry-admin-meta">${escapeHtml(item.nickname || "알 수 없음")} · ${escapeHtml(dateText)}</p>
+            <p class="inquiry-admin-message">${escapeHtml(item.message || "")}</p>
+          </div>
+        `;
+      }).join("");
+    }
+
+    async function loadAdminInquiries() {
+      if (!currentUserIsAdmin || !currentUserNickname || !currentCloudToken) return;
+      if (inquiryAdminList) inquiryAdminList.innerHTML = '<p class="inquiry-admin-message">문의 목록을 불러오는 중입니다...</p>';
+      try {
+        const result = await cloudRequest("inquiryList", {
+          nickname: currentUserNickname,
+          token: currentCloudToken
+        });
+        renderAdminInquiries(result.inquiries || []);
+      } catch (error) {
+        if (inquiryAdminList) {
+          inquiryAdminList.innerHTML = `<p class="inquiry-admin-message">${escapeHtml(error.message || "문의 목록을 불러오지 못했습니다.")}</p>`;
+        }
+      }
+    }
+
+    async function submitInquiry() {
+      if (!currentUserNickname || !currentCloudToken) {
+        setInquiryStatus("로그인 후 문의를 보낼 수 있습니다.");
+        return;
+      }
+      const message = String(inquiryMessageInput && inquiryMessageInput.value || "").trim();
+      if (!message) {
+        setInquiryStatus("문의 내용을 입력해주세요.");
+        return;
+      }
+      if (message.length > 500) {
+        setInquiryStatus("문의 내용은 500자 이내로 입력해주세요.");
+        return;
+      }
+      if (inquirySubmitBtn) inquirySubmitBtn.disabled = true;
+      setInquiryStatus("문의를 전송하는 중입니다...");
+      try {
+        await cloudRequest("inquirySubmit", {
+          nickname: currentUserNickname,
+          token: currentCloudToken,
+          message
+        });
+        if (inquiryMessageInput) inquiryMessageInput.value = "";
+        setInquiryStatus("문의가 전송되었습니다. 감사합니다!", true);
+        if (currentUserIsAdmin) loadAdminInquiries();
+      } catch (error) {
+        setInquiryStatus(error.message || "문의 전송에 실패했습니다.");
+      } finally {
+        if (inquirySubmitBtn) inquirySubmitBtn.disabled = false;
+      }
     }
 
     function switchAuthMode(mode) {
@@ -6188,14 +9716,16 @@
       const hasUser = Boolean(currentUserNickname);
       userBar.classList.toggle("show", hasUser);
       currentUserLabel.textContent = hasUser ? `${currentUserNickname} 님으로 플레이 중` : "";
+      if (inquiryBtn) inquiryBtn.classList.toggle("show", hasUser);
       if (adminBadge) adminBadge.classList.toggle("show", hasUser && currentUserIsAdmin);
       if (onlineCountBadge) {
-        onlineCountBadge.classList.toggle("show", hasUser && lastOnlineCount !== null);
+        onlineCountBadge.classList.toggle("show", hasUser && currentUserIsAdmin && lastOnlineCount !== null);
       }
     }
 
     function renderAdminControls() {
       if (adminSummonPanel) adminSummonPanel.classList.toggle("show", Boolean(currentUserIsAdmin));
+      if (inquiryAdminPanel) inquiryAdminPanel.classList.toggle("show", Boolean(currentUserIsAdmin && inquiryModal && inquiryModal.classList.contains("show")));
     }
 
     function resetGameState() {
@@ -6210,6 +9740,7 @@
       sweetSandFailBonusPercent = 0;
       hideCompletedCodexSets = false;
       sortRegisterableCodexSetsFirst = false;
+      tutorialDone = false;
 
       Object.values(ownedCountsByTicket).forEach(items => {
         Object.keys(items).forEach(itemName => {
@@ -6224,6 +9755,8 @@
       Object.keys(codexState).forEach(key => delete codexState[key]);
       codexRewardClaimed.clear();
       lockedItemNames.clear();
+      Object.keys(enhancedEquipmentCounts).forEach(key => delete enhancedEquipmentCounts[key]);
+      Object.keys(equippedEnhanceLevelsBySlot).forEach(key => delete equippedEnhanceLevelsBySlot[key]);
       summonHistory.length = 0;
       autoSellTierInputs.forEach(input => { input.checked = false; });
       if (allowEquippedMaterialInput) allowEquippedMaterialInput.checked = false;
@@ -6244,14 +9777,38 @@
       renderLoadedRecentLog();
       updateUserBar();
       renderAdminControls();
+      if (marketplaceModal && marketplaceModal.classList.contains("show")) {
+        renderMarketplaceMyItems();
+      }
     }
 
     async function enterGame(nickname, { migrateGuestSave = false, cloudToken = "", cloudSaveData = null, isAdmin = false } = {}) {
+      // 계정 전환 직전에 남아 있는 이전 계정의 지연 저장/거래소 화면이 새 계정으로 섞이지 않도록 차단합니다.
+      clearPendingCloudSave();
+      hideMarketLoading();
+      if (marketplaceModal) {
+        marketplaceModal.classList.remove("show");
+        marketplaceModal.setAttribute("aria-hidden", "true");
+      }
+      if (mailboxModal) {
+        mailboxModal.classList.remove("show");
+        mailboxModal.setAttribute("aria-hidden", "true");
+      }
+      lastCloudSaveJson = "";
+      marketplaceCachedListings = [];
+      marketplaceCachedHistory = [];
+      marketplaceCurrentTab = "buy";
+      marketplaceFilterState = { slots: new Set(["all"]), tiers: new Set(["all"]) };
+      currentCloudToken = "";
       currentUserNickname = normalizeNickname(nickname);
       currentUserIsAdmin = Boolean(isAdmin);
       localStorage.setItem(AUTH_SESSION_KEY, currentUserNickname);
       if (cloudToken) saveCloudToken(currentUserNickname, cloudToken);
-      if (migrateGuestSave) migrateGuestSaveToUserIfNeeded(currentUserNickname);
+
+      const usingCloudAccount = isCloudEnabled() && Boolean(currentCloudToken);
+      // 구글시트 계정은 서버 저장이 기준입니다. 가입/계정 전환 때 브라우저의 게스트 저장을 복사하면
+      // 이전 계정 장비가 새 계정에 섞여 거래소 판매목록까지 오염될 수 있으므로 오프라인 모드에서만 마이그레이션합니다.
+      if (migrateGuestSave && !usingCloudAccount) migrateGuestSaveToUserIfNeeded(currentUserNickname);
 
       resetGameState();
 
@@ -6260,26 +9817,35 @@
         loaded = applySaveData(cloudSaveData);
       }
 
-      if (!loaded && isCloudEnabled() && currentCloudToken) {
+      if (!loaded && usingCloudAccount) {
         try {
           const result = await cloudRequest("load", {
             nickname: currentUserNickname,
-            token: currentCloudToken
+            token: currentCloudToken,
+            requestAt: Date.now()
           });
           if (typeof result.isAdmin !== "undefined") currentUserIsAdmin = Boolean(result.isAdmin);
           if (result.saveData && typeof result.saveData === "object") {
             loaded = applySaveData(result.saveData);
           }
         } catch (error) {
-          console.warn("[CLOUD LOAD] 원격 저장 불러오기 실패, 로컬 저장으로 대체", error);
+          console.warn("[CLOUD LOAD] 원격 저장 불러오기 실패. 계정 혼선을 막기 위해 로컬 저장으로 대체하지 않습니다.", error);
         }
       }
 
-      if (!loaded) loadGame();
+      if (!loaded && !usingCloudAccount) loadGame();
+
+      if (readTutorialDoneLocal(currentUserNickname)) {
+        tutorialDone = true;
+      }
 
       renderAll();
       showSelectScreen();
-      if (isCloudEnabled() && currentCloudToken) {
+      if (!tutorialDone) {
+        setTimeout(startTutorial, 450);
+      }
+
+      if (usingCloudAccount) {
         loadRankings({ showLoading: false }).catch(error => console.warn("[RANKING] 상단 문구 불러오기 실패", error));
         startRankingRefreshTimer();
         startOnlineRefreshTimer();
@@ -6350,7 +9916,7 @@
           const result = await cloudRequest("signup", { nickname, password });
           setAuthMessage("회원가입 완료! 바로 시작합니다.", true);
           await enterGame(nickname, {
-            migrateGuestSave: true,
+            migrateGuestSave: false,
             cloudToken: result.token,
             cloudSaveData: result.saveData || null,
             isAdmin: Boolean(result.isAdmin)
@@ -6377,11 +9943,28 @@
 
     function logout() {
       saveGame();
+      clearPendingCloudSave();
       flushCloudSaveNow();
       notifyOffline();
       stopRankingRefreshTimer();
       stopOnlineRefreshTimer();
       setOnlineCount(null);
+      hideMarketLoading();
+      if (marketplaceModal) {
+        marketplaceModal.classList.remove("show");
+        marketplaceModal.setAttribute("aria-hidden", "true");
+      }
+      if (mailboxModal) {
+        mailboxModal.classList.remove("show");
+        mailboxModal.setAttribute("aria-hidden", "true");
+      }
+      marketplaceCachedListings = [];
+      marketplaceCachedHistory = [];
+      marketplaceCurrentTab = "buy";
+      marketplaceFilterState = { slots: new Set(["all"]), tiers: new Set(["all"]) };
+      if (marketplaceListingList) renderMarketplaceListings([]);
+      if (marketplaceMyItemList) marketplaceMyItemList.innerHTML = "";
+      if (marketplaceHistoryList) renderMarketplaceHistory([]);
       if (topRankMessage) {
         topRankMessage.innerHTML = "";
         topRankMessage.classList.remove("show");
@@ -6504,6 +10087,7 @@
 
       return {
         version: 1,
+        ownerNickname: currentUserNickname || "",
         savedAt: Date.now(),
         count,
         blackDia,
@@ -6516,9 +10100,12 @@
         sweetSandFailBonusPercent,
         hideCompletedCodexSets,
         sortRegisterableCodexSetsFirst,
+        tutorialDone,
         autoSellTiers,
         ownedCountsByTicket,
         equippedSlotNames,
+        equippedEnhanceLevelsBySlot: { ...equippedEnhanceLevelsBySlot },
+        enhancedEquipmentCounts: { ...enhancedEquipmentCounts },
         equippedArtifactIds: equippedArtifacts.map(artifact => artifact && artifact.id).filter(Boolean),
         craftedRecipeIds: artifactRecipes.filter(recipe => recipe.crafted).map(recipe => recipe.id),
         codexState,
@@ -6700,7 +10287,7 @@
     function setOnlineCount(countValue) {
       lastOnlineCount = Number.isFinite(Number(countValue)) ? Math.max(0, Number(countValue)) : null;
       if (!onlineCountBadge) return;
-      if (lastOnlineCount === null || !currentUserNickname) {
+      if (lastOnlineCount === null || !currentUserNickname || !currentUserIsAdmin) {
         onlineCountBadge.textContent = "";
         onlineCountBadge.classList.remove("show");
         return;
@@ -6975,13 +10562,43 @@
         sweetSandFailBonusPercent = Math.max(0, Number(data.sweetSandFailBonusPercent) || 0);
         hideCompletedCodexSets = Boolean(data.hideCompletedCodexSets);
         sortRegisterableCodexSetsFirst = Boolean(data.sortRegisterableCodexSetsFirst);
+        tutorialDone = Boolean(data.tutorialDone);
 
         copyPlainObjectInto(ownedCountsByTicket, data.ownedCountsByTicket);
 
+        Object.keys(equippedEnhanceLevelsBySlot).forEach(key => delete equippedEnhanceLevelsBySlot[key]);
         Object.keys(equippedBestBySlot).forEach(slotKey => {
           const itemName = data.equippedSlotNames && data.equippedSlotNames[slotKey];
           equippedBestBySlot[slotKey] = itemName ? findItemByTicketAndName(slotKey, itemName) : null;
+          const level = Math.max(0, Math.min(EQUIPMENT_ENHANCE_MAX_LEVEL, Number(data.equippedEnhanceLevelsBySlot && data.equippedEnhanceLevelsBySlot[slotKey]) || 0));
+          if (level > 0) equippedEnhanceLevelsBySlot[slotKey] = level;
         });
+
+        Object.keys(enhancedEquipmentCounts).forEach(key => delete enhancedEquipmentCounts[key]);
+        if (data.enhancedEquipmentCounts && typeof data.enhancedEquipmentCounts === "object") {
+          Object.entries(data.enhancedEquipmentCounts).forEach(([key, value]) => {
+            const countValue = Math.max(0, Number(value) || 0);
+            if (countValue > 0) enhancedEquipmentCounts[key] = countValue;
+          });
+        }
+
+        // 이전 테스트 버전의 강화 저장값을 새 구조로 1회 마이그레이션합니다.
+        if (data.equipmentEnhanceLevels && typeof data.equipmentEnhanceLevels === "object" && !data.enhancedEquipmentCounts) {
+          Object.entries(data.equipmentEnhanceLevels).forEach(([key, value]) => {
+            const parts = String(key).split("::");
+            const slotKey = parts[0];
+            const itemName = parts.slice(1).join("::");
+            const level = Math.max(0, Math.min(EQUIPMENT_ENHANCE_MAX_LEVEL, Number(value) || 0));
+            if (!slotKey || !itemName || level <= 0) return;
+            if ((ownedCountsByTicket[slotKey] || {})[itemName] > 0) {
+              changeEnhancedEquipmentCount(slotKey, itemName, 0, -1);
+            }
+            changeEnhancedEquipmentCount(slotKey, itemName, level, 1);
+            if (equippedBestBySlot[slotKey] && equippedBestBySlot[slotKey].name === itemName) {
+              equippedEnhanceLevelsBySlot[slotKey] = level;
+            }
+          });
+        }
 
         equippedArtifacts.length = 0;
         if (Array.isArray(data.equippedArtifactIds)) {
@@ -7055,23 +10672,29 @@
       const json = JSON.stringify(data || buildLocalSaveData());
       if (json === lastCloudSaveJson) return;
 
+      const saveNickname = currentUserNickname;
+      const saveToken = currentCloudToken;
+      const saveIsAdmin = currentUserIsAdmin;
+
       clearTimeout(cloudSaveTimer);
       cloudSaveTimer = setTimeout(() => {
-        pushCloudSave(json);
+        pushCloudSave(json, saveNickname, saveToken, saveIsAdmin);
       }, CLOUD_SAVE_DEBOUNCE_MS);
     }
 
-    async function pushCloudSave(json) {
-      if (!isCloudEnabled() || !currentUserNickname || !currentCloudToken) return;
+    async function pushCloudSave(json, saveNickname = currentUserNickname, saveToken = currentCloudToken, saveIsAdmin = currentUserIsAdmin) {
+      if (!isCloudEnabled() || !saveNickname || !saveToken) return;
       try {
         const saveData = JSON.parse(json);
         await cloudRequest("save", {
-          nickname: currentUserNickname,
-          token: currentCloudToken,
+          nickname: saveNickname,
+          token: saveToken,
           saveData,
-          rankingData: currentUserIsAdmin ? null : buildRankingSummaryFromSaveData(saveData, currentUserNickname)
+          rankingData: saveIsAdmin ? null : buildRankingSummaryFromSaveData(saveData, saveNickname)
         });
-        lastCloudSaveJson = json;
+        if (saveNickname === currentUserNickname && saveToken === currentCloudToken) {
+          lastCloudSaveJson = json;
+        }
       } catch (error) {
         console.warn("[CLOUD SAVE] 원격 저장 실패", error);
       }
@@ -7109,6 +10732,11 @@
         if (!raw) return false;
 
         const data = JSON.parse(raw);
+        const ownerNickname = normalizeNickname(data && data.ownerNickname);
+        if (ownerNickname && ownerNickname !== currentUserNickname) {
+          console.warn("[LOCAL SAVE] 다른 계정 저장 데이터라서 불러오지 않습니다.", ownerNickname, currentUserNickname);
+          return false;
+        }
         return applySaveData(data);
       } catch (error) {
         console.warn("[LOCAL SAVE] 불러오기 실패", error);
@@ -7151,18 +10779,684 @@
 
       const ownedCounts = ownedCountsByTicket[slotKey] || {};
       const items = itemPools[slotKey] || [];
+      const rows = [];
 
-      return items
-        .filter(item => (ownedCounts[item.name] || 0) > 0)
-        .map(item => ({ ...item, owned: ownedCounts[item.name] || 0 }));
+      items.forEach(item => {
+        const baseOwned = ownedCounts[item.name] || 0;
+        if (baseOwned > 0) {
+          rows.push({ ...item, owned: baseOwned, enhanceLevel: 0, displayName: item.name });
+        }
+        for (let level = 1; level <= EQUIPMENT_ENHANCE_MAX_LEVEL; level += 1) {
+          const countValue = getEnhancedEquipmentCount(slotKey, item.name, level);
+          if (countValue > 0) {
+            rows.push({ ...item, owned: countValue, enhanceLevel: level, displayName: getEquipmentVariantDisplayName(item.name, level) });
+          }
+        }
+      });
+
+      return rows;
+    }
+
+
+    function setMarketplaceStatus(message, isError = false) {
+      if (!marketplaceStatus) return;
+      marketplaceStatus.textContent = message || "";
+      marketplaceStatus.style.color = isError ? "#ff8e96" : "#9eea76";
+    }
+
+    function showMarketLoading(message) {
+      if (marketLoadingText) marketLoadingText.textContent = message || "처리 중입니다...";
+      if (marketLoadingOverlay) {
+        marketLoadingOverlay.classList.add("show");
+        marketLoadingOverlay.setAttribute("aria-hidden", "false");
+      }
+    }
+
+    function hideMarketLoading() {
+      if (marketLoadingOverlay) {
+        marketLoadingOverlay.classList.remove("show");
+        marketLoadingOverlay.setAttribute("aria-hidden", "true");
+      }
+    }
+
+    function getMarketplaceOwnedRows() {
+      const rows = [];
+      EQUIPMENT_SLOT_ORDER.forEach(slotKey => {
+        if (!isEquippableSlot(slotKey)) return;
+        getOwnedItemsForSlot(slotKey).forEach(item => {
+          rows.push({ slotKey, item });
+        });
+      });
+      return rows;
+    }
+
+    function getMarketplaceItemImage(ticketKey, itemName) {
+      const item = findItemByTicketAndName(ticketKey, itemName);
+      return item && item.img ? item.img : "";
+    }
+
+    function getMarketplaceItemColor(ticketKey, itemName) {
+      const item = findItemByTicketAndName(ticketKey, itemName);
+      return item && item.color ? item.color : "#fff";
+    }
+
+    function getMarketplaceItemTier(ticketKey, itemName) {
+      const item = findItemByTicketAndName(ticketKey, itemName);
+      if (!item) return 0;
+      const grade = getSellGrade(item, ticketKey) || {};
+      return Math.max(0, Number(grade.tier) || 0);
+    }
+
+    function getMarketplaceTierLabel(tier) {
+      const map = { 1: "일반", 2: "고급", 3: "희귀", 4: "영웅", 5: "전설" };
+      return map[Math.max(0, Number(tier) || 0)] || "-";
+    }
+
+    function getMarketSlotLabel(ticketKey) {
+      return EQUIPMENT_SLOT_NAMES[ticketKey] || ticketKey || "장비";
+    }
+
+    function formatMarketplaceRemain(expiresAt) {
+      const remainMs = new Date(expiresAt).getTime() - Date.now();
+      if (!Number.isFinite(remainMs) || remainMs <= 0) return "만료 예정";
+      const hours = Math.floor(remainMs / 3600000);
+      const minutes = Math.floor((remainMs % 3600000) / 60000);
+      return hours > 0 ? `${hours}시간 ${minutes}분` : `${Math.max(1, minutes)}분`;
+    }
+
+    function formatMarketRelativeTime(value) {
+      const time = new Date(value).getTime();
+      if (!Number.isFinite(time)) return "-";
+      const diff = Date.now() - time;
+      const minute = 60000;
+      const hour = 3600000;
+      const day = 86400000;
+      if (diff < minute) return "방금 전";
+      if (diff < hour) return `${Math.max(1, Math.floor(diff / minute))}분 전`;
+      if (diff < day) return `${Math.floor(diff / hour)}시간 전`;
+      return `${Math.floor(diff / day)}일 전`;
+    }
+
+    function getMarketHistoryStatusText(status, row) {
+      const s = String(status || "");
+      if (s === "sold") return String(row.buyerNickname || "") === currentUserNickname ? "구매 완료" : "판매 완료";
+      if (s === "canceled") return "등록 취소";
+      if (s === "expired") return "기간 만료";
+      if (s === "active") return "판매 중";
+      return s || "-";
+    }
+
+    function syncMarketplaceDiaDisplay() {
+      if (marketplaceDiaIcon) marketplaceDiaIcon.src = RANKING_BLACK_DIA_ICON_SRC;
+      if (marketplaceDiaAmount) marketplaceDiaAmount.textContent = formatWholeNumber(blackDia);
+    }
+
+    function marketplacePassesFilter(row) {
+      const ticketKey = String(row.ticketKey || row.slotKey || "");
+      const itemName = String(row.itemName || (row.item && row.item.name) || "");
+      const tier = getMarketplaceItemTier(ticketKey, itemName);
+      const slotOk = marketplaceFilterState.slots.has("all") || marketplaceFilterState.slots.has(ticketKey);
+      const tierOk = marketplaceFilterState.tiers.has("all") || marketplaceFilterState.tiers.has(String(tier));
+      return slotOk && tierOk;
+    }
+
+    function setMarketplaceTab(tab) {
+      marketplaceCurrentTab = tab || "buy";
+      [marketTabBuyBtn, marketTabSellBtn, marketTabHistoryBtn].forEach(btn => {
+        if (!btn) return;
+        btn.classList.toggle("active", btn.dataset.marketTab === marketplaceCurrentTab);
+      });
+      if (marketplaceBuyPane) marketplaceBuyPane.classList.toggle("active", marketplaceCurrentTab === "buy");
+      if (marketplaceSellPane) marketplaceSellPane.classList.toggle("active", marketplaceCurrentTab === "sell");
+      if (marketplaceHistoryPane) marketplaceHistoryPane.classList.toggle("active", marketplaceCurrentTab === "history");
+      if (marketplaceSearchBtn) marketplaceSearchBtn.style.display = marketplaceCurrentTab === "buy" ? "inline-flex" : "none";
+      if (marketplaceHeaderRow) {
+        if (marketplaceCurrentTab === "buy") marketplaceHeaderRow.innerHTML = `<span>아이템 정보</span><span>판매 금액 ▼</span>`;
+        else if (marketplaceCurrentTab === "sell") marketplaceHeaderRow.innerHTML = `<span>아이템 정보</span><span>판매 금액</span><span>판매 정보</span>`;
+        else marketplaceHeaderRow.innerHTML = `<span>아이템 정보</span><span>판매 금액</span><span>거래 정보</span>`;
+      }
+      renderMarketplaceListings(marketplaceCachedListings);
+      renderMarketplaceMyItems();
+      renderMarketplaceHistory(marketplaceCachedHistory);
+    }
+
+    function renderMarketplaceMyItems() {
+      if (!marketplaceMyItemList) return;
+      const rows = getMarketplaceOwnedRows();
+      if (!rows.length) {
+        marketplaceMyItemList.innerHTML = `<div class="marketplace-empty market-skin-empty">등록할 수 있는 장비가 없습니다.</div>`;
+        return;
+      }
+      marketplaceMyItemList.innerHTML = rows.map(({ slotKey, item }) => {
+        const level = Math.max(0, Number(item.enhanceLevel) || 0);
+        const displayName = getEquipmentVariantDisplayName(item.name, level);
+        const img = item.img || "";
+        const priceId = `market-price-${slotKey}-${level}-${String(item.name).replace(/[^a-zA-Z0-9가-힣_-]/g, "")}`;
+        return `
+          <div class="market-row-skin market-sell-row">
+            <div class="market-thumb-skin" data-market-info="1" data-market-slot="${escapeHtml(slotKey)}" data-market-item="${escapeHtml(item.name)}" data-market-level="${level}" data-market-price="0" data-market-seller="내 장비" data-market-expires="">
+              ${img ? `<img src="${img}" alt="${escapeHtml(displayName)}">` : ""}
+              ${getEquipmentEnhanceBadgeHTML(level)}
+            </div>
+            <div class="market-name-skin" style="color:${item.color};">${escapeHtml(displayName)}<span class="market-sub-skin">${getMarketSlotLabel(slotKey)} / 보유 ${formatWholeNumber(item.owned)}개</span></div>
+            <input class="marketplace-price-input market-skin-input" id="${priceId}" type="number" min="1" max="999999999" step="1" value="${Math.max(1, Math.ceil(getEffectiveSellPrice(item, slotKey, level)))}" data-market-price-input>
+            <div class="market-action-wrap"><button class="marketplace-register-btn market-skin-button" type="button" data-market-register="1" data-market-slot="${slotKey}" data-market-item="${escapeHtml(item.name)}" data-market-level="${level}">등록</button><span class="market-sub-skin">24시간 등록</span></div>
+          </div>`;
+      }).join("");
+    }
+
+    function renderMarketplaceListings(listings = []) {
+      if (!marketplaceListingList) return;
+      marketplaceCachedListings = Array.isArray(listings) ? listings : marketplaceCachedListings;
+      const active = marketplaceCachedListings.filter(marketplacePassesFilter);
+      if (!active.length) {
+        marketplaceListingList.innerHTML = `<div class="marketplace-empty market-skin-empty">등록된 물품이 없습니다.</div>`;
+        return;
+      }
+      marketplaceListingList.innerHTML = active.map(listing => {
+        const itemName = String(listing.itemName || "");
+        const ticketKey = String(listing.ticketKey || "");
+        const level = Math.max(0, Number(listing.enhanceLevel) || 0);
+        const displayName = getEquipmentVariantDisplayName(itemName, level);
+        const img = getMarketplaceItemImage(ticketKey, itemName);
+        const color = getMarketplaceItemColor(ticketKey, itemName);
+        const isMine = String(listing.sellerNickname || "") === currentUserNickname;
+        return `
+          <div class="market-row-skin">
+            <div class="market-check-box"></div>
+            <div class="market-thumb-skin" title="장비 정보 보기" data-market-info="1" data-market-slot="${escapeHtml(ticketKey)}" data-market-item="${escapeHtml(itemName)}" data-market-level="${level}" data-market-price="${Math.max(0, Number(listing.price) || 0)}" data-market-seller="${escapeHtml(listing.sellerNickname || "")}" data-market-expires="${escapeHtml(listing.expiresAt || "")}">
+              ${img ? `<img src="${img}" alt="${escapeHtml(displayName)}">` : ""}
+              ${getEquipmentEnhanceBadgeHTML(level)}
+            </div>
+            <div class="market-name-skin" style="color:${color};">${escapeHtml(displayName)}<span class="market-sub-skin" style="color:#000;">${getMarketSlotLabel(ticketKey)} · ${getMarketplaceTierLabel(getMarketplaceItemTier(ticketKey, itemName))}</span></div>
+            <div class="market-action-wrap">
+              <div class="market-price-skin"><img src="${RANKING_BLACK_DIA_ICON_SRC}" alt="블다"><span>${formatWholeNumber(listing.price)}</span></div>
+              ${isMine
+                ? `<button class="market-cancel-action" type="button" data-market-cancel="${escapeHtml(listing.listingId || "")}">등록 취소</button>`
+                : `<button class="market-buy-action marketplace-buy-btn" type="button" data-market-buy="${escapeHtml(listing.listingId || "")}">구매</button>`}
+              <span class="market-sub-skin">${formatMarketplaceRemain(listing.expiresAt)}</span>
+            </div>
+          </div>`;
+      }).join("");
+    }
+
+    function renderMarketplaceHistory(history = []) {
+      if (!marketplaceHistoryList) return;
+      marketplaceCachedHistory = Array.isArray(history) ? history : marketplaceCachedHistory;
+      if (!marketplaceCachedHistory.length) {
+        marketplaceHistoryList.innerHTML = `<div class="marketplace-empty market-skin-empty">거래 내역이 없습니다.</div>`;
+        return;
+      }
+      marketplaceHistoryList.innerHTML = marketplaceCachedHistory.map(row => {
+        const itemName = String(row.itemName || "");
+        const ticketKey = String(row.ticketKey || "");
+        const level = Math.max(0, Number(row.enhanceLevel) || 0);
+        const displayName = getEquipmentVariantDisplayName(itemName, level);
+        const img = getMarketplaceItemImage(ticketKey, itemName);
+        const color = getMarketplaceItemColor(ticketKey, itemName);
+        const statusText = getMarketHistoryStatusText(row.status, row);
+        const timeText = formatMarketRelativeTime(row.soldAt || row.updatedAt || row.createdAt);
+        return `
+          <div class="market-row-skin market-history-row">
+            <div class="market-thumb-skin" data-market-info="1" data-market-slot="${escapeHtml(ticketKey)}" data-market-item="${escapeHtml(itemName)}" data-market-level="${level}" data-market-price="${Math.max(0, Number(row.price) || 0)}" data-market-seller="${escapeHtml(row.sellerNickname || "")}" data-market-expires="${escapeHtml(row.expiresAt || "")}">
+              ${img ? `<img src="${img}" alt="${escapeHtml(displayName)}">` : ""}
+              ${getEquipmentEnhanceBadgeHTML(level)}
+            </div>
+            <div class="market-name-skin" style="color:${color};">${escapeHtml(displayName)}</div>
+            <div class="market-price-skin"><img src="${RANKING_BLACK_DIA_ICON_SRC}" alt="블다"><span>${formatWholeNumber(row.price)}</span></div>
+            <div class="market-action-wrap"><div class="market-time-skin">${timeText}</div><span class="market-sub-skin" style="color:${row.status === "sold" ? "#72ff57" : "#ff9a5e"};">${statusText}</span></div>
+          </div>`;
+      }).join("");
+    }
+
+    async function refreshMarketplace({ showLoading = true } = {}) {
+      if (!marketplaceListingList) return;
+      syncMarketplaceDiaDisplay();
+      if (!isCloudEnabled() || !currentCloudToken) {
+        setMarketplaceStatus("거래소는 구글시트 연동 로그인 상태에서 사용할 수 있습니다.", true);
+        renderMarketplaceListings([]);
+        renderMarketplaceMyItems();
+        renderMarketplaceHistory([]);
+        return;
+      }
+      try {
+        if (showLoading) showMarketLoading("거래소를 불러오는 중입니다...");
+        setMarketplaceStatus("거래소를 불러오는 중입니다...");
+        const result = await cloudRequest("marketplaceList", {
+          nickname: currentUserNickname,
+          token: currentCloudToken,
+          requestAt: Date.now()
+        });
+        marketplaceCachedListings = result.listings || [];
+        try {
+          const historyResult = await cloudRequest("marketplaceHistory", {
+            nickname: currentUserNickname,
+            token: currentCloudToken,
+            requestAt: Date.now()
+          });
+          marketplaceCachedHistory = historyResult.history || [];
+        } catch (historyError) {
+          console.warn("[MARKET] 거래내역 불러오기 실패", historyError);
+          marketplaceCachedHistory = [];
+        }
+        renderMarketplaceListings(marketplaceCachedListings);
+        renderMarketplaceMyItems();
+        renderMarketplaceHistory(marketplaceCachedHistory);
+        setMarketplaceStatus("거래소가 갱신되었습니다.");
+      } catch (error) {
+        console.warn("[MARKET] 목록 불러오기 실패", error);
+        setMarketplaceStatus(error.message || "거래소를 불러오지 못했습니다.", true);
+      } finally {
+        if (showLoading) hideMarketLoading();
+      }
+    }
+
+    async function refreshMarketplaceWithCloudSaveReload() {
+      if (!isCloudEnabled() || !currentUserNickname || !currentCloudToken) {
+        await refreshMarketplace();
+        return;
+      }
+      try {
+        showMarketLoading("거래소 데이터를 새로고침 중입니다...");
+        setMarketplaceStatus("계정 저장 데이터와 거래소 목록을 다시 불러오는 중입니다...");
+        clearPendingCloudSave();
+        const result = await cloudRequest("load", {
+          nickname: currentUserNickname,
+          token: currentCloudToken
+        });
+        if (typeof result.isAdmin !== "undefined") currentUserIsAdmin = Boolean(result.isAdmin);
+        if (result.saveData && typeof result.saveData === "object") {
+          applySaveData(result.saveData);
+          localStorage.setItem(getUserSaveKey(), JSON.stringify(result.saveData));
+          lastCloudSaveJson = JSON.stringify(result.saveData);
+          renderAll();
+        }
+        await refreshMarketplace({ showLoading: false });
+      } catch (error) {
+        console.warn("[MARKET] 거래소 새로고침 실패", error);
+        setMarketplaceStatus(error.message || "거래소 새로고침에 실패했습니다.", true);
+      } finally {
+        hideMarketLoading();
+      }
+    }
+
+    async function openMarketplace() {
+      if (!marketplaceModal) return;
+      const shouldAdvanceTutorialAfterOpen = Boolean(
+        tutorialActive &&
+        tutorialSteps[tutorialStepIndex] &&
+        tutorialSteps[tutorialStepIndex].target === "#marketplaceBtn"
+      );
+
+      marketplaceModal.classList.add("show");
+      marketplaceModal.setAttribute("aria-hidden", "false");
+      syncMarketplaceDiaDisplay();
+      setMarketplaceTab(marketplaceCurrentTab || "buy");
+      renderMarketplaceMyItems();
+
+      try {
+        await refreshMarketplace();
+      } catch (error) {
+        console.warn("[MARKET] 거래소 열기 중 목록 갱신 실패", error);
+        setMarketplaceStatus(error.message || "거래소 목록을 불러오지 못했습니다. 새로고침을 눌러 다시 시도해주세요.", true);
+      } finally {
+        // 튜토리얼에서 거래소 버튼을 누른 직후에는 거래소 로딩 성공/실패와 무관하게
+        // 다음 안내 단계로 넘어가야 화면 전체 클릭 차단 상태에 갇히지 않습니다.
+        if (shouldAdvanceTutorialAfterOpen && tutorialActive) {
+          setTimeout(forceMarketplaceTutorialGuide, 180);
+          setTimeout(forceMarketplaceTutorialGuide, 700);
+        }
+      }
+    }
+
+    function closeMarketplace() {
+      if (!marketplaceModal) return;
+      hideMarketLoading();
+      marketplaceModal.classList.remove("show");
+      marketplaceModal.setAttribute("aria-hidden", "true");
+    }
+
+    function openMarketFilter() {
+      if (!marketFilterModal) return;
+      marketFilterModal.classList.add("show");
+      marketFilterModal.setAttribute("aria-hidden", "false");
+    }
+
+    function closeMarketFilter() {
+      if (!marketFilterModal) return;
+      marketFilterModal.classList.remove("show");
+      marketFilterModal.setAttribute("aria-hidden", "true");
+    }
+
+    function resetMarketFilterInputs() {
+      document.querySelectorAll("[data-market-filter-slot], [data-market-filter-tier]").forEach(input => {
+        input.checked = input.dataset.marketFilterSlot === "all" || input.dataset.marketFilterTier === "all";
+      });
+    }
+
+    function applyMarketFilterInputs() {
+      const slotInputs = Array.from(document.querySelectorAll("[data-market-filter-slot]")).filter(input => input.checked).map(input => input.dataset.marketFilterSlot);
+      const tierInputs = Array.from(document.querySelectorAll("[data-market-filter-tier]")).filter(input => input.checked).map(input => input.dataset.marketFilterTier);
+      marketplaceFilterState.slots = new Set(slotInputs.length ? slotInputs : ["all"]);
+      marketplaceFilterState.tiers = new Set(tierInputs.length ? tierInputs : ["all"]);
+      if (marketplaceFilterState.slots.has("all")) marketplaceFilterState.slots = new Set(["all"]);
+      if (marketplaceFilterState.tiers.has("all")) marketplaceFilterState.tiers = new Set(["all"]);
+      renderMarketplaceListings(marketplaceCachedListings);
+    }
+
+    function setMailboxStatus(message, isError = false) {
+      if (!mailboxStatus) return;
+      mailboxStatus.textContent = message || "";
+      mailboxStatus.style.color = isError ? "#ff8e96" : "#9eea76";
+    }
+
+    function formatMailboxDate(value) {
+      const time = new Date(value).getTime();
+      if (!Number.isFinite(time)) return "";
+      const date = new Date(time);
+      const mm = String(date.getMonth() + 1).padStart(2, "0");
+      const dd = String(date.getDate()).padStart(2, "0");
+      const hh = String(date.getHours()).padStart(2, "0");
+      const mi = String(date.getMinutes()).padStart(2, "0");
+      return `${mm}.${dd} ${hh}:${mi}`;
+    }
+
+    function renderMailbox(data = {}) {
+      if (!mailboxList) return;
+      const incomes = Array.isArray(data.incomes) ? data.incomes : [];
+      const items = Array.isArray(data.items) ? data.items : [];
+      if (!incomes.length && !items.length) {
+        mailboxList.innerHTML = `<div class="mailbox-empty">받을 우편이 없습니다.</div>`;
+        if (mailboxClaimAllBtn) mailboxClaimAllBtn.disabled = true;
+        return;
+      }
+      if (mailboxClaimAllBtn) mailboxClaimAllBtn.disabled = false;
+
+      const incomeRows = incomes.map(mail => {
+        const amount = Math.max(0, Math.floor(Number(mail.amount) || 0));
+        return `
+          <div class="mailbox-row">
+            <img class="mailbox-dia-icon" src="${RANKING_BLACK_DIA_ICON_SRC}" alt="블다">
+            <div class="mailbox-info">
+              <strong>거래소 판매대금</strong>
+              <span class="mailbox-reward">블랙다이아 ${formatWholeNumber(amount)}개</span>
+              <span class="mailbox-meta">${escapeHtml(mail.reason || "거래소 판매 정산")} ${formatMailboxDate(mail.createdAt) ? "· " + formatMailboxDate(mail.createdAt) : ""}</span>
+            </div>
+          </div>`;
+      });
+
+      const itemRows = items.map(mail => {
+        const ticketKey = String(mail.ticketKey || "");
+        const itemName = String(mail.itemName || "");
+        const level = Math.max(0, Number(mail.enhanceLevel) || 0);
+        const displayName = getEquipmentVariantDisplayName(itemName, level);
+        const img = getMarketplaceItemImage(ticketKey, itemName);
+        const color = getMarketplaceItemColor(ticketKey, itemName);
+        const count = Math.max(0, Math.floor(Number(mail.count) || 0));
+        return `
+          <div class="mailbox-row">
+            <div class="equipment-select-thumb">
+              ${img ? `<img src="${img}" alt="${escapeHtml(displayName)}">` : ""}
+              ${getEquipmentEnhanceBadgeHTML(level)}
+            </div>
+            <div class="mailbox-info">
+              <strong style="color:${color};">${escapeHtml(displayName)}</strong>
+              <span class="mailbox-reward">${formatWholeNumber(count)}개 수령 가능</span>
+              <span class="mailbox-meta">${escapeHtml(mail.reason || "거래소 물품 수령")} ${formatMailboxDate(mail.createdAt) ? "· " + formatMailboxDate(mail.createdAt) : ""}</span>
+            </div>
+          </div>`;
+      });
+
+      mailboxList.innerHTML = [...incomeRows, ...itemRows].join("");
+    }
+
+    async function refreshMailbox() {
+      if (!mailboxList) return;
+      if (!isCloudEnabled() || !currentCloudToken) {
+        setMailboxStatus("우편함은 구글시트 연동 로그인 상태에서 사용할 수 있습니다.", true);
+        renderMailbox({ incomes: [], items: [] });
+        return;
+      }
+      try {
+        setMailboxStatus("우편함을 불러오는 중입니다...");
+        const result = await cloudRequest("mailboxList", {
+          nickname: currentUserNickname,
+          token: currentCloudToken
+        });
+        renderMailbox(result);
+        const count = Math.max(0, Number(result.mailCount) || 0);
+        setMailboxStatus(count > 0 ? `받을 우편 ${formatWholeNumber(count)}건이 있습니다.` : "받을 우편이 없습니다.");
+      } catch (error) {
+        console.warn("[MAILBOX] 목록 불러오기 실패", error);
+        setMailboxStatus(error.message || "우편함을 불러오지 못했습니다.", true);
+      }
+    }
+
+    async function openMailbox() {
+      if (!mailboxModal) return;
+      mailboxModal.classList.add("show");
+      mailboxModal.setAttribute("aria-hidden", "false");
+      await refreshMailbox();
+    }
+
+    function closeMailbox() {
+      if (!mailboxModal) return;
+      mailboxModal.classList.remove("show");
+      mailboxModal.setAttribute("aria-hidden", "true");
+    }
+
+    async function claimMailboxAll() {
+      if (!currentCloudToken) return;
+      const ok = window.confirm("우편함의 모든 판매대금과 장비를 수령할까요?");
+      if (!ok) return;
+      try {
+        if (mailboxClaimAllBtn) mailboxClaimAllBtn.disabled = true;
+        setMailboxStatus("우편을 수령하는 중입니다...");
+        const result = await cloudRequest("mailboxClaim", {
+          nickname: currentUserNickname,
+          token: currentCloudToken
+        });
+        if (result.saveData) {
+          applySaveData(result.saveData);
+          renderAll();
+          localStorage.setItem(getUserSaveKey(), JSON.stringify(result.saveData));
+          lastCloudSaveJson = JSON.stringify(result.saveData);
+        }
+        renderMailbox(result.mailbox || {});
+        setMailboxStatus("우편을 모두 수령했습니다.");
+        if (marketplaceModal && marketplaceModal.classList.contains("show")) {
+          renderMarketplaceMyItems();
+        }
+      } catch (error) {
+        alert(error.message || "우편 수령에 실패했습니다.");
+        setMailboxStatus(error.message || "우편 수령에 실패했습니다.", true);
+      } finally {
+        if (mailboxClaimAllBtn) mailboxClaimAllBtn.disabled = false;
+      }
+    }
+
+    async function registerMarketplaceItem(button) {
+      if (!button || !currentCloudToken) return;
+      const row = button.closest(".market-row-skin") || button.closest(".marketplace-row");
+      const input = row && row.querySelector("[data-market-price-input]");
+      const price = Math.max(1, Math.min(999999999, Math.floor(Number(input && input.value) || 0)));
+      const ticketKey = button.dataset.marketSlot || "";
+      const itemName = button.dataset.marketItem || "";
+      const enhanceLevel = Math.max(0, Number(button.dataset.marketLevel) || 0);
+      const displayName = getEquipmentVariantDisplayName(itemName, enhanceLevel);
+      if (!price) {
+        alert("판매 가격을 입력해주세요.");
+        return;
+      }
+      const ok = window.confirm(`${displayName} 1개를 블다 ${formatWholeNumber(price)}개에 거래소에 등록할까요?\n등록 후 24시간 동안 유지되며, 판매 시 수수료 10%가 차감됩니다.`);
+      if (!ok) return;
+      try {
+        button.disabled = true;
+        showMarketLoading("물품을 올리는 중입니다...\n보유 장비를 확인하고 있습니다.");
+        setMarketplaceStatus("보유 장비 정보를 서버에 동기화하는 중입니다...");
+
+        // 강화 장비는 브라우저에 먼저 저장된 뒤 서버 저장이 약간 늦게 반영될 수 있습니다.
+        // 거래소 등록 전 현재 보유 장비 정보를 서버에 먼저 확정 저장해서
+        // 서버가 +1/+2/+3 장비를 정상적으로 확인할 수 있게 합니다.
+        const latestSaveData = buildLocalSaveData();
+        localStorage.setItem(getUserSaveKey(), JSON.stringify(latestSaveData));
+        clearPendingCloudSave();
+        await cloudRequest("save", {
+          nickname: currentUserNickname,
+          token: currentCloudToken,
+          saveData: latestSaveData,
+          rankingData: currentUserIsAdmin ? null : buildRankingSummaryFromSaveData(latestSaveData, currentUserNickname)
+        });
+        lastCloudSaveJson = JSON.stringify(latestSaveData);
+
+        showMarketLoading("물품을 올리는 중입니다...");
+        setMarketplaceStatus("물품을 등록하는 중입니다...");
+        const result = await cloudRequest("marketplaceRegister", {
+          nickname: currentUserNickname,
+          token: currentCloudToken,
+          ticketKey,
+          itemName,
+          enhanceLevel,
+          price
+        });
+        if (result.saveData) {
+          applySaveData(result.saveData);
+          renderAll();
+          localStorage.setItem(getUserSaveKey(), JSON.stringify(result.saveData));
+          lastCloudSaveJson = JSON.stringify(result.saveData);
+        }
+        setMarketplaceStatus("거래소에 등록되었습니다.");
+        await refreshMarketplace();
+      } catch (error) {
+        alert(error.message || "거래소 등록에 실패했습니다.");
+        setMarketplaceStatus(error.message || "거래소 등록에 실패했습니다.", true);
+      } finally {
+        button.disabled = false;
+        hideMarketLoading();
+      }
+    }
+
+    async function buyMarketplaceItem(button) {
+      if (!button || !currentCloudToken) return;
+      const listingId = button.dataset.marketBuy || "";
+      if (!listingId) return;
+      const ok = window.confirm("이 물품을 구매하시겠습니까?");
+      if (!ok) return;
+      try {
+        button.disabled = true;
+        showMarketLoading("구매 중입니다...");
+        setMarketplaceStatus("구매 처리 중입니다...");
+        const result = await cloudRequest("marketplaceBuy", {
+          nickname: currentUserNickname,
+          token: currentCloudToken,
+          listingId
+        });
+        if (result.saveData) {
+          applySaveData(result.saveData);
+          renderAll();
+          localStorage.setItem(getUserSaveKey(), JSON.stringify(result.saveData));
+          lastCloudSaveJson = JSON.stringify(result.saveData);
+        }
+        setMarketplaceStatus("구매가 완료되었습니다. 구매한 장비는 우편함에서 수령하세요.");
+        await refreshMarketplace();
+      } catch (error) {
+        alert(error.message || "구매에 실패했습니다.");
+        setMarketplaceStatus(error.message || "구매에 실패했습니다.", true);
+      } finally {
+        button.disabled = false;
+        hideMarketLoading();
+      }
+    }
+
+
+    function showMarketplaceItemInfo(target) {
+      if (!target) return;
+      const ticketKey = target.dataset.marketSlot || "";
+      const itemName = target.dataset.marketItem || "";
+      const enhanceLevel = Math.max(0, Number(target.dataset.marketLevel) || 0);
+      const item = findItemByTicketAndName(ticketKey, itemName) || { name: itemName };
+      item.enhanceLevel = enhanceLevel;
+      const displayName = getEquipmentVariantDisplayName(itemName, enhanceLevel);
+      const slotName = EQUIPMENT_SLOT_NAMES[ticketKey] || ticketKey || "장비";
+      const effectText = getEquipmentEnhanceEffectText(item, ticketKey, enhanceLevel);
+      const expiresAt = target.dataset.marketExpires || "";
+      const remainText = expiresAt ? formatMarketplaceRemain(expiresAt) : "";
+      const lines = [
+        `부위 : ${slotName}`,
+        `장착효과 : ${effectText}`
+      ];
+      if (remainText) lines.push(`남은 시간 : ${remainText}`);
+      showMarketplaceInfoModal(displayName, lines);
+    }
+
+    function showMarketplaceInfoModal(title, lines) {
+      let overlay = document.getElementById("marketInfoOverlay");
+      if (!overlay) {
+        overlay = document.createElement("div");
+        overlay.id = "marketInfoOverlay";
+        overlay.className = "market-info-overlay";
+        overlay.innerHTML = `
+          <div class="market-info-card" role="dialog" aria-modal="true">
+            <h3 class="market-info-title" id="marketInfoTitle"></h3>
+            <div class="market-info-list" id="marketInfoList"></div>
+            <button class="market-info-close-btn" type="button" id="marketInfoCloseBtn">확인</button>
+          </div>
+        `;
+        document.body.appendChild(overlay);
+        overlay.addEventListener("click", event => {
+          if (event.target === overlay || event.target.id === "marketInfoCloseBtn") {
+            overlay.classList.remove("show");
+          }
+        });
+      }
+      const titleEl = overlay.querySelector("#marketInfoTitle");
+      const listEl = overlay.querySelector("#marketInfoList");
+      if (titleEl) titleEl.textContent = title || "장비 정보";
+      if (listEl) {
+        listEl.innerHTML = (Array.isArray(lines) ? lines : []).map(line => `<div>${escapeHtml(line)}</div>`).join("");
+      }
+      overlay.classList.add("show");
+    }
+
+    async function cancelMarketplaceItem(button) {
+      if (!button || !currentCloudToken) return;
+      const listingId = button.dataset.marketCancel || "";
+      if (!listingId) return;
+      const ok = window.confirm("등록한 물품을 거래소에서 취소할까요?\n취소한 장비는 우편함으로 반환됩니다.");
+      if (!ok) return;
+      try {
+        button.disabled = true;
+        showMarketLoading("등록을 취소하는 중입니다...");
+        setMarketplaceStatus("등록 취소 처리 중입니다...");
+        const result = await cloudRequest("marketplaceCancel", {
+          nickname: currentUserNickname,
+          token: currentCloudToken,
+          listingId
+        });
+        setMarketplaceStatus("등록이 취소되었습니다. 장비는 우편함에서 수령하세요.");
+        await refreshMarketplace();
+        if (mailboxModal && mailboxModal.classList.contains("show")) {
+          await refreshMailbox();
+        }
+      } catch (error) {
+        alert(error.message || "등록 취소에 실패했습니다.");
+        setMarketplaceStatus(error.message || "등록 취소에 실패했습니다.", true);
+      } finally {
+        button.disabled = false;
+        hideMarketLoading();
+      }
     }
 
     function pruneInvalidEquippedItems() {
       EQUIPMENT_SLOT_ORDER.forEach(slotKey => {
         const item = equippedBestBySlot[slotKey];
         if (!item) return;
-        const ownedCount = (ownedCountsByTicket[slotKey] || {})[item.name] || 0;
-        if (ownedCount <= 0) equippedBestBySlot[slotKey] = null;
+        const enhanceLevel = Math.max(0, Number(equippedEnhanceLevelsBySlot[slotKey]) || 0);
+        const ownedCount = getEnhancedEquipmentCount(slotKey, item.name, enhanceLevel);
+        if (ownedCount <= 0) {
+          equippedBestBySlot[slotKey] = null;
+          delete equippedEnhanceLevelsBySlot[slotKey];
+        }
       });
     }
 
@@ -7176,8 +11470,9 @@
         const slotName = EQUIPMENT_SLOT_NAMES[slotKey];
         const item = equippedBestBySlot[slotKey];
         const locked = !isEquippableSlot(slotKey);
+        const enhanceLevel = item ? getEquipmentEnhanceLevel(slotKey, item, equippedEnhanceLevelsBySlot[slotKey]) : 0;
         const title = item
-          ? `${slotName} : ${item.name} 장착 중`
+          ? `${slotName} : ${item.name} 장착 중${enhanceLevel > 0 ? ` / 강화 +${enhanceLevel}` : ""}`
           : locked
             ? `${slotName} : 아직 소환권 없음`
             : `${slotName} : 미장착`;
@@ -7188,7 +11483,7 @@
                style="background-image:url('${EQUIPMENT_SLOT_BACKGROUNDS[slotKey]}')"
                title="${title}"
                aria-label="${title}">
-            ${item ? `<img class="equip-item-img" src="${item.img}" alt="${item.name}">` : ""}
+            ${item ? `<img class="equip-item-img" src="${item.img}" alt="${item.name}">${getEquipmentEnhanceBadgeHTML(enhanceLevel)}` : ""}
           </div>
         `;
       }).join("");
@@ -7201,18 +11496,28 @@
       const slotKey = currentEquipmentSelectSlot;
       const slotName = EQUIPMENT_SLOT_NAMES[slotKey] || "장비";
       const currentItem = equippedBestBySlot[slotKey];
+      const currentEquippedLevel = currentItem ? getEquipmentEnhanceLevel(slotKey, currentItem, equippedEnhanceLevelsBySlot[slotKey]) : 0;
       const ownedItems = getOwnedItemsForSlot(slotKey);
 
       equipmentSelectTitle.textContent = `${slotName} 장비 선택`;
 
+      const currentTargetLevel = currentEquippedLevel + 1;
+      const currentEnhanceCost = currentItem && currentEquippedLevel < EQUIPMENT_ENHANCE_MAX_LEVEL ? getEquipmentEnhanceCost(currentItem, slotKey, currentTargetLevel) : 0;
+      const currentEnhanceDisabled = !currentItem || currentEquippedLevel >= EQUIPMENT_ENHANCE_MAX_LEVEL || blackDia < currentEnhanceCost;
       const unequipRow = currentItem ? `
         <div class="equipment-select-row is-current">
-          <img src="${currentItem.img}" alt="${currentItem.name}">
-          <div class="equipment-select-info">
-            <strong style="color:${currentItem.color};">${currentItem.name}</strong>
-            <span class="equipment-select-meta">현재 장착중</span>
+          <div class="equipment-select-thumb">
+            <img src="${currentItem.img}" alt="${currentItem.name}">
+            ${getEquipmentEnhanceBadgeHTML(currentEquippedLevel)}
           </div>
-          <button class="equipment-unequip-btn" type="button" data-unequip-slot="${slotKey}">장착해제</button>
+          <div class="equipment-select-info">
+            <strong style="color:${currentItem.color};">${getEquipmentVariantDisplayName(currentItem.name, currentEquippedLevel)}</strong>
+            <span class="equipment-select-meta">현재 장착중${getEquipmentEnhanceText(slotKey, currentItem.name, currentEquippedLevel)}</span>
+          </div>
+          <div class="equipment-select-actions">
+            <button class="equipment-enhance-btn" type="button" data-enhance-slot="${slotKey}" data-enhance-item="${currentItem.name}" data-enhance-level="${currentEquippedLevel}" ${currentEnhanceDisabled ? "disabled" : ""}>강화</button>
+            <button class="equipment-unequip-btn" type="button" data-unequip-slot="${slotKey}">장착해제</button>
+          </div>
         </div>
       ` : `
         <div class="equipment-select-row">
@@ -7226,17 +11531,30 @@
       `;
 
       const itemRows = ownedItems.length ? ownedItems.map(item => {
-        const isCurrent = currentItem && currentItem.name === item.name;
+        const enhanceLevel = Math.max(0, Number(item.enhanceLevel) || 0);
+        const isCurrent = currentItem && currentItem.name === item.name && currentEquippedLevel === enhanceLevel;
+        const tutorialEquipStepActive = Boolean(tutorialActive && tutorialSteps[tutorialStepIndex] && tutorialSteps[tutorialStepIndex].equipStep);
+        const disableCurrentEquipButton = isCurrent && !tutorialEquipStepActive;
+        const currentEquipAttrs = isCurrent ? 'data-tutorial-current-equipped="1"' : '';
         const grade = getEffectiveSellGrade(item, slotKey);
+        const nextEnhanceLevel = enhanceLevel + 1;
+        const enhanceCost = enhanceLevel < EQUIPMENT_ENHANCE_MAX_LEVEL ? getEquipmentEnhanceCost(item, slotKey, nextEnhanceLevel) : 0;
+        const enhanceDisabled = enhanceLevel >= EQUIPMENT_ENHANCE_MAX_LEVEL || blackDia < enhanceCost;
         return `
           <div class="equipment-select-row ${isCurrent ? "is-current" : ""}">
-            <img src="${item.img}" alt="${item.name}">
-            <div class="equipment-select-info">
-              <strong style="color:${item.color};">${item.name}</strong>
-              <span class="equipment-select-meta">보유 ${item.owned}개 / 판매가 ${formatWholeNumber(grade.price)}</span>
-              <span class="equipment-select-effect">장착효과 : ${slotName} 판매가 ${formatWholeNumber(getEquipmentSellBonusPercentByItem(item, slotKey))}% 증가</span>
+            <div class="equipment-select-thumb">
+              <img src="${item.img}" alt="${item.name}">
+              ${getEquipmentEnhanceBadgeHTML(enhanceLevel)}
             </div>
-            <button class="equipment-equip-btn" type="button" data-equip-select-slot="${slotKey}" data-equip-select-item="${item.name}" ${isCurrent ? "disabled" : ""}>${isCurrent ? "장착중" : "장착"}</button>
+            <div class="equipment-select-info">
+              <strong style="color:${item.color};">${getEquipmentVariantDisplayName(item.name, enhanceLevel)}</strong>
+              <span class="equipment-select-meta">보유 ${item.owned}개 / 판매가 ${formatWholeNumber(grade.price)}${getEquipmentEnhanceText(slotKey, item.name, enhanceLevel)}</span>
+              <span class="equipment-select-effect">장착효과 : ${getEquipmentEnhanceEffectText(item, slotKey, enhanceLevel)}</span>
+            </div>
+            <div class="equipment-select-actions">
+              <button class="equipment-enhance-btn" type="button" data-enhance-slot="${slotKey}" data-enhance-item="${item.name}" data-enhance-level="${enhanceLevel}" ${enhanceDisabled ? "disabled" : ""}>강화</button>
+              <button class="equipment-equip-btn" type="button" data-equip-select-slot="${slotKey}" data-equip-select-item="${item.name}" data-equip-enhance-level="${enhanceLevel}" ${currentEquipAttrs} ${disableCurrentEquipButton ? "disabled" : ""}>${isCurrent ? "장착중" : "장착"}</button>
+            </div>
           </div>
         `;
       }).join("") : `<div class="equipment-empty">보유 중인 ${slotName} 장비가 없습니다.</div>`;
@@ -7258,12 +11576,15 @@
       currentEquipmentSelectSlot = null;
     }
 
-    function equipSelectedItem(slotKey, itemName) {
+    function equipSelectedItem(slotKey, itemName, enhanceLevel = 0) {
       const item = (itemPools[slotKey] || []).find(candidate => candidate.name === itemName);
-      const ownedCount = (ownedCountsByTicket[slotKey] || {})[itemName] || 0;
+      const safeLevel = Math.max(0, Number(enhanceLevel) || 0);
+      const ownedCount = getEnhancedEquipmentCount(slotKey, itemName, safeLevel);
       if (!item || ownedCount <= 0) return;
 
       equippedBestBySlot[slotKey] = item;
+      if (safeLevel > 0) equippedEnhanceLevelsBySlot[slotKey] = safeLevel;
+      else delete equippedEnhanceLevelsBySlot[slotKey];
       renderEquipment();
       renderInventoryOwnedItems();
       renderRecipes();
@@ -7275,6 +11596,7 @@
 
     function unequipSlot(slotKey) {
       equippedBestBySlot[slotKey] = null;
+      delete equippedEnhanceLevelsBySlot[slotKey];
       renderEquipment();
       renderInventoryOwnedItems();
       renderRecipes();
@@ -7359,11 +11681,23 @@
       return isEquippedItemName(itemName) ? 1 : 0;
     }
 
+    function getEquippedVariantProtectedCount(ticketKey, itemName, level = 0) {
+      return isEquippedItemVariant(ticketKey, itemName, level) ? 1 : 0;
+    }
+
     function getSellableItemCount(itemName) {
       const owned = getOwnedItemCount(itemName);
       const protectionMap = getRecipeProtectionMap();
       if (protectionMap[itemName]) return 0;
       return Math.max(0, owned - getEquippedProtectedCount(itemName));
+    }
+
+    function getSellableEquipmentVariantCount(ticketKey, itemName, level = 0) {
+      const safeLevel = Math.max(0, Number(level) || 0);
+      const protectionMap = getRecipeProtectionMap();
+      if (safeLevel <= 0 && protectionMap[itemName]) return 0;
+      const owned = getEnhancedEquipmentCount(ticketKey, itemName, safeLevel);
+      return Math.max(0, owned - getEquippedVariantProtectedCount(ticketKey, itemName, safeLevel));
     }
 
     function refreshAfterInventoryChange() {
@@ -7478,7 +11812,7 @@
     }
 
     function getArtifactSummonBonus() {
-      return equippedArtifacts.reduce((sum, artifact) => sum + (artifact.summonBonus || 0), 0) + getCodexSummonBonus() + getEquipmentSetSummonBonus();
+      return equippedArtifacts.reduce((sum, artifact) => sum + (artifact.summonBonus || 0), 0) + getCodexSummonBonus() + getEquipmentSetSummonBonus() + getEquipmentEnhanceSummonBonus();
     }
 
     function renderOwnedEffects() {
@@ -7520,6 +11854,7 @@
           effects.push(`${label} 세트 소환 확률 증가`);
         });
       getEquipmentSetRateBoostTexts().forEach(text => effects.push(text));
+      getEquipmentEnhanceRateBoostTexts().forEach(text => effects.push(text));
 
       const effectHtml = effects.length
         ? effects.map(effect => `<li>${effect}</li>`).join("")
@@ -8027,55 +12362,63 @@
 
       inventoryOwnedGrid.innerHTML = Object.entries(itemPools).map(([ticketKey, items]) => {
         const ticket = tickets[ticketKey];
-        const ownedCounts = ownedCountsByTicket[ticketKey] || {};
-        const rows = items.map(item => {
-          const owned = ownedCounts[item.name] || 0;
-          const grade = getEffectiveSellGrade(item, ticketKey);
+        const rows = [];
+
+        items.forEach(item => {
           const locked = lockedItemNames.has(item.name);
           const protectedItem = !!protectionMap[item.name];
-          const equippedItem = isEquippedItemName(item.name);
-          const sellable = getSellableItemCount(item.name);
-          const disabled = owned <= 0 || sellable <= 0 || locked;
-          const protectText = recipeMaterialProtectOn && protectedItem ? " / 보호중" : "";
-          const equippedText = equippedItem ? " / 장착중" : "";
 
-          return `
-            <div class="shop-owned-row" style="color:${item.color};">
-              <div class="shop-owned-main">
-                <span>${item.name} x ${owned}${protectText}${equippedText}</span>
-                <span class="shop-owned-meta">판매가 : ${formatWholeNumber(grade.price)}</span>
+          for (let level = 0; level <= EQUIPMENT_ENHANCE_MAX_LEVEL; level += 1) {
+            const owned = getEnhancedEquipmentCount(ticketKey, item.name, level);
+            if (owned <= 0) continue;
+            const grade = getEffectiveSellGrade({ ...item, enhanceLevel: level }, ticketKey);
+
+            const equippedItem = isEquippedItemVariant(ticketKey, item.name, level);
+            const sellable = getSellableEquipmentVariantCount(ticketKey, item.name, level);
+            const disabled = owned <= 0 || sellable <= 0 || locked;
+            const protectText = level <= 0 && recipeMaterialProtectOn && protectedItem ? " / 보호중" : "";
+            const equippedText = equippedItem ? " / 장착중" : "";
+            const displayName = getEquipmentVariantDisplayName(item.name, level);
+
+            rows.push(`
+              <div class="shop-owned-row" style="color:${item.color};">
+                <div class="shop-owned-main">
+                  <span>${displayName} x ${owned}${protectText}${equippedText}</span>
+                  <span class="shop-owned-meta">판매가 : ${formatWholeNumber(grade.price)}${getEquipmentEnhanceText(ticketKey, item.name, level)}</span>
+                </div>
+                <div class="shop-owned-actions">
+                  <button class="item-sell-btn" type="button" data-sell-ticket="${ticketKey}" data-sell-item="${item.name}" data-sell-enhance-level="${level}" ${disabled ? "disabled" : ""}>판매</button>
+                  <button class="item-lock-btn ${locked ? "locked" : ""}" type="button" data-lock-item="${item.name}">${locked ? "잠금중" : "잠금"}</button>
+                </div>
               </div>
-              <div class="shop-owned-actions">
-                <button class="item-sell-btn" type="button" data-sell-ticket="${ticketKey}" data-sell-item="${item.name}" ${disabled ? "disabled" : ""}>판매</button>
-                <button class="item-lock-btn ${locked ? "locked" : ""}" type="button" data-lock-item="${item.name}">${locked ? "잠금중" : "잠금"}</button>
-              </div>
-            </div>
-          `;
-        }).join("");
+            `);
+          }
+        });
 
         return `
           <div class="shop-owned-group">
             <strong>${ticket ? ticket.name : ticketKey}</strong>
-            ${rows}
+            ${rows.join("") || `<div class="shop-owned-row"><div class="shop-owned-main"><span>보유 장비 없음</span></div></div>`}
           </div>
         `;
       }).join("");
     }
 
-    function sellOneItem(ticketKey, itemName) {
+    function sellOneItem(ticketKey, itemName, enhanceLevel = 0) {
       const item = (itemPools[ticketKey] || []).find(candidate => candidate.name === itemName);
       if (!item) return;
 
+      const safeLevel = Math.max(0, Number(enhanceLevel) || 0);
       if (lockedItemNames.has(itemName)) {
         alert("잠금된 아이템입니다. 판매하려면 먼저 잠금을 해제해주세요.");
         return;
       }
 
-      const sellable = getSellableItemCount(itemName);
+      const sellable = getSellableEquipmentVariantCount(ticketKey, itemName, safeLevel);
       if (sellable <= 0) {
-        if (recipeMaterialProtectOn && getRecipeProtectionMap()[itemName]) {
+        if (safeLevel <= 0 && recipeMaterialProtectOn && getRecipeProtectionMap()[itemName]) {
           alert("레시피 재료 보호 중인 아이템은 판매할 수 없습니다.");
-        } else if (isEquippedItemName(itemName)) {
+        } else if (isEquippedItemVariant(ticketKey, itemName, safeLevel)) {
           alert("장착중인 장비 1개는 판매할 수 없습니다.");
         } else {
           alert("판매할 수량이 없습니다.");
@@ -8083,8 +12426,8 @@
         return;
       }
 
-      const price = getEffectiveSellPrice(item, ticketKey);
-      ownedCountsByTicket[ticketKey][itemName] = Math.max(0, (ownedCountsByTicket[ticketKey][itemName] || 0) - 1);
+      const price = getEffectiveSellPrice(item, ticketKey, safeLevel);
+      changeEnhancedEquipmentCount(ticketKey, itemName, safeLevel, -1);
       blackDia += price;
       refreshAfterInventoryChange();
     }
@@ -8131,14 +12474,22 @@
 
     function renderOwned() {
       const items = getCurrentItems();
-      const ownedCounts = ownedCountsByTicket[currentTicketKey] || {};
+      const rows = [];
 
-      ownedList.innerHTML = items.map(item => `
-        <li style="color:${item.color};">
-          <span>${item.name}</span>
-          <span class="owned-count">x ${ownedCounts[item.name] || 0}</span>
-        </li>
-      `).join("");
+      items.forEach(item => {
+        for (let level = 0; level <= EQUIPMENT_ENHANCE_MAX_LEVEL; level += 1) {
+          const owned = getEnhancedEquipmentCount(currentTicketKey, item.name, level);
+          if (owned <= 0) continue;
+          rows.push(`
+            <li style="color:${item.color};">
+              <span>${getEquipmentVariantDisplayName(item.name, level)}</span>
+              <span class="owned-count">x ${owned}</span>
+            </li>
+          `);
+        }
+      });
+
+      ownedList.innerHTML = rows.join("") || `<li><span>보유 장비 없음</span><span class="owned-count">x 0</span></li>`;
     }
 
     function renderList() {
@@ -8271,6 +12622,16 @@
     if (updateNoticeModal) updateNoticeModal.addEventListener("click", event => {
       if (event.target === updateNoticeModal) {
         closeUpdateNoticeModal();
+      }
+    });
+
+    if (inquiryBtn) inquiryBtn.addEventListener("click", openInquiryModal);
+    if (inquiryCloseBtn) inquiryCloseBtn.addEventListener("click", closeInquiryModal);
+    if (inquirySubmitBtn) inquirySubmitBtn.addEventListener("click", submitInquiry);
+    if (inquiryRefreshBtn) inquiryRefreshBtn.addEventListener("click", loadAdminInquiries);
+    if (inquiryModal) inquiryModal.addEventListener("click", event => {
+      if (event.target === inquiryModal) {
+        closeInquiryModal();
       }
     });
 
@@ -8581,6 +12942,158 @@
       });
     }
 
+    if (adminBlackDiaBtn) {
+      adminBlackDiaBtn.addEventListener("click", () => {
+        if (!currentUserIsAdmin) {
+          alert("관리자 계정만 사용할 수 있습니다.");
+          return;
+        }
+
+        const amount = Math.max(1, Math.min(999999999, Math.floor(Number(adminBlackDiaAmountInput && adminBlackDiaAmountInput.value) || 1)));
+        blackDia += amount;
+        renderBlackDia();
+        saveGame();
+        alert(`블랙다이아 ${formatWholeNumber(amount)}개가 지급되었습니다.`);
+      });
+    }
+
+
+    if (marketplaceBtn) {
+      marketplaceBtn.addEventListener("click", () => {
+        const wasTutorialMarketplaceStep = Boolean(
+          tutorialActive &&
+          tutorialSteps[tutorialStepIndex] &&
+          tutorialSteps[tutorialStepIndex].target === "#marketplaceBtn"
+        );
+        openMarketplace();
+        if (wasTutorialMarketplaceStep) {
+          setTimeout(forceMarketplaceTutorialGuide, 900);
+          setTimeout(forceMarketplaceTutorialGuide, 1800);
+        }
+      });
+    }
+
+    if (mailboxBtn) {
+      mailboxBtn.addEventListener("click", () => {
+        openMailbox();
+      });
+    }
+
+    if (marketplaceCloseBtn) {
+      marketplaceCloseBtn.addEventListener("click", closeMarketplace);
+    }
+
+    if (marketplaceCloseBigBtn) {
+      marketplaceCloseBigBtn.addEventListener("click", closeMarketplace);
+    }
+
+    if (marketplaceRefreshBtn) {
+      marketplaceRefreshBtn.addEventListener("click", () => {
+        refreshMarketplaceWithCloudSaveReload();
+      });
+    }
+
+    [marketTabBuyBtn, marketTabSellBtn, marketTabHistoryBtn].forEach(btn => {
+      if (!btn) return;
+      btn.addEventListener("click", () => setMarketplaceTab(btn.dataset.marketTab || "buy"));
+    });
+
+    if (marketplaceSearchBtn) {
+      marketplaceSearchBtn.addEventListener("click", openMarketFilter);
+    }
+
+    if (marketFilterCloseBtn) {
+      marketFilterCloseBtn.addEventListener("click", closeMarketFilter);
+    }
+
+    if (marketFilterResetBtn) {
+      marketFilterResetBtn.addEventListener("click", () => {
+        resetMarketFilterInputs();
+        applyMarketFilterInputs();
+      });
+    }
+
+    if (marketFilterApplyBtn) {
+      marketFilterApplyBtn.addEventListener("click", () => {
+        applyMarketFilterInputs();
+        closeMarketFilter();
+      });
+    }
+
+    if (marketFilterModal) {
+      marketFilterModal.addEventListener("click", event => {
+        if (event.target === marketFilterModal) closeMarketFilter();
+      });
+      marketFilterModal.addEventListener("change", event => {
+        const slotAll = event.target.closest('[data-market-filter-slot="all"]');
+        const tierAll = event.target.closest('[data-market-filter-tier="all"]');
+        if (slotAll && slotAll.checked) document.querySelectorAll('[data-market-filter-slot]:not([data-market-filter-slot="all"])').forEach(input => input.checked = false);
+        if (tierAll && tierAll.checked) document.querySelectorAll('[data-market-filter-tier]:not([data-market-filter-tier="all"])').forEach(input => input.checked = false);
+        const slotSpecific = event.target.closest('[data-market-filter-slot]:not([data-market-filter-slot="all"])');
+        const tierSpecific = event.target.closest('[data-market-filter-tier]:not([data-market-filter-tier="all"])');
+        if (slotSpecific && slotSpecific.checked) {
+          const all = document.querySelector('[data-market-filter-slot="all"]');
+          if (all) all.checked = false;
+        }
+        if (tierSpecific && tierSpecific.checked) {
+          const all = document.querySelector('[data-market-filter-tier="all"]');
+          if (all) all.checked = false;
+        }
+      });
+    }
+
+    if (mailboxCloseBtn) {
+      mailboxCloseBtn.addEventListener("click", closeMailbox);
+    }
+
+    if (mailboxRefreshBtn) {
+      mailboxRefreshBtn.addEventListener("click", () => {
+        refreshMailbox();
+      });
+    }
+
+    if (mailboxClaimAllBtn) {
+      mailboxClaimAllBtn.addEventListener("click", () => {
+        claimMailboxAll();
+      });
+    }
+
+    if (mailboxModal) {
+      mailboxModal.addEventListener("click", event => {
+        if (event.target === mailboxModal) {
+          closeMailbox();
+        }
+      });
+    }
+
+    if (marketplaceModal) {
+      marketplaceModal.addEventListener("click", event => {
+        if (event.target === marketplaceModal) {
+          closeMarketplace();
+          return;
+        }
+        const registerBtn = event.target.closest("[data-market-register]");
+        if (registerBtn) {
+          registerMarketplaceItem(registerBtn);
+          return;
+        }
+        const cancelBtn = event.target.closest("[data-market-cancel]");
+        if (cancelBtn) {
+          cancelMarketplaceItem(cancelBtn);
+          return;
+        }
+        const buyBtn = event.target.closest("[data-market-buy]");
+        if (buyBtn) {
+          buyMarketplaceItem(buyBtn);
+          return;
+        }
+        const infoTarget = event.target.closest("[data-market-info]");
+        if (infoTarget) {
+          showMarketplaceItemInfo(infoTarget);
+        }
+      });
+    }
+
     if (summonCountMinusBtn) {
       summonCountMinusBtn.addEventListener("click", () => {
         setSelectedSummonCount(selectedSummonCount - 1);
@@ -8641,9 +13154,15 @@
     });
 
     equipmentSelectList.addEventListener("click", event => {
+      const enhanceButton = event.target.closest("[data-enhance-item]");
+      if (enhanceButton && !enhanceButton.disabled) {
+        enhanceEquipmentItem(enhanceButton.dataset.enhanceSlot, enhanceButton.dataset.enhanceItem, enhanceButton.dataset.enhanceLevel);
+        return;
+      }
+
       const equipButton = event.target.closest("[data-equip-select-item]");
       if (equipButton && !equipButton.disabled) {
-        equipSelectedItem(equipButton.dataset.equipSelectSlot, equipButton.dataset.equipSelectItem);
+        equipSelectedItem(equipButton.dataset.equipSelectSlot, equipButton.dataset.equipSelectItem, equipButton.dataset.equipEnhanceLevel);
         return;
       }
 
@@ -8695,7 +13214,7 @@
 
       const sellButton = event.target.closest("[data-sell-item]");
       if (sellButton && !sellButton.disabled) {
-        sellOneItem(sellButton.dataset.sellTicket, sellButton.dataset.sellItem);
+        sellOneItem(sellButton.dataset.sellTicket, sellButton.dataset.sellItem, sellButton.dataset.sellEnhanceLevel);
       }
     });
 
