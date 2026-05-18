@@ -9036,7 +9036,7 @@ body.tutorial-locked {
 
     const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzi1GiIGnnOHJTOawClfAp_aldAFaL6WXvQ5WtLp6Zo4mY1gs8fOsG1NkHGQSjmdSHA/exec";
     const CLOUD_TOKEN_PREFIX = "summon-simulator-cloud-token-v1::";
-    const CLOUD_SAVE_DEBOUNCE_MS = 350;
+    const CLOUD_SAVE_DEBOUNCE_MS = 1000;
 
     let currentUserNickname = "";
     let currentUserIsAdmin = false;
@@ -9082,6 +9082,7 @@ body.tutorial-locked {
 
       const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
         method: "POST",
+        cache: "no-store",
         headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify({ action, ...payload })
       });
@@ -9098,6 +9099,25 @@ body.tutorial-locked {
         throw new Error((data && data.message) || "구글시트 요청에 실패했습니다.");
       }
       return data;
+    }
+
+    async function cloudRequestWithRetry(action, payload = {}, { retries = 1, retryDelay = 700 } = {}) {
+      let lastError = null;
+      for (let attempt = 0; attempt <= retries; attempt += 1) {
+        try {
+          return await cloudRequest(action, {
+            ...payload,
+            requestAt: Date.now(),
+            requestNonce: `${Date.now()}-${Math.random().toString(36).slice(2)}`
+          });
+        } catch (error) {
+          lastError = error;
+          if (attempt < retries) {
+            await new Promise(resolve => setTimeout(resolve, retryDelay));
+          }
+        }
+      }
+      throw lastError || new Error("구글시트 요청에 실패했습니다.");
     }
 
     function saveCloudToken(nickname, token) {
@@ -10578,16 +10598,29 @@ body.tutorial-locked {
       }
 
       try {
-        await forceCloudSaveNow();
-        const result = await cloudRequest("rankings", {
+        // 랭킹 조회는 저장 요청 때문에 막히지 않게 먼저 서버에서 바로 가져옵니다.
+        // 대신 요청마다 nonce를 붙이고 1회 재시도하여 모바일/카카오 브라우저 캐시·일시 실패를 줄입니다.
+        const result = await cloudRequestWithRetry("rankings", {
           nickname: currentUserNickname,
           token: currentCloudToken
-        });
+        }, { retries: 1, retryDelay: 800 });
         cachedRankingRows = filterNonAdminRankingRows(Array.isArray(result.rankings) ? result.rankings : []);
+
+        // 현재 계정의 최신 기록은 목록 렌더링 후 별도로 저장 예약합니다.
+        // 서버 랭킹 조회와 저장 요청이 서로 막히지 않게 하기 위한 처리입니다.
+        setTimeout(() => saveGame(), 0);
       } catch (error) {
         console.warn("[RANKING] 랭킹 불러오기 실패", error);
-        cachedRankingRows = currentUserIsAdmin ? [] : [buildRankingSummaryFromSaveData(buildLocalSaveData(), currentUserNickname)];
-        rankingList.innerHTML = `<p class="ranking-empty">랭킹을 불러오지 못했습니다.${currentUserIsAdmin ? "" : " 현재 내 기록만 표시합니다."}</p>`;
+        if (!Array.isArray(cachedRankingRows)) cachedRankingRows = [];
+        if (!currentUserIsAdmin && currentUserNickname) {
+          const current = buildRankingSummaryFromSaveData(buildLocalSaveData(), currentUserNickname);
+          const index = cachedRankingRows.findIndex(row => normalizeNickname(row.nickname) === currentUserNickname);
+          if (index >= 0) cachedRankingRows[index] = { ...cachedRankingRows[index], ...current };
+          else cachedRankingRows.push(current);
+        }
+        if (rankingList && cachedRankingRows.length === 0) {
+          rankingList.innerHTML = `<p class="ranking-empty">랭킹을 불러오지 못했습니다. 잠시 후 다시 시도해주세요.</p>`;
+        }
       }
 
       renderRankingList(cachedRankingRows);
@@ -10834,7 +10867,7 @@ body.tutorial-locked {
     }
 
     function startLocalAutoSave() {
-      setInterval(saveGame, 3000);
+      setInterval(saveGame, 15000);
       window.addEventListener("beforeunload", () => { saveGame(); flushCloudSaveNow(); notifyOffline(); });
       document.addEventListener("visibilitychange", () => {
         if (document.visibilityState === "hidden") {
@@ -11088,7 +11121,7 @@ body.tutorial-locked {
     async function refreshMarketplace({ showLoading = true } = {}) {
       if (!marketplaceListingList) return;
       syncMarketplaceDiaDisplay();
-      if (!isCloudEnabled() || !currentCloudToken) {
+      if (!isCloudEnabled() || !currentUserNickname || !currentCloudToken) {
         setMarketplaceStatus("거래소는 구글시트 연동 로그인 상태에서 사용할 수 있습니다.", true);
         renderMarketplaceListings([]);
         renderMarketplaceMyItems();
@@ -11098,19 +11131,17 @@ body.tutorial-locked {
       try {
         if (showLoading) showMarketLoading("거래소를 불러오는 중입니다...");
         setMarketplaceStatus("거래소를 불러오는 중입니다...");
-        const result = await cloudRequest("marketplaceList", {
+        const result = await cloudRequestWithRetry("marketplaceList", {
           nickname: currentUserNickname,
-          token: currentCloudToken,
-          requestAt: Date.now()
-        });
-        marketplaceCachedListings = result.listings || [];
+          token: currentCloudToken
+        }, { retries: 1, retryDelay: 900 });
+        marketplaceCachedListings = Array.isArray(result.listings) ? result.listings : [];
         try {
-          const historyResult = await cloudRequest("marketplaceHistory", {
+          const historyResult = await cloudRequestWithRetry("marketplaceHistory", {
             nickname: currentUserNickname,
-            token: currentCloudToken,
-            requestAt: Date.now()
-          });
-          marketplaceCachedHistory = historyResult.history || [];
+            token: currentCloudToken
+          }, { retries: 1, retryDelay: 700 });
+          marketplaceCachedHistory = Array.isArray(historyResult.history) ? historyResult.history : [];
         } catch (historyError) {
           console.warn("[MARKET] 거래내역 불러오기 실패", historyError);
           marketplaceCachedHistory = [];
@@ -11118,7 +11149,7 @@ body.tutorial-locked {
         renderMarketplaceListings(marketplaceCachedListings);
         renderMarketplaceMyItems();
         renderMarketplaceHistory(marketplaceCachedHistory);
-        setMarketplaceStatus("거래소가 갱신되었습니다.");
+        setMarketplaceStatus(`거래소가 갱신되었습니다. 등록 물품 ${formatWholeNumber(marketplaceCachedListings.length)}건`);
       } catch (error) {
         console.warn("[MARKET] 목록 불러오기 실패", error);
         setMarketplaceStatus(error.message || "거래소를 불러오지 못했습니다.", true);
